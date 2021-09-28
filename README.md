@@ -1,2 +1,2 @@
 # BearSleuth
-Web Application for Software Engineering Workshop
+Career Search Web Application for Software Engineering Workshop
