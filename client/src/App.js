@@ -1,20 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  function login(event){
+    event.preventDefault();
+    let username=document.getElementById("username").value;
+    let password=document.getElementById("password").value;
+    console.log(username);
+    console.log(password);
+    const data={user: username, pass: password}
+    fetch('http://localhost:5000/login', {
+      method: "POST",
+      body:JSON.stringify(data),
+      headers: {"Content-Type": "application/json"}
+  }).then(res => res.json())
+  .then(response => console.log('Success:', JSON.stringify(response)))
+  .catch(error => console.error('Error:',error))
+  }
+  function newAccount(event){
+    event.preventDefault();
+  }
   return (
     <div className="App">
       <h1 id="title">
         Bear Sleuth
       </h1>
       <form id="login">
-        <input type="text"></input>
-        <input type="password"></input>
-        <input id="loginBut" type="submit" value="Login"></input>
+        <input id="username" type="text"></input>
+        <input id="password" type="password"></input>
+        <input id="loginBut" type="submit" value="Login" onClick={login} ></input>
       </form>
       <form id="Register">
         <p>Don't have an account? Click here</p>
-        <input type="submit" value="Register Here"></input>
+        <input type="submit" onClick={newAccount} value="Register Here"></input>
       </form>
     </div>
   );
