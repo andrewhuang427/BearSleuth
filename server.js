@@ -8,9 +8,9 @@ const app = express();
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
 
 app.use(cors());
-app.options("*", cors());
-app.use(express.json());
-app.use(express.urlencoded());
+// app.options("*", cors());
+// app.use(express.json());
+// app.use(express.urlencoded());
 
 const PORT = 5000;
 
