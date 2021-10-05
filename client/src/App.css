@@ -8,12 +8,16 @@
 }
 #loginBut{
   background-color: #137658;
-  border-radius: 25%;
+  border-radius: 40%;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+span {
+  margin: 0  5px
 }
 
 @media (prefers-reduced-motion: no-preference) {
