@@ -1,5 +1,7 @@
 import "./App.css";
+import Navbar from "./components/Navbar"
 import LoginForm from "./components/LoginForm";
+import Logo from "./BearSleuth(site).png"
 function App() {
   function login(event) {
     event.preventDefault();
@@ -21,7 +23,10 @@ function App() {
     event.preventDefault();
   }
   return (
-    <LoginForm />
+    <>
+    <Navbar />
+      <LoginForm />
+    </>
     // <div className="App">
     //   <h1 id="title">
     //     Bear Sleuth
