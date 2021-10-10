@@ -8,9 +8,9 @@ const app = express();
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
 
 app.use(cors());
-// app.options("*", cors());
-// app.use(express.json());
-// app.use(express.urlencoded());
+ app.options("*", cors());
+ app.use(express.json());
+ app.use(express.urlencoded());
 
 const PORT = 5000;
 
@@ -40,8 +40,12 @@ app.listen(PORT, () => {
 
 app.post("/login", (req, res) => {
   let data = req.body;
-  let username = data.user;
-  let password = data.pass;
-  console.log(username);
-  console.log(password);
+  console.log(data);
+  
+});
+
+app.post("/Register", (req, res) => {
+  let data = req.body;
+  console.log(data);
+  
 });

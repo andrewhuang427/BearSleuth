@@ -5,12 +5,20 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 
-function LoginForm() {
-  const [username, setEmail] = useState("");
+function Register() {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [major, setMajor] = useState("");
 
   const handleUserNameChange = (event) => {
+    setUsername(event.target.value);
+  };
+  const handleEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+  const handleMajorChange = (event) => {
+    setMajor(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -19,7 +27,7 @@ function LoginForm() {
 
   const handleSubmit = () => {
     const data = { user: username, pass: password };
-    fetch("http://localhost:5000/login", {
+    fetch("http://localhost:5000/Register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
@@ -31,11 +39,11 @@ function LoginForm() {
 
   return (
 
-    <Box  id="loginForm"display="none" marginTop={3} marginLeft="auto" marginRight="auto" maxWidth={400}>
+    <Box id="registerForm" display="none" marginTop={3} marginLeft="auto" marginRight="auto" maxWidth={400}>
       <Paper elevation={3}>
         <Box padding={3}>
           <Box marginBottom={2}>
-            <Typography variant="h5">Login</Typography>
+            <Typography variant="h5">Create New Account</Typography>
           </Box>
           <Box marginBottom={2}>
             <TextField
@@ -55,9 +63,27 @@ function LoginForm() {
               onChange={handlePasswordChange}
             />
           </Box>
+          <Box marginBottom={2}>
+            <TextField
+              label="Email Address"
+              type="text"
+              fullWidth
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </Box>
+          <Box marginBottom={2}>
+            <TextField
+              label="Major"
+              type="text"
+              fullWidth
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </Box>
           <Box>
             <Button variant="contained" onClick={handleSubmit}>
-              Login
+              Register
             </Button>
           </Box>
         </Box>
@@ -66,4 +92,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default Register;

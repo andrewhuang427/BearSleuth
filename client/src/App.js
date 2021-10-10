@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar"
 import LoginForm from "./components/LoginForm";
 import Logo from "./BearSleuth(site).png"
+import Register from "./components/Register";
 function App() {
   function login(event) {
     event.preventDefault();
@@ -23,9 +24,11 @@ function App() {
     event.preventDefault();
   }
   return (
+    
     <>
-    <Navbar />
-      <LoginForm />
+      <Navbar/>
+      <LoginForm id="loginForm"/>
+      <Register/>
     </>
     // <div className="App">
     //   <h1 id="title">
