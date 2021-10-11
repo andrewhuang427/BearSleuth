@@ -4,25 +4,6 @@ import LoginForm from "./components/LoginForm";
 import Logo from "./BearSleuth(site).png"
 import Register from "./components/Register";
 function App() {
-  function login(event) {
-    event.preventDefault();
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    console.log(username);
-    console.log(password);
-    const data = { user: username, pass: password };
-    fetch("http://localhost:5000/login", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((response) => console.log("Success:", JSON.stringify(response)))
-      .catch((error) => console.error("Error:", error));
-  }
-  function newAccount(event) {
-    event.preventDefault();
-  }
   return (
     
     <>
