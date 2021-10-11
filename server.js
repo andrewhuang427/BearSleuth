@@ -1,6 +1,8 @@
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
+const AuthRoutes = require("./routes/AuthRoutes.js")
+
 
 const app = express();
 
@@ -17,8 +19,8 @@ const PORT = 5000;
 // ----- Database Connection -----
 mongoose
   .connect(
-    "mongodb+srv://Ben:Password123@bearsleuth.tjsia.mongodb.net/sample_airbnb?retryWrites=true&w=majority"
-  )
+    "mongodb+srv://Ben:Password123@bearsleuth.tjsia.mongodb.net/BearSleuth?retryWrites=true&w=majority"
+    )
   .then((result) => {
     console.log("connection successful");
   })
@@ -30,7 +32,7 @@ mongoose
 // ----- API Routes ----
 app.use("/api/auth", AuthenticationRoutes);
 
-app.get("/*", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello Word!");
 });
 
@@ -38,14 +40,15 @@ app.listen(PORT, () => {
   console.log(`Server running on https://localhost:${PORT}`);
 });
 
-app.post("/login", (req, res) => {
-  let data = req.body;
-  console.log(data);
-  
-});
 
-app.post("/Register", (req, res) => {
-  let data = req.body;
-  console.log(data);
-  
+app.use(AuthRoutes)
+
+
+app.get("/users", async (req, res) => {
+  var query = usermodel.find();
+  query.select('-_id');
+  query.exec(function (err, users) {
+      if (err) return (err);
+      res.send(users);
+  })
 });

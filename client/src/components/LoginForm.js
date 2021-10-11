@@ -18,7 +18,7 @@ function LoginForm() {
   };
 
   const handleSubmit = () => {
-    const data = { user: username, pass: password };
+    const data = { username: username, password: password };
     fetch("http://localhost:5000/login", {
       method: "POST",
       body: JSON.stringify(data),

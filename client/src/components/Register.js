@@ -26,7 +26,8 @@ function Register() {
   };
 
   const handleSubmit = () => {
-    const data = { user: username, pass: password };
+    const data = { username: username, password: password, email: email };
+    alert(data.username)
     fetch("http://localhost:5000/Register", {
       method: "POST",
       body: JSON.stringify(data),
