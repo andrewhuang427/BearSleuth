@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,6 +8,8 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Logo from "../BearSleuth(site).png"
 import { deepOrange } from '@mui/material/colors';
 import "./test.css";
@@ -25,9 +28,61 @@ function loggedin(){
   document.getElementById("loginForm").style.display="none"
   document.getElementById("registerForm").style.display="none"
   document.getElementById("Homepage").style.display="block";
-  document.getElementById("loginGroup").style.display="block";
-  
+  document.getElementById("loginGroup").style.display="block";  
 }
+
+function loggedOut(){
+  document.getElementById("loginButton").style.display="block";
+  document.getElementById("RegistrationButton").style.display="block";
+  document.getElementById("loginForm").style.display="none"
+  document.getElementById("registerForm").style.display="none"
+  document.getElementById("Homepage").style.display="none";
+  document.getElementById("loginGroup").style.display="none";  
+  localStorage.removeItem("username")
+  localStorage.removeItem("token")
+}
+
+
+function DropDownMenu() {
+  const [opened, setOpened] = useState(null)
+  const open = Boolean(opened);
+  function handleClick(){
+    setOpened(!opened)
+  }
+  function handleClose(){
+    setOpened(null)
+  };
+  return (
+    
+    <div>
+      <Button
+        id="basic-button"
+        aria-controls="basic-menu"
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+      >
+        <Avatar id="profileAvatar" display="none" {...stringAvatar('Eiw')}/>
+      </Button>
+      <Menu
+        id="basic-menu"
+        opened={opened}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={loggedOut}>Logout</MenuItem>
+      </Menu>
+    </div>
+
+  )
+
+
+
+}
+
 
 
 function stringAvatar(name) {
@@ -69,7 +124,7 @@ export default function Navbar() {
           <Button id="RegistrationButton" display="block" color="inherit" onClick={registerOn}>New Account</Button>
           </div>
           <Box id="loginGroup" display="none">
-          <Avatar id="profileAvatar" display="none" {...stringAvatar('Eiw')}/>
+            <DropDownMenu/>
           </Box>
           
 
