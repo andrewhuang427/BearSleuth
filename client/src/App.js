@@ -3,13 +3,18 @@ import Navbar from "./components/Navbar"
 import LoginForm from "./components/LoginForm";
 import Logo from "./BearSleuth(site).png"
 import Register from "./components/Register";
+import Button from "@mui/material/Button";
+import Homepage from "./components/Homepage"
+
+
 function App() {
   return (
-    
+
     <>
-      <Navbar/>
-      <LoginForm id="loginForm"/>
-      <Register/>
+        <Navbar />
+        <LoginForm id="loginForm" />
+        <Register />
+        <Homepage />
     </>
     // <div className="App">
     //   <h1 id="title">

@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
+import LoginOn from "./Navbar"
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -26,17 +27,21 @@ function Register() {
   };
 
   const handleSubmit = () => {
-    const data = { username: username, password: password, email: email };
-    alert(data.username)
+    const data = { username: username, password: password, email: email, major: major };
     fetch("http://localhost:5000/Register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
-      .then((response) => console.log("Success:", JSON.stringify(response)))
+      .then((response) => {
+        alert((response.message))
+        if (response.success) {
+          LoginOn()
+        }
+      })
       .catch((error) => console.error("Error:", error));
-  };
+        };
 
   return (
 
@@ -78,8 +83,8 @@ function Register() {
               label="Major"
               type="text"
               fullWidth
-              value={email}
-              onChange={handleEmailChange}
+              value={major}
+              onChange={handleMajorChange}
             />
           </Box>
           <Box>

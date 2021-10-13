@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+
+
+const theme= createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#2da866',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+  },
+});
+
 
 ReactDOM.render(
+  <ThemeProvider theme={theme}>
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 

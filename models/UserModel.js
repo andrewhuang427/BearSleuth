@@ -22,6 +22,10 @@ const UserSchema = new Schema(
       type: Date,
       default: Date.now,
     },
+    major: {
+      type: String,
+      required: false,
+    }
   },
   { _id: true }
 );
@@ -29,3 +33,4 @@ const UserSchema = new Schema(
 const UserModel = mongoose.model("User", UserSchema);
 
 module.exports = UserModel;
+

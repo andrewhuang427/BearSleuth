@@ -1,7 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
-const AuthRoutes = require("./routes/AuthRoutes.js")
+const LoginReg = require("./routes/login-register.js")
 
 
 const app = express();
@@ -41,7 +41,7 @@ app.listen(PORT, () => {
 });
 
 
-app.use(AuthRoutes)
+app.use(LoginReg)
 
 
 app.get("/users", async (req, res) => {

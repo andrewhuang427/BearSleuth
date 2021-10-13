@@ -34,7 +34,7 @@ app.post("/login", async (request, response) => {
                     const user = { name : username}
                     console.log(user.name)
                     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-                    response.json({accessToken : accessToken, "success": true})
+                    response.json({"message" : "Logged in Successfully" ,accessToken : accessToken, "success": true})
                 }
                 else {
                     ret = { "message": "Incorrect Password", "success": false }
@@ -74,7 +74,7 @@ app.post("/register", async (request, response) => {
         if (user == null) {
             salt = bcrypt.genSaltSync(10)
             bcrypt.hash(data.password, salt).then((result) => {
-                query = usermodel.create({ username: data.username, email: data.email, hash: result}, function (err) {
+                query = usermodel.create({ username: data.username, email: data.email, hash: result, major : data.major}, function (err) {
                     if (err) return (err)
                     ret = { "message": "Registration Successful", "success": true }
                     response.json(ret)
