@@ -34,29 +34,7 @@ function Homepage() {
     <Box id="Personal Info"  marginTop={3} marginLeft={4} maxWidth={400}>
       <Paper elevation={5}>
         <Box padding={2}>
-          <Box marginBottom={2}>
-            <Typography variant="h5">Login</Typography>
-          </Box>
-          <Box marginBottom={2}>
-            <TextField
-              label="username"
-              type="text"
-              fullWidth
-            
-            />
-          </Box>
-          <Box marginBottom={2}>
-            <TextField
-              label="Password"
-              type="password"
-              fullWidth
-                        />
-          </Box>
-          <Box>
-            <Button variant="contained">
-              Login
-            </Button>
-          </Box>
+          Stuff
         </Box>
       </Paper>
     </Box>
