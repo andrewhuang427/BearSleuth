@@ -9,12 +9,20 @@ import Homepage from "./components/Homepage"
 
 function App() {
   return (
+   
 
     <>
         <Navbar />
         <LoginForm id="loginForm" />
         <Register />
         <Homepage />
+        <div id="default">
+          <img id="img1" src={Logo}/>
+          <h2>Our Mission</h2>
+          <p>Bear Sleuth is an independently developed site that seeks to provide WashU students with a hub for job search</p>
+          <h2>Who are we?</h2>
+          <p>We are a group of WashU students developing the app to suit WashU students' needs</p>
+        </div>
     </>
     // <div className="App">
     //   <h1 id="title">

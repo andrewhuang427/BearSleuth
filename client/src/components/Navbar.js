@@ -16,14 +16,18 @@ import "./test.css";
 
 function loginOn(){
   document.getElementById("loginForm").style.display="block";
+  document.getElementById("default").style.display="none";
+
   document.getElementById("registerForm").style.display="none";
 }
 function registerOn(){
   document.getElementById("registerForm").style.display="block";
   document.getElementById("loginForm").style.display="none";
+  document.getElementById("default").style.display="none";
 }
 function loggedin(){
   document.getElementById("loginButton").style.display="none";
+  document.getElementById("default").style.display="none";
   document.getElementById("RegistrationButton").style.display="none";
   document.getElementById("loginForm").style.display="none"
   document.getElementById("registerForm").style.display="none"
@@ -32,6 +36,7 @@ function loggedin(){
 }
 
 function loggedOut(){
+  document.getElementById("default").style.display="block";
   document.getElementById("loginButton").style.display="block";
   document.getElementById("RegistrationButton").style.display="block";
   document.getElementById("loginForm").style.display="none"

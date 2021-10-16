@@ -2,6 +2,12 @@
   text-align: center;
   background-color: #F68F8F;
 }
+#default{
+  text-align: center;
+}
+#img1{
+  width:40%;
+}
 #title{
   font-style: normal;
   color:#137658
