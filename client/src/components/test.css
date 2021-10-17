@@ -1,12 +1,30 @@
 #logo{
-    width:10%;
-    float: left;
-
+    max-width:30%;
+    margin-top: 0;
+    top: 50%;
 }
 #rightTool{
     float:right;
+    width:33%;
 }
-#leftTool{
-    float:left;
+#rightItems{
+    float:right;
 }
 
+#leftTool{
+    float:left;
+    width:33%;
+}
+#midTool{
+    float:left;
+    width:33%;
+}
+
+#MenuLogo{
+    display: flex;
+    align-items: space-between;
+}
+#toolbar{
+    max-height:10%;
+    justify-content: center;
+}

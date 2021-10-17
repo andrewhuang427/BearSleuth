@@ -108,25 +108,28 @@ export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar >
           
           <div id="leftTool">
-          <img  id="logo" src={Logo} />
+            <div id="MenuLogo">
+              <IconButton onClick={loggedin}>
+                <MenuIcon fontSize="large">
 
-          <IconButton onClick={loggedin}>
-            <MenuIcon>
-
-            </MenuIcon>
-          </IconButton>
-          <Box align="center">
-            <Typography align="center" id="name" variant="h6" component="div" sx={{ flexGrow: 1 }} position="static">
-              Bear Sleuth
+                </MenuIcon>
+              </IconButton>
+              <img  id="logo" src={Logo} />
+            </div>
+          </div>
+          <div id = "midTool">
+          <Typography align="center" id="name" variant="h6" component="div" sx={{ flexGrow: 1 }} position="static">
+                Welcome to Bear Sleuth!
             </Typography> 
-          </Box>
           </div>
           <div id="rightTool" marginRight={1}>
-          <Button id="loginButton"  display="block" color="inherit" onClick={loginOn}>Login</Button>
-          <Button id="RegistrationButton" display="block" color="inherit" onClick={registerOn}>New Account</Button>
+            <div id="rightItems">
+              <Button id="loginButton"  display="block" color="inherit" onClick={loginOn}>Login</Button>
+              <Button id="RegistrationButton" display="block" color="inherit" onClick={registerOn}>New Account</Button>
+            </div>
           </div>
           <Box id="loginGroup" display="none">
             <DropDownMenu/>

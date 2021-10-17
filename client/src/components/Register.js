@@ -53,7 +53,7 @@ function Register() {
           </Box>
           <Box marginBottom={2}>
             <TextField
-              label="username"
+              label="Username"
               type="text"
               fullWidth
               value={username}
