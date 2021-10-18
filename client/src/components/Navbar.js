@@ -27,6 +27,7 @@ function registerOn(){
 }
 function loggedin(){
   document.getElementById("loginButton").style.display="none";
+  document.getElementById("logoutBut").style.display="block";
   document.getElementById("default").style.display="none";
   document.getElementById("RegistrationButton").style.display="none";
   document.getElementById("loginForm").style.display="none"
@@ -37,6 +38,7 @@ function loggedin(){
 
 function loggedOut(){
   document.getElementById("default").style.display="block";
+  document.getElementById("logoutBut").style.display="none";
   document.getElementById("loginButton").style.display="block";
   document.getElementById("RegistrationButton").style.display="block";
   document.getElementById("loginForm").style.display="none"
@@ -78,7 +80,6 @@ function DropDownMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={loggedOut}>Logout</MenuItem>
       </Menu>
     </div>
 
@@ -129,6 +130,7 @@ export default function Navbar() {
             <div id="rightItems">
               <Button id="loginButton"  display="block" color="inherit" onClick={loginOn}>Login</Button>
               <Button id="RegistrationButton" display="block" color="inherit" onClick={registerOn}>New Account</Button>
+              <Button id="logoutBut" display="none" onClick={loggedOut}>Logout</Button>
             </div>
           </div>
           <Box id="loginGroup" display="none">
