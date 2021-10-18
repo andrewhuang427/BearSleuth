@@ -27,6 +27,7 @@ function registerOn(){
 }
 function loggedin(){
   document.getElementById("loginButton").style.display="none";
+  document.getElementById("search").style.display="block";
   document.getElementById("logoutBut").style.display="block";
   document.getElementById("default").style.display="none";
   document.getElementById("RegistrationButton").style.display="none";
@@ -38,6 +39,7 @@ function loggedin(){
 
 function loggedOut(){
   document.getElementById("default").style.display="block";
+  document.getElementById("search").style.display="none";
   document.getElementById("logoutBut").style.display="none";
   document.getElementById("loginButton").style.display="block";
   document.getElementById("RegistrationButton").style.display="block";

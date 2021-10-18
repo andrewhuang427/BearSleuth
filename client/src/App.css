@@ -53,6 +53,9 @@ span {
 .App-link {
   color: #61dafb;
 }
+#search{
+  text-align: center;
+}
 
 @keyframes App-logo-spin {
   from {
