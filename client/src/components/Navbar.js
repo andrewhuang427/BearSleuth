@@ -107,7 +107,7 @@ function stringAvatar(name) {
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: '#dedede'}}>
         <Toolbar >
           
           <div id="leftTool">
@@ -121,7 +121,7 @@ export default function Navbar() {
             </div>
           </div>
           <div id = "midTool">
-          <Typography align="center" id="name" variant="h6" component="div" sx={{ flexGrow: 1 }} position="static">
+          <Typography align="center" id="name" variant="h6" component="div" sx={{ flexGrow: 1 }} position="static" color ="#3E6765">
                 Welcome to Bear Sleuth!
             </Typography> 
           </div>

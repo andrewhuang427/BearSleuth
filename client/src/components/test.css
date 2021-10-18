@@ -28,3 +28,10 @@
     max-height:10%;
     justify-content: center;
 }
+
+#loginButton{
+    color: #3E6765;
+}
+#RegistrationButton{
+    color: #3E6765;
+}

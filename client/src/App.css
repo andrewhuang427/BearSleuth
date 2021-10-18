@@ -20,6 +20,9 @@
   height:5%;
 }
 
+body{
+  background-color: #F9FDF7;
+}
 
 .App-logo {
   height: 40vmin;
