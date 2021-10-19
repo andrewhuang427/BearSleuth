@@ -55,12 +55,14 @@ function loggedOut(){
 function DropDownMenu() {
   const [opened, setOpened] = useState(null)
   const open = Boolean(opened);
+
   function handleClick(){
     setOpened(!opened)
   }
   function handleClose(){
     setOpened(null)
   };
+  
   return (
     
     <div>

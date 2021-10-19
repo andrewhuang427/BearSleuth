@@ -1,18 +1,18 @@
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
-const LoginReg = require("./routes/login-register.js")
-
+const LoginReg = require("./routes/login-register.js");
 
 const app = express();
 
 // ---- Import API Routes -----
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
+const { CompanyRouter, JobRouter } = require("./routes/JobRoutes");
 
 app.use(cors());
- app.options("*", cors());
- app.use(express.json());
- app.use(express.urlencoded());
+app.options("*", cors());
+app.use(express.json());
+app.use(express.urlencoded());
 
 const PORT = 5000;
 
@@ -20,7 +20,7 @@ const PORT = 5000;
 mongoose
   .connect(
     "mongodb+srv://Ben:Password123@bearsleuth.tjsia.mongodb.net/BearSleuth?retryWrites=true&w=majority"
-    )
+  )
   .then((result) => {
     console.log("connection successful");
   })
@@ -31,6 +31,8 @@ mongoose
 
 // ----- API Routes ----
 app.use("/api/auth", AuthenticationRoutes);
+app.use("/api/companies", CompanyRouter);
+app.use("/api/jobs", JobRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello Word!");
@@ -40,15 +42,13 @@ app.listen(PORT, () => {
   console.log(`Server running on https://localhost:${PORT}`);
 });
 
-
-app.use(LoginReg)
-
+app.use(LoginReg);
 
 app.get("/users", async (req, res) => {
   var query = usermodel.find();
-  query.select('-_id');
+  query.select("-_id");
   query.exec(function (err, users) {
-      if (err) return (err);
-      res.send(users);
-  })
+    if (err) return err;
+    res.send(users);
+  });
 });
