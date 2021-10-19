@@ -14,7 +14,7 @@ function Homepage() {
         <Button id="searchButton" onClick={RoleSubmit}>Go</Button>
       </form>
       <h1>Or Search by Company</h1>
-      <form>
+      <form id="csearch">
         <input id="CompanyQuery" type="text" />
         <Button id="searchButton" onClick={CompanySubmit}>Go</Button>
       </form>
@@ -38,7 +38,13 @@ const RoleSubmit = () => {
     .then((response) => {
       alert("Found " + response.values.length + " jobs")
       for (let i = 0; i < response.values.length; i++){
-        alert((response.values[i].position + " at " + response.values[i].company ))
+        const listing = document.createElement("div");
+        const info = document.createTextNode(response.values[i].position + " at " + response.values[i].company);
+        listing.appendChild(info);
+        const home = document.getElementById("search");
+        home.appendChild(listing);
+        listing.classList.add("job");
+        //alert((response.values[i].position + " at " + response.values[i].company ))
       }
 
     })
