@@ -104,4 +104,43 @@ app.post("/register", async (request, response) => {
     })
 });
 
+
+
+
+app.post("/getJobsByTitle", async (request, response) => {
+    data = (request.body);
+    query = jobModel.find({ "position": { "$regex": data.roleName, "$options": "i" } }, function (err, jobs) {
+            if (err) return (err)
+            console.log(jobs.length)
+            console.log(jobs[0])
+
+            ret = { "values": jobs, "success": true }
+            response.json(ret)
+        })
+
+
+});
+
+app.post("/getJobsByCompany", async (request, response) => {
+    data = (request.body);
+    query = jobModel.find({ "company": data.companyName }, function (err, jobs) {
+            if (err) return (err)
+            console.log(jobs.length)
+            console.log(jobs[0])
+
+            ret = { "values": jobs, "success": true }
+            console.log(ret.values[0])
+
+            response.json(ret)
+        })
+
+});
+    
+// jobModel.create({position : "SWE", salary_range: "$100,000", company:"LinkedIn" })
+// jobModel.create({position : "SWE", salary_range: "$100,000", company:"Amazon" })
+// jobModel.create({position : "SWE", salary_range: "$100,000", company:"Facebook" })
+
+
+
+
 module.exports = app;
