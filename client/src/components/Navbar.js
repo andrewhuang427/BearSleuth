@@ -45,7 +45,7 @@ function loggedOut(){
   document.getElementById("RegistrationButton").style.display="block";
   document.getElementById("loginForm").style.display="none"
   document.getElementById("registerForm").style.display="none"
-  document.getElementById("Homepage").style.display="none";
+  //document.getElementById("Homepage").style.display="none";
   document.getElementById("loginGroup").style.display="none";  
   localStorage.removeItem("username")
   localStorage.removeItem("token")
