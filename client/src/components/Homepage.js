@@ -63,7 +63,12 @@ const CompanySubmit = () => {
     .then((response) => {
       alert("Found " + response.values.length + " jobs")
       for (let i = 0; i < response.values.length; i++){
-        alert((response.values[i].position + " at " + response.values[i].company ))
+        const listing = document.createElement("div");
+        const info = document.createTextNode(response.values[i].position + " at " + response.values[i].company);
+        listing.appendChild(info);
+        const home = document.getElementById("search");
+        home.appendChild(listing);
+        listing.classList.add("job");
       }
 
 
