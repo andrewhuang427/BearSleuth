@@ -18,6 +18,7 @@ function Homepage() {
         <input id="CompanyQuery" type="text" />
         <Button id="searchButton" onClick={CompanySubmit}>Go</Button>
       </form>
+      <div id ="list"/>
 
     </Box>
   );
@@ -36,13 +37,14 @@ const RoleSubmit = () => {
   })
     .then((res) => res.json())
     .then((response) => {
+      const list = document.getElementById("list");
+      list.innerHTML = "";
       alert("Found " + response.values.length + " jobs")
       for (let i = 0; i < response.values.length; i++){
         const listing = document.createElement("div");
         const info = document.createTextNode(response.values[i].position + " at " + response.values[i].company);
         listing.appendChild(info);
-        const home = document.getElementById("search");
-        home.appendChild(listing);
+        list.appendChild(listing);
         listing.classList.add("job");
         //alert((response.values[i].position + " at " + response.values[i].company ))
       }
@@ -61,13 +63,14 @@ const CompanySubmit = () => {
   })
     .then((response) => response.json())
     .then((response) => {
+      const list = document.getElementById("list");
+      list.innerHTML = "";
       alert("Found " + response.values.length + " jobs")
       for (let i = 0; i < response.values.length; i++){
         const listing = document.createElement("div");
         const info = document.createTextNode(response.values[i].position + " at " + response.values[i].company);
         listing.appendChild(info);
-        const home = document.getElementById("search");
-        home.appendChild(listing);
+        list.appendChild(listing);
         listing.classList.add("job");
       }
 
