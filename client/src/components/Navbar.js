@@ -117,7 +117,7 @@ export default function Navbar() {
           
           <div id="leftTool">
             <div id="MenuLogo">
-              <IconButton onClick={loggedin}>
+              <IconButton>                 {/* add onclick to here */}
                 <MenuIcon fontSize="large">
 
                 </MenuIcon>

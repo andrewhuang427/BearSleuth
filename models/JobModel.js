@@ -12,9 +12,12 @@ const JobSchema = new Schema({
     type: String,
   },
   company: {
-    type: Schema.Types.ObjectId,
-    ref: "Company",
-    required: true,
+    type:String,
+    requried: true
+    // type: Schema.Types.ObjectId,
+    // // ref: "Company",
+    // // required: true,
+  
   },
   status: {
     type: String,

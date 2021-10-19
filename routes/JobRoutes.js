@@ -17,6 +17,7 @@ CompanyRouter.route("/:id").get((req, res) => {
 
 CompanyRouter.route("/create").post((req, res) => {
   res.status(200).json({ msg: "create company endpoint" });
+  console.log("w")
 });
 
 const JobRouter = express.Router();

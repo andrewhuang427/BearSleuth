@@ -1,5 +1,7 @@
 const express = require("express");
 const usermodel = require("../models/UserModel");
+const jobModel = require("../models/JobModel");
+
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path')
@@ -64,6 +66,18 @@ app.get("/users", async (req, res) => {
         res.send(users);
     })
   });
+
+
+
+  app.get("/jobs", async (req, res) => {
+    var query = jobModel.find();
+    query.select('-_id');
+    query.exec(function (err, jobs) {
+        if (err) return (err);
+        res.send(jobs);
+    })
+  });
+
   
 
 app.post("/register", async (request, response) => {

@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 
 function JobSearch(){
 let role=document.getElementById("query").value;
-console.log(role);
+
 }
 
 function Homepage() {
