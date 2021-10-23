@@ -25,6 +25,10 @@ const UserSchema = new Schema(
     major: {
       type: String,
       required: false,
+    },
+    friends:{
+      type:Arrays,
+      required:false,
     }
   },
   { _id: true }

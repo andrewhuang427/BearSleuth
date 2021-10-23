@@ -1,9 +1,10 @@
 import "./App.css";
 import Navbar from "./components/Navbar"
+import Network from "./components/Network"
 import LoginForm from "./components/LoginForm";
 import Logo from "./BearSleuth(site).png"
 import Register from "./components/Register";
-import Button from "@mui/material/Button";
+//import Button from "@mui/material/Button";
 import Homepage from "./components/Homepage"
 
 
@@ -12,12 +13,13 @@ function App() {
    
 
     <>
-        <Navbar />
+        <Navbar/>
         <LoginForm id="loginForm" />
         <Register />
-        <Homepage />
+        <Homepage/>
+        <Network/>
         <div id="default">
-          <img id="img1" src={Logo}/>
+          <img id="img1" alt="webLogo" src={Logo}/>
           <h2>Our Mission</h2>
           <p>Bear Sleuth is an independently developed site that seeks to provide WashU students with a hub for job search</p>
           <h2>Who are we?</h2>

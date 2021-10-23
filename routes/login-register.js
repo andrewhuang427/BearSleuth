@@ -14,10 +14,6 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 
-//go to homepage
-// app.get('/homepage', authenticateToken, async (req, res) => {
-//     res.json(req.body.accessToken)
-// )
     
 
 app.post("/login", async (request, response) => {
@@ -121,6 +117,7 @@ app.post("/getJobsByTitle", async (request, response) => {
 
 });
 
+
 app.post("/getJobsByCompany", async (request, response) => {
     data = (request.body);
     query = jobModel.find({ "company": data.companyName }, function (err, jobs) {
@@ -133,6 +130,39 @@ app.post("/getJobsByCompany", async (request, response) => {
 
             response.json(ret)
         })
+
+});
+
+app.post("/addFriend", async (request, response) => {
+    data = (request.body);
+    console.log(data)
+    query=usermodel.updateOne( {username: data.username}, {push : {friends: data.new}},function (err, users) {
+        if (err) {
+            return (err)
+        }
+        else{
+            ret = { "values": users, "success": true }
+            response.json(ret)
+        }
+    
+    })
+    
+});
+
+
+
+app.post("/getUsers", async (request, response) => {
+    data = (request.body);
+    console.log(data.major);
+   query = usermodel.find({ "major": { "$regex": data.major, "$options": "i" } }, function (err, users) {
+            if (err) return (err)
+            console.log(users.length)
+            console.log(users)
+
+            ret = { "values": users, "success": true }
+            response.json(ret)
+        })
+
 
 });
     
