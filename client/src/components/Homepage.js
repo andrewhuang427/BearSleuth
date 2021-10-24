@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import {LanguageFind} from "./SearchRegex";
+import {LanguageFind, TechSkillsFind} from "./SearchRegex";
 
 // const SerpApi = require('google-search-results-nodejs');
 // const search = new SerpApi.GoogleSearch("df6a71fa7a6e850a4c1c34e54e6dc4071c296cb642e6ae8082baac5cb4ab2114");
@@ -31,10 +31,12 @@ function SearchAPI() {
       for (let i = 0; i < jobs.length; i++) {
         const listing = document.createElement("div");
         const info = document.createTextNode(jobs[i].title + " at " + jobs[i].company_name + " in " + jobs[i].location);
-        const desc = document.createTextNode(LanguageFind(jobs[i]))
+        const langs = document.createTextNode(LanguageFind(jobs[i]))
+        const techSkills = document.createTextNode(TechSkillsFind(jobs[i]))
         //const desc = document.createTextNode(jobs[i].description);
         listing.appendChild(info);
-        listing.appendChild(desc);
+        listing.appendChild(langs);
+        listing.appendChild(techSkills);
         list.appendChild(listing);
         listing.classList.add("job");
       }

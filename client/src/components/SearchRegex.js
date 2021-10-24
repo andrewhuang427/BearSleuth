@@ -13,13 +13,25 @@ function LanguageFind(string) {
        return ret
 }
 
+function TechSkillsFind(string) {
+    var skillsfind = /(?:Node|Angular|React|AWS|Paas|((?<!no)SQL)|nosql)/gi;
+    var j = (new Set(string.description.toLowerCase().match(skillsfind)))
+    //   console.log(j)
+       let ret = "Reccomended Technologies/Skills: "
+   //    for(let key of j) console.log(key)
+       j.forEach(key => ret += (key + ", "))
+       ret = ret.substring(0, ret.length - 2);
+   
+       return ret
+}
 
 
 
 
 
 
-export {LanguageFind}
+
+export {LanguageFind, TechSkillsFind}
 
 
 // var skillsfind = /(?:Node|Angular|React|AWS|Paas|((?<!no)SQL)|nosql)/gi;
