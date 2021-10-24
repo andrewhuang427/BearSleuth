@@ -52,7 +52,7 @@ function loggedOut(){
   localStorage.removeItem("token")
 }
 function getNetwork(){
-  //document.getElementById("search").style.display="none";
+  document.getElementById("search").style.display="none";
   document.getElementById("searchFriend").style.display="block";
 }
 

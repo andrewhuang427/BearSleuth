@@ -27,7 +27,7 @@ const UserSchema = new Schema(
       required: false,
     },
     friends:{
-      type:Arrays,
+      type:Array,
       required:false,
     }
   },

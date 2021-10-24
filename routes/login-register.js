@@ -84,7 +84,7 @@ app.post("/register", async (request, response) => {
         if (user == null) {
             salt = bcrypt.genSaltSync(10)
             bcrypt.hash(data.password, salt).then((result) => {
-                query = usermodel.create({ username: data.username, email: data.email, hash: result, major : data.major}, function (err) {
+                query = usermodel.create({ username: data.username, email: data.email, hash: result, major : data.major, friends: []}, function (err) {
                     if (err) return (err)
                     ret = { "message": "Registration Successful", "success": true }
                     response.json(ret)
@@ -136,12 +136,13 @@ app.post("/getJobsByCompany", async (request, response) => {
 app.post("/addFriend", async (request, response) => {
     data = (request.body);
     console.log(data)
-    query=usermodel.updateOne( {username: data.username}, {push : {friends: data.new}},function (err, users) {
+    query=usermodel.updateOne( {username: data.username}, {$push : {friends: data.new}},function (err, users) {
         if (err) {
             return (err)
         }
         else{
-            ret = { "values": users, "success": true }
+            console.log(users)
+            ret = { "success": true }
             response.json(ret)
         }
     

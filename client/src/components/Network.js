@@ -13,11 +13,15 @@ function Network() {
         <input id="usernameSearch" type="text" />
         <Button id="searchButton" onClick={userSearch}>Search</Button>
       </form>
+      <div id="userlist">
+
+          
+      </div>
     </Box>
   );
 }
 function addFriend(e){
-    let current="john";
+    let current="bob";
     let newFriend=e.target.parentNode.firstChild.innerText;
     const data = { username: current, new:newFriend };
     fetch("http://localhost:5000/addFriend", {
@@ -52,7 +56,7 @@ const userSearch = () => {
   })
     .then((res) => res.json())
     .then((response) => {
-      const userlist = document.getElementById("list");
+      const userlist = document.getElementById("userlist");
       userlist.innerHTML = "";
       console.log(response);
       for (let i = 0; i < response.values.length; i++){
@@ -66,7 +70,6 @@ const userSearch = () => {
         addFriendBut.innerText="Add";
         user.appendChild(addFriendBut);
         addFriendBut.addEventListener("click",addFriend);
-        userlist.classList.add("users");
       }
 
     })
