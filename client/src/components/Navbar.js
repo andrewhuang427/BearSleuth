@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {useState} from 'react';
+import {React,useState}  from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,7 +8,6 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Logo from "../BearSleuth(site).png"
 import { deepOrange } from '@mui/material/colors';
 import "./test.css";
@@ -27,18 +25,21 @@ function registerOn(){
 }
 function loggedin(){
   document.getElementById("loginButton").style.display="none";
+  document.getElementById("network").style.display="block";
   document.getElementById("search").style.display="block";
   document.getElementById("logoutBut").style.display="block";
   document.getElementById("default").style.display="none";
   document.getElementById("RegistrationButton").style.display="none";
   document.getElementById("loginForm").style.display="none"
   document.getElementById("registerForm").style.display="none"
-  document.getElementById("Homepage").style.display="block";
+ // document.getElementById("Homepage").style.display="block";
   document.getElementById("loginGroup").style.display="block";  
 }
 
 function loggedOut(){
   document.getElementById("default").style.display="block";
+  document.getElementById("network").style.display="none";
+  document.getElementById("searchFriend").style.display="none";
   document.getElementById("search").style.display="none";
   document.getElementById("logoutBut").style.display="none";
   document.getElementById("loginButton").style.display="block";
@@ -49,6 +50,10 @@ function loggedOut(){
   document.getElementById("loginGroup").style.display="none";  
   localStorage.removeItem("username")
   localStorage.removeItem("token")
+}
+function getNetwork(){
+  document.getElementById("search").style.display="none";
+  document.getElementById("searchFriend").style.display="block";
 }
 
 
@@ -122,7 +127,7 @@ export default function Navbar() {
 
                 </MenuIcon>
               </IconButton>
-              <img  id="logo" src={Logo} />
+              <img  alt="webLogo" id="logo" src={Logo} />
             </div>
           </div>
           <div id = "midTool">
@@ -135,6 +140,7 @@ export default function Navbar() {
               <Button id="loginButton"  display="block" color="inherit" onClick={loginOn}>Login</Button>
               <Button id="RegistrationButton" display="block" color="inherit" onClick={registerOn}>New Account</Button>
               <Button id="logoutBut" display="none" onClick={loggedOut}>Logout</Button>
+              <Button id="network" display="none" onClick={getNetwork}>Your Network</Button>
             </div>
           </div>
           <Box id="loginGroup" display="none">
