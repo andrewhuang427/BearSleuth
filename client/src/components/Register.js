@@ -5,6 +5,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import LoginOn from "./Navbar"
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -25,6 +27,15 @@ function Register() {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
+  const majors = [
+    'Computer Science',
+    'Biomedical Engineering',
+    'Computer Engineering',
+    'Data Science',
+    'Electrical Engineering',
+    'Chemical Engineering',
+    'Mechanical Engineering',
+  ];
 
   const handleSubmit = () => {
     const data = { username: username, password: password, email: email, major: major };
@@ -79,13 +90,19 @@ function Register() {
             />
           </Box>
           <Box marginBottom={2}>
-            <TextField
-              label="Major"
-              type="text"
-              fullWidth
+            <Select
               value={major}
+              label="Select your Major"
+              fullWidth
               onChange={handleMajorChange}
-            />
+            >
+              <MenuItem value={majors[0]} >Computer Science</MenuItem>
+              <MenuItem value={majors[1]}>Biomedical Engineering</MenuItem>
+              <MenuItem value={majors[2]}>Computer Engineering</MenuItem>
+              <MenuItem value={majors[3]} >Data Science</MenuItem>
+              <MenuItem value={majors[4]}>Electrical Engineering</MenuItem>
+              <MenuItem value={majors[5]}>Chemical Engineering</MenuItem>
+            </Select>
           </Box>
           <Box>
             <Button variant="contained" onClick={handleSubmit}>

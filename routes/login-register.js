@@ -150,7 +150,17 @@ app.post("/addFriend", async (request, response) => {
     
 });
 
+app.post("/getFriends", async (request, response) => {
+    data = (request.body);
+    console.log(data.major);
+   query = usermodel.find({ "username": { "$regex": data.username} }, function (err, users) {
+            if (err) return (err)
+            ret = { "values": users, "success": true }
+            response.json(ret)
+        })
 
+
+});
 
 app.post("/getUsers", async (request, response) => {
     data = (request.body);

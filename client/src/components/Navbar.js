@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {useState} from 'react';
+import {React,useState}  from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,7 +8,6 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
-//import MenuItem from '@mui/material/MenuItem';
 import Logo from "../BearSleuth(site).png"
 import { deepOrange } from '@mui/material/colors';
 import "./test.css";
@@ -40,6 +38,8 @@ function loggedin(){
 
 function loggedOut(){
   document.getElementById("default").style.display="block";
+  document.getElementById("network").style.display="none";
+  document.getElementById("searchFriend").style.display="none";
   document.getElementById("search").style.display="none";
   document.getElementById("logoutBut").style.display="none";
   document.getElementById("loginButton").style.display="block";
