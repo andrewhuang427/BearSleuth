@@ -13,10 +13,20 @@ function Network() {
         <input id="usernameSearch" type="text" />
         <Button id="searchButton" onClick={userSearch}>Search</Button>
       </form>
-      <div id="userlist">
+      <div id="userResults">
+        <div className="title">
+        Results:
+        </div>
+        <div id="userlist">
 
+        </div>
       </div>
-      <div id="friends">
+      <div id="friendsList">
+        <div className="title">
+        Friends:
+        </div>
+        <div id="friends">
+        </div>
       </div>
     </Box>
     </>
