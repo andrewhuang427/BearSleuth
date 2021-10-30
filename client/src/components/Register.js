@@ -13,6 +13,8 @@ function Register() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [major, setMajor] = useState("");
+  const [role, setRole] = useState("");
+  const [loc, setLoc] = useState("");
 
   const handleUserNameChange = (event) => {
     setUsername(event.target.value);
@@ -22,6 +24,12 @@ function Register() {
   };
   const handleMajorChange = (event) => {
     setMajor(event.target.value);
+  };
+  const handleRoleChange = (event) => {
+    setRole(event.target.value);
+  };
+  const handleLocChange = (event) => {
+    setLoc(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -38,8 +46,9 @@ function Register() {
   ];
 
   const handleSubmit = () => {
-    const data = { username: username, password: password, email: email, major: major };
-    fetch("http://localhost:5000/Register", {
+    const data = { username: username, password: password, email: email, major: major,role:role,location:loc };
+    console.log(data);
+    fetch("http://localhost:5000/register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
@@ -89,6 +98,7 @@ function Register() {
               onChange={handleEmailChange}
             />
           </Box>
+
           <Box marginBottom={2}>
             <Select
               value={major}
@@ -104,6 +114,24 @@ function Register() {
               <MenuItem value={majors[5]}>Chemical Engineering</MenuItem>
             </Select>
           </Box>
+          <Box marginBottom={2}>
+            <TextField
+              label="Desired Role"
+              type="text"
+              fullWidth
+              value={role}
+              onChange={handleRoleChange}
+            />
+          </Box>
+          <Box marginBottom={2}>
+          <TextField
+              label="Desired Location"
+              type="text"
+              fullWidth
+              value={loc}
+              onChange={handleLocChange}
+            />
+            </Box>
           <Box>
             <Button variant="contained" onClick={handleSubmit}>
               Register

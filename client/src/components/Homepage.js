@@ -11,7 +11,46 @@ import {LanguageFind, TechSkillsFind} from "./SearchRegex";
 //   gl:"us",
 //   lrad:"20",
 // };
-
+function visit(event){
+  let current="bob";
+  let jobName=event.target.childNodes[0].innerText;
+  const data = { username: current, jobVisited:jobName };
+    fetch("http://localhost:5000/addHistory", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((response) => {})
+      .catch((error) => console.error("Error:", error));
+      getHistory();
+}
+function getHistory(){
+  let current="bob";
+  const data={username:current};
+  fetch("http://localhost:5000/getHistory", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      if (response.success) {
+          let history=response.values[0].history;
+          const previousHistory = document.getElementById("previousHistory");
+          previousHistory.innerHTML = "";
+        console.log(history);
+          for (let i = history.length; i > history.length-5; i--){
+              const job = document.createElement("div");
+              let jobVisitedName=document.createElement("p");
+              jobVisitedName.innerText=history[i];
+              job.appendChild(jobVisitedName);
+              previousHistory.appendChild(job);
+            }
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}
 
 
 function SearchAPI() {
@@ -30,7 +69,10 @@ function SearchAPI() {
       alert("Found " + jobs.length + " jobs")
       for (let i = 0; i < jobs.length; i++) {
         const listing = document.createElement("div");
-        const info = document.createTextNode(jobs[i].title + " at " + jobs[i].company_name + " in " + jobs[i].location);
+        listing.addEventListener("click",visit);
+        let info=document.createElement('p');
+        info.innerHTML=jobs[i].title + " at " + jobs[i].company_name + " in " + jobs[i].location;
+        //const info = document.createTextNode(jobs[i].title + " at " + jobs[i].company_name + " in " + jobs[i].location);
         const langs = document.createTextNode(LanguageFind(jobs[i]))
         const techSkills = document.createTextNode(TechSkillsFind(jobs[i]))
         //const desc = document.createTextNode(jobs[i].description);
@@ -68,6 +110,11 @@ function Homepage() {
       </form>
 
       <div id ="list"/>
+      <div id="previousHistory">
+        <div className="title">
+        Jobs:
+        </div>
+      </div>
 
     </Box>
   );

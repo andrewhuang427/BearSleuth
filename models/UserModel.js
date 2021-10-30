@@ -29,6 +29,20 @@ const UserSchema = new Schema(
     friends:{
       type:Array,
       required:false,
+    },
+    history:{
+      type:Array,
+      required:false,
+    },
+    desiredRole: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    desiredLocation: {
+      type: String,
+      unique: true,
+      required: false,
     }
   },
   { _id: true }

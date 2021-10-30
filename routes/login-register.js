@@ -1,7 +1,6 @@
 const express = require("express");
 const usermodel = require("../models/UserModel");
 const jobModel = require("../models/JobModel");
-
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path')
@@ -78,14 +77,15 @@ app.get("/users", async (req, res) => {
   
 
 app.post("/register", async (request, response) => {
+  console.log("test");
     data = (request.body);
-    console.log(data.username)
+    console.log(data)
     query = usermodel.exists({ username: data.username }, function (err, user) {
         if (err) return (err);
         if (user == null) {
             salt = bcrypt.genSaltSync(10)
             bcrypt.hash(data.password, salt).then((result) => {
-                query = usermodel.create({ username: data.username, email: data.email, hash: result, major : data.major, friends: []}, function (err) {
+                query = usermodel.create({ username: data.username, email: data.email, hash: result, major : data.major, desiredRole:data.role,desiredLocation:data.location,friends: []}, function (err) {
                     if (err) return (err)
                     ret = { "message": "Registration Successful", "success": true }
                     response.json(ret)
@@ -135,7 +135,7 @@ app.post("/getJobsByCompany", async (request, response) => {
 });
 
 app.post("/addFriend", async (request, response) => {
-    data = (request.body);
+    data = request.body;
     console.log(data)
     query=usermodel.updateOne( {username: data.username}, {$push : {friends: data.new}},function (err, users) {
         if (err) {
@@ -149,6 +149,34 @@ app.post("/addFriend", async (request, response) => {
     
     })
     
+});
+app.post("/addHistory", async (request, response) => {
+  data=request.body;
+  //console.log(data);
+  query=usermodel.updateOne( {username: data.username}, {$push : {history: data.jobVisited}},function (err, users) {
+      if (err) {
+          return (err)
+      }
+      else{
+          ret = { "success": true }
+          response.json(ret)
+      }
+  
+  })
+  
+});
+
+app.post("/getHistory", async (request, response) => {
+  data=request.body;
+  console.log(data);
+ query = usermodel.find({ "username": { "$regex": data.username} }, function (err, jobs) {
+          if (err) return (err)
+          console.log(jobs);
+          ret = { "values": jobs, "success": true }
+          response.json(ret)
+      })
+
+
 });
 
 app.post("/getFriends", async (request, response) => {
@@ -202,6 +230,9 @@ app.post("/getAPI", async (request, response) => {
     ret = {"values": search, "success": true}
     response.json(ret)
 })
+/*app.post("/sendMail", async (request, response) => {
+  
+})*/
 
 
 
