@@ -11,6 +11,8 @@ import {LanguageFind, TechSkillsFind} from "./SearchRegex";
 //   gl:"us",
 //   lrad:"20",
 // };
+getHistory();
+getRecs();
 function visit(event){
   let current="bob";
   let jobName=event.target.childNodes[0].innerText;
@@ -23,7 +25,6 @@ function visit(event){
       .then((res) => res.json())
       .then((response) => {})
       .catch((error) => console.error("Error:", error));
-      getHistory();
 }
 function getHistory(){
   let current="bob";
@@ -37,10 +38,10 @@ function getHistory(){
     .then((response) => {
       if (response.success) {
           let history=response.values[0].history;
-          const previousHistory = document.getElementById("previousHistory");
+          const previousHistory = document.getElementById("last5Jobs");
           previousHistory.innerHTML = "";
         console.log(history);
-          for (let i = history.length; i > history.length-5; i--){
+          for (let i = history.length-1; i >= history.length-5; i--){
               const job = document.createElement("div");
               let jobVisitedName=document.createElement("p");
               jobVisitedName.innerText=history[i];
@@ -85,6 +86,33 @@ function SearchAPI() {
     })
 }
 
+function getRecs(){
+  let role="SWE";
+  let data={role:role};
+  fetch("http://localhost:5000/getRecs", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      if (response.success) {
+         let recs=response.values;
+         console.log(recs);
+        const recList = document.getElementById("recs");
+          recList.innerHTML = "";
+          for (let i = 0; i < recs.length; i++){
+              const job = document.createElement("div");
+              let name=document.createElement("p");
+              name.innerText=recs[i].position+" at "+ recs[i].company;
+              job.appendChild(name);
+              recList.appendChild(job);
+            }
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+
+}
 
 
 
@@ -112,8 +140,20 @@ function Homepage() {
       <div id ="list"/>
       <div id="previousHistory">
         <div className="title">
-        Jobs:
+        Recently Viewed Jobs:
+        <div id="last5Jobs"> 
+
         </div>
+        </div>
+      </div>
+      <div id="recommendedSection">
+        <div className="title">
+       Recommended Jobs:
+        <div id="recs"> 
+
+        </div>
+        </div>
+        
       </div>
 
     </Box>
