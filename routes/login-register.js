@@ -61,15 +61,6 @@ app.get("/users", async (req, res) => {
   });
 });
 
-app.get("/jobs", async (req, res) => {
-  var query = jobModel.find();
-  query.select("-_id");
-  query.exec(function (err, jobs) {
-    if (err) return err;
-    res.send(jobs);
-  });
-});
-
 app.post("/register", async (request, response) => {
   console.log("test");
   data = request.body;

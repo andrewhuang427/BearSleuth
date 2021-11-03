@@ -5,9 +5,15 @@ const LoginReg = require("./routes/login-register.js");
 
 const app = express();
 
-// ---- Import API Routes -----
+// ----- Import API Routes -----
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
-const { CompanyRouter, JobRouter } = require("./routes/JobRoutes");
+const { JobRouter } = require("./routes/JobRoutes");
+
+// ----- Job Scraping Route -----
+const { removeAllJobs, scrapeJobs } = require("./utils/ScrapeJobs");
+
+// removeAllJobs()
+// scrapeJobs()
 
 app.use(cors());
 app.options("*", cors());
@@ -31,7 +37,6 @@ mongoose
 
 // ----- API Routes ----
 app.use("/api/auth", AuthenticationRoutes);
-app.use("/api/companies", CompanyRouter);
 app.use("/api/jobs", JobRouter);
 
 app.get("/", (req, res) => {

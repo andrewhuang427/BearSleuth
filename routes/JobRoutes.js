@@ -1,36 +1,27 @@
 const express = require("express");
-
-const CompanyRouter = express.Router();
-
-// ---------- TODO: Fill in api end points for company creation and retreival ----------
-
-CompanyRouter.route("/").get((req, res) => {
-  res.status(200).json({ msg: "getting all companies" });
-});
-
-CompanyRouter.route("/:id").get((req, res) => {
-  const companyId = req.params.id;
-  res
-    .status(200)
-    .json({ msg: `getting details for company with id ${companyId}` });
-});
-
-CompanyRouter.route("/create").post((req, res) => {
-  res.status(200).json({ msg: "create company endpoint" });
-  console.log("w")
-});
+const JobModel = require("../models/JobModel");
 
 const JobRouter = express.Router();
 
 // ---------- TODO: Fill in api end points for job creation and retreival ---------
 
 JobRouter.route("/").get((req, res) => {
-  res.status(200).json({ msg: "getting all jobs" });
+  var query = JobModel.find();
+  query.exec(function (err, jobs) {
+    if (err) res.status(500).send({ msg: "internal service error" });
+    res.send(jobs);
+  });
 });
 
 JobRouter.route("/:id").get((req, res) => {
   const jobId = req.params.id;
-  res.status(200).json({ msg: `getting details for job with id ${jobId}` });
+  console.log(jobId);
+  var query = JobModel.findById(jobId);
+  query.exec((err, doc) => {
+    console.log(doc);
+    if (err) res.status(500).send({ msg: "internal service error" });
+    res.send(doc);
+  });
 });
 
 JobRouter.route("/create").post((req, res) => {
@@ -38,6 +29,5 @@ JobRouter.route("/create").post((req, res) => {
 });
 
 module.exports = {
-  CompanyRouter,
   JobRouter,
 };

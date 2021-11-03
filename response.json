@@ -1,0 +1,387 @@
+{
+  "search_metadata": {
+    "id": "6182e148cace96522e3c605c",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/f2e38d56ba4460e6/6182e148cace96522e3c605c.json",
+    "created_at": "2021-11-03 19:21:44 UTC",
+    "processed_at": "2021-11-03 19:21:44 UTC",
+    "google_jobs_url": "https://www.google.com/search?q=software+engineering+intern&ibp=htl;jobs&gl=us&lrad=20",
+    "raw_html_file": "https://serpapi.com/searches/f2e38d56ba4460e6/6182e148cace96522e3c605c.html",
+    "total_time_taken": 0.96
+  },
+  "search_parameters": {
+    "q": "software engineering intern",
+    "engine": "google_jobs",
+    "google_domain": "google.com",
+    "gl": "us",
+    "lrad": "20"
+  },
+  "jobs_results": [
+    {
+      "title": "Software Engineering Intern",
+      "company_name": "Mobinity Global",
+      "location": "United States",
+      "via": "via LinkedIn",
+      "description": "About Mobinity Global:\n\nMobinity Global is a recruitment consultancy firm that helps companies such as Dell, Citadel, Qualtrics, PNC, Venture for America, RippleMatch, SAP, etc recruit faster and with more convenience.\n\nWe are transforming the way recruiting is done in the digital age. We work with a number of top tier companies, tech startups, freelance companies, industry professionals and subject matter experts for projects, internships, jobs and freelance work.\n\nIf you meet the below eligibility criteria, please apply and our recruitment team will\n\nconnect with you to understand your strengths and strategize your career ahead.\n\nWe plan to build a strong connection with all of our applicants so that we can facilitate both our employment partners and potential employees now as well as in the future.\n\nEligibility Criteria:\n• Your year of graduation is 2022 or later.\n• You have a bachelor's degree from a USA university.\n• Currently enrolled as a student.\n\nJOB DESCRIPTION:\n• Interns... are responsible for developing and shipping a project and verifying that it works in production. You will collaborate with your mentor and manager when you start to spec a project that will best contribute to your team.\n• You will ship code and monitor the deployment of your work. Our intern projects are not isolated or intended to be thrown away: your team will depend on your contributions!\n• We will pair you with a dedicated mentor who will be by your side to give advice and ensure the success of your project. You can expect to meet with them on a regular basis and receive feedback.\n• You'll have the opportunity to attend events with other interns and full-time employees!\n• You will present your work to the entire engineering organization at the end of your internship.\n\nSkills:\n• Frontend experience in WebApps/JavaScript/AngularJS/React\n• Strong communication skills\n• Deployment and testing frameworks\n• API development/documentation",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpFN90zFBnW9PUZT3EPf2aau5jKNkF5mlEk7Qh11E&s",
+      "extensions": ["2 hours ago", "Full-time"],
+      "detected_extensions": {
+        "posted_at": "2 hours ago",
+        "schedule_type": "Full-time"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlcmluZyBJbnRlcm4iLCJodGlkb2NpZCI6InMyVS1MZURIRXR3SE41eTVBQUFBQUE9PSIsImdsIjoidXMiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gTGlua2VkSW4iLCJsaW5rIjoiaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2pvYnMvdmlldy9zb2Z0d2FyZS1lbmdpbmVlcmluZy1pbnRlcm4tYXQtbW9iaW5pdHktZ2xvYmFsLTI3ODMzNDAwODg/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Software Engineering Intern",
+      "company_name": "Blackboard",
+      "location": "Anywhere",
+      "via": "via LinkedIn",
+      "description": "Description\n\nSoftware Engineering Intern\n\nRemote – US\n\nThe Opportunity:\n\nWe’re looking for a Software Engineering Intern to help us push the boundaries of what education can offer through the power of technology. Education is our passion, and our team members bring that to work each day as they aim to advance learning in every region of the world. Blackboard is the world's leading education technology company, providing dynamic products and services to the global education community. We’re focused on driving innovation in EdTech and working with our clients to create a smarter learning environment.   \n\nAt Blackboard, we believe in the power of a truly diverse and inclusive workforce. As we expand globally, we are committed to making diversity, inclusion, and belonging a foundational part of not only our hiring practices, but who we are as a company.\n\nFor more information about Blackboard Inc. and our career opportunities, please visit www.blackboard.com. \n\nThis role focuses on our... Ultra Platform, which provides students with a simple and intuitive learning experience that they can access anytime and anywhere. It’s a solution that’s continuously evolving to meet users’ needs, and we’re looking for someone to join the team and get deeply involved in the existing product code base, improving the quality, and enhancing the functionality of the product.\n\nAs a member of our Product Development team, you’ll work in an agile environment delivering industry-leading SaaS products and web service platforms. You’ll be deeply involved in translating wireframes and sketches into working prototypes to refine user interface behaviors.\n\nAs a Software Engineering Intern, you will be responsible for developing web applications and demonstrating expertise with Java, JavaScript, REST APIs, etc. You will be active on an agile team by participating in daily stand-ups, design sessions, code reviews, and sprint demos. You will embrace test development as an integral part of what you deliver as a software developer. You will also be responsible for delivering, maintaining, and troubleshooting cloud-based applications. In addition to this, you will participate in minimizing downtime and quickly responding to client issues.\n\nThe Candidate:\n\nRequired skills/qualifications:\n• Pursuing a bachelor’s or master’s degree (at time of internship) in Computer Science or related field, or pursuing skills in those areas while completing degree in a relevant field\n• Exposure to web application development and SQL databases\n• Any experience with Java and JavaScript frameworks like React and Angular\n• Exposure to OOD/OOP, data structure, and algorithm analysis\n• Strong problem-solving skills in large, scalable, complicated systems\n• Ability to learn new technologies and frameworks\n• Ability to work with cross-functional teams and communicate effectively with both technical and non-technical audiences\n\nPreferred skills/qualifications:\n• Knowledge of single-page applications, Node, jQuery, and related technologies\n• Knowledge of REST APIs and microservices\n\nThis job description is not designed to contain a comprehensive listing of activities, duties, or responsibilities that are required. Nothing in this job description restricts management's right to assign or reassign duties and responsibilities at any time.  \n\nBlackboard is an equal employment opportunity/affirmative action employer and considers qualified applicants for employment without regard to race, gender, age, color, religion, national origin, marital status, disability, sexual orientation, gender identity/expression, protected military/veteran status, or any other legally protected factor. \n\nThis position is not available for candidates residing in the following states: CO, CA, MA\n\nReq ID: 609",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYo54PZbKFXN0mFtwWwsrXwhsC1yu8q59Eg7F9jRw&s",
+      "extensions": ["2 days ago", "Work from home", "Internship"],
+      "detected_extensions": {
+        "posted_at": "2 days ago",
+        "schedule_type": "Internship",
+        "work_from_home": true
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlcmluZyBJbnRlcm4iLCJodGlkb2NpZCI6IjdMUEd4dUNQaWpDdnlILWpBQUFBQUE9PSIsImdsIjoidXMiLCJmYyI6IkV1SUJDcUlCUVUxc2RuSndjMnhNU21adWVFdG9OelIxTmtaZk4wUm1WVEp2UVRWbVNHRjRVblZ6UkdkNWNHdFlObTgxUWxwcWRHVjFRM293WWtZd2EwdDNhVkowY25KVVgzSkxTbGxtYkdoS05uUkdhSE4yTUhOWVJVOU9RamxMV21aM0xUUkRlSGRIV0Y5cE9TMXFVVmxQU2tGYWQzUkhjVkJGYjJzemVtVmphVUpMTFU5MVNYRkxiSFpLYmxveGEyZFlMVGM0WlVRelpGTTNkamxpVmtoRGRVUm9WbUZuRWhkVFQwZERXV1JYWDB0ZlUwMTNZbXRRTFdOcGJXdEJZeG9pUVVoWFUwNXRWbVV6WW01cE4yUlplRGMzWmxSclNsazJaWFYwU1ZGS05FbFFkdyIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzEzIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IkFwcGx5IG9uIExpbmtlZEluIiwibGluayI6Imh0dHBzOi8vd3d3LmxpbmtlZGluLmNvbS9qb2JzL3ZpZXcvc29mdHdhcmUtZW5naW5lZXJpbmctaW50ZXJuLWF0LWJsYWNrYm9hcmQtMjc3NDU3NDMyNz91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "GapTech Software Engineering Internship Program (SWE)",
+      "company_name": "Gap Inc.",
+      "location": "United States",
+      "via": "via Gap Inc.",
+      "description": "About the role\n\nThe GapTech Engineering Intern Program is looking for curious and innovative Entry Level Software Engineers to help code and develop best-in-class retail technology for our brands, employees, and customers around the globe. It is our mission to develop participants to grow into high-performing full-stack engineering leaders, who can fully embrace our DevSecOps model to drive engineering process, value and speed.\n\nDuring the program, you will be assigned to meaningful projects that influence how Gap Inc. continues to impact the future of the retail industry. At Gap Inc., we are using technology as a competitive advantage to become the world’s #1 specialty apparel retailer. As part of GapTech, you will deliver globally scalable, cloud-based solutions, using agile software development, DevOps practices, and advanced technologies. The program is designed to give you exposure to all facets of our business & growth strategies.\n\nThis program is a full-time, paid 10 week... commitment and consists of meaningful project within either Front End, Backend Or TechOp/Cloud Engineering teams. Our teams supports things such as mobile application development, store technology, cloud engineering, database, supply chain and more. Your summer experience will consist of real-life projects working with industry leaders, SCRUM teams, and your peers. In addition to the exciting projects, you will gain one-on-one mentoring from our top engineers, exposure to inspiring executive leaders, and experience with our systems and methods.\n\nAt the end of your program, you will have the opportunity to convert into the Full-time GapTech Engineering Rotational Program upon completion of your degree. Please only apply if you do not need sponsorship to work in the United States now or in the future. We are unable to consider candidates who require sponsorship.\n\nNote: This internship program offers a remote work model – however the Full-time Rotational Program will require you to be in office, upon completion of your degree, at one of the following locations: San Francisco, CA; Columbus, OH; Atlanta, GA; and Dallas, TX.\nWhat you'll do\n• Candidates selected for this internship program will be placed in one of three main areas below, which will include the following responsibilities:\n• Front End Engineering\n• Develop and maintain quality code using best-in-class DevOps practices focusing on the visual elements of a website, system, tool, or app that end-users (consumers or internal business partners) will interact with\n• Collaborate with technical and product/design SCRUM team members to develop and maintain UX product features following Agile development principles\n• Back End Engineering\n• Develop and maintain quality code that ensures simplicity, reliability, scalability, and performance of our applications\n• Collaborate with SCRUM team members to address server-side & database application logic and integration\n• TechOps and Cloud Engineering\n• Enable technology and innovation across all Gap Inc. channels & teams (stores, corporate, GapTech)\n• Employ coding for platform, cloud engineering, site reliability engineering, network and service management, and automation",
+      "extensions": ["Over 1 month ago", "Full-time"],
+      "detected_extensions": {
+        "posted_at": "Over 1 month ago",
+        "schedule_type": "Full-time"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJHYXBUZWNoIFNvZnR3YXJlIEVuZ2luZWVyaW5nIEludGVybnNoaXAgUHJvZ3JhbSAoU1dFKSIsImh0aWRvY2lkIjoiMDhiaVZULTVaVHJkNGhQdEFBQUFBQT09IiwiZ2wiOiJ1cyIsImZjIjoiRXVJQkNxSUJRVTFzZG5Kd2MyWjZiRmxXVjFkaFprcEtjbnBsYzNkV01WWjBOMmRCYUVSbGFrdHBVV3RGZFVaVmVHRmxRbkJpTVZOZmRrcGFSbkpHYTFCMlgyTlNNVFJNWm5JMFlUYzVUWEZtUmtSb2VVWnplSGhIZWt4d1QxVTNVRTFFU2tKclZUUlVRMDFKY3pOaVdEQTFMVWhtUkdKemN6RndOMDFrUkhaRGRtNWxiVE01WlZWVFNWRnZTVkJaUVc5d09XWnlVbEJHWWpKTWJsbDBUR2hrU2kxMGQyZDNFaGRUVDBkRFdXUlhYMHRmVTAxM1ltdFFMV05wYld0Qll4b2lRVWhYVTA1dFZqZG5TRFExU2s5dVduTlRWa2wxTUU5WlJURnpXV3BCU2tGamR3IiwiZmN2IjoiMyIsImZjX2lkIjoiZmNfMTkiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gR2FwIEluYy4iLCJsaW5rIjoiaHR0cHM6Ly93d3cuZ2FwaW5jLmNvbS9lbi11cy9qb2JzLzM3LzYzL2dhcHRlY2gtc29mdHdhcmUtZW5naW5lZXJpbmctaW50ZXJuc2hpcC1wcm9ncmFtLTE/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Software Engineer - Intern (Asia)",
+      "company_name": "Citadel",
+      "location": "United States",
+      "via": "via Citadel",
+      "description": "Our engineers work in small teams to turn the best ideas into high-performing and resilient technology. With short development cycles, work rapidly goes into production. As an engineer, you can create systems architectures, develop platforms and build web frameworks. You’ll have access to state-of-the-art tools and apply innovative techniques including distributed computing, natural language processing, machine learning and more.\n\nAs an intern, you’ll get to challenge the impossible in technology through an 11 week program that will allow you to collaborate and connect with senior team members. In addition, you’ll get the opportunity to network and socialize with peers throughout the internship.\n\nYour Objectives:\n• Create technological tools that bring trading strategies to life\n• Develop high-performance, large data research platforms\n• Work in small teams to build the future of finance\n\nYour Skills & Talents:\n• Degree in Computer Science, Computer Engineering or related fields... (Bachelor’s, Master’s, PhD)\n• Exceptional programming and design skills\n• Strong analytical skills and familiarity with probability and statistics\n• Ability to communicate effectively in a collaborative, complex and highly technical team environment\n• Intellectual curiosity and passion for solving challenging problems using technology\n\nOpportunities available in Hong Kong",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnYGd6cWvue-gyJdKMT0uJwnuz5Xk26SPkLyU&s=0",
+      "extensions": ["19 hours ago", "Internship"],
+      "detected_extensions": {
+        "posted_at": "19 hours ago",
+        "schedule_type": "Internship"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlciAtIEludGVybiAoQXNpYSkiLCJodGlkb2NpZCI6IjVQMk9PTlVrazAyektXdm1BQUFBQUE9PSIsImdsIjoidXMiLCJmYyI6IkVzd0JDb3dCUVUxc2RuSndkRVZxVnpkaVNVeGpWSEIwY0dGalZTMXRjRXcyZGpGZlJIRkVaMEZ0ZDNsNGRFSlNUSGRuV25OR1MwRkZVR05ZUjFkbWRFOW1NR2MzTVZSRFZ6ZFJjakZxVTJ0d1YwOTZVRlU0VkRKa04xODRVVWg2VlhSVFpFMWFaR2t6WTB3MWRHVk9ZVXd4TUc5MFFtZHdWa1U1VFhCQ1UwdGFUMnBFY0ZSU2VraFBVVGRMTkVZNWVFd1NGMU5QUjBOWlpGZGZTMTlUVFhkaWExQXRZMmx0YTBGakdpSkJTRmRUVG0xWFNFOTRZbWR4WkhNNWQwaG5lbVU1ZEV4eloxVnJNM0Y1VWpKUiIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzI1IiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IkFwcGx5IG9uIENpdGFkZWwiLCJsaW5rIjoiaHR0cHM6Ly93d3cuY2l0YWRlbC5jb20vY2FyZWVycy9kZXRhaWxzL3NvZnR3YXJlLWVuZ2luZWVyLWludGVybi1hc2lhLz91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company_name": "Analog Devices",
+      "location": "United States",
+      "via": "via Analog Devices Jobs",
+      "description": "Are you a problem solver looking for a hands-on internship position with a market-leading company that will help develop your career and reward you intellectually and professionally?\n\nAnalog Devices (ADI) has just over $9 billion in revenue with offices around the world. As a global leader in the design and manufacturing of analog, mixed signal, power management and DSP integrated circuits, ADI is known for helping to solve its customers’ toughest engineering challenges. With a commitment to engineering for good, ADI strives to create a more sustainable future, while also focusing on its employees through mentoring programs, employee networks and continuous learning opportunities.\n\nAt ADI, you will learn from the brightest minds who are here to help you grow and succeed. During your internship, you will make an impact through work on meaningful projects alongside a team of experts. Collaborating with colleagues in an environment of respect and responsibility, you will create... connections that will become a part of your professional network.\n\nADI’s culture values aligned goals, work-life balance, continuous and life-long learning opportunities, and shared rewards. The internship program features various lunch-and-learn topics and social events with other interns and full-time employees.\n\nAt ADI, our goal is to develop our interns so they are the first to be considered for full-time roles.\n\nApply now for the opportunity to grow your career and help innovate ahead of what’s possible.\n\nBusiness unit: - (-)\nJob Grade: N00\nHiring Manager: Jamie Ellen Keith\n\nAre you an insatiably curious problem solver searching for a hands-on engineering position with a market leader that cares about you and that will leave you feeling both intellectually and professionally rewarded? Consider Analog Devices – the place where Curiosity meets Mentors. ADI helps customers bridge the physical and digital worlds with unmatched technologies that sense, measure, connect, interpret, power and secure to solve real-life problems that make world smarter, healthier, safer and greener.\n\nAt ADI, you’ll be mentored by the brightest minds with a shared commitment to help you learn, grow and succeed. Throughout your internship at ADI, you can accelerate your impact by working on challenging projects alongside a team of collaborative experts in an environment of respect and responsibility. Make meaningful connections who will become a part of your professional network for years to come. Enjoy a balanced work-life and enjoy various social activities involving both interns and full-time engineers. Join us on afternoons dedicated to bowling, various lunch and learns, and even an exclusive tour of our FAB lab!\n\nHere at Analog, we turn to our inside talent first for the consideration of future full-time roles. Apply to ADI today for the opportunity to grow your career and make your work day meaningful!\n\nJob Description: The Software Engineering Intern will be join the Autonomous Vehicle Perception team at Analog Devices. The intern will participate in the development of a data gathering platform to enable the team to collect data from our sensors in real world automotive environments. The intern will join the team developing this platform and will participate in the design, software development, testing and debugging of this platform. The team is looking for an enthusiastic and hands-on individual who is currently completing their bachelor’s or graduate degrees in engineering. During the internship the intern will be required to develop code for the system and participate in the design, algorithm development and testing phases. The ideal candidate should have experience in developing with C/C++ and either Python and Java. Familiarity with Linux and device drivers is desired. Familiarity with the Robot Operating System (ROS), the MathWorks tools and signal processing is also a plus.\n\nMinimum Qualifications:\n• Design develop, test and support device drivers, embedded firmware, platform drivers and hardware abstraction layer, GUI, and DLL software\n• Develop test code/scripts for logical and functional test of the software and the system in an embedded environment\n• Work with Silicon Designers, FPGA designers, Applications Engineers, and other team members\n• Function in environment where target system may be Windows PC for GUI and DLL and embedded processor-based systems running Linux, or bare metal\n• Become familiar with the problem domain, whether it be RF transceivers, radar, automotive, medical or other problem domains, system designs and industries. As an\n\nexample - Understand RF systems and associated equipment including power management and drivers/power amplifiers in RADAR applications.\n• Follow coding standard and code documentation requirements and participate in code reviews\n• Deliver high quality code as software is used internally by customers in end application systems\n\nAs part of our ongoing commitment to safeguard the health of our employees, families, our customers and the community at large from COVID-19 and its variants, ADI has adopted a policy requiring full COVID-19 vaccination by December 1, 2021. All newly hired U.S. employees will be required to show proof of vaccination or obtain an approved accommodation prior to your official start date.\n\nFor positions requiring access to technical data, Analog Devices, Inc. may have to obtain export licensing approval from the U.S. Department of Commerce - Bureau of Industry and Security and/or the U.S. Department of State - Directorate of Defense Trade Controls. As such, applicants for this position – except US Citizens, US Permanent Residents, and protected individuals as defined by 8 U.S.C. 1324b(a)(3) – may have to go through an export licensing review process.\n\nAnalog Devices, Inc. is an Equal Opportunity Employer Minorities/Females/Vet/Disability\n\nEEO is the Law: Notice of Applicant Rights Under the Law\n\nEducation Level: High School Diploma/GED/Leaving Certificate\nTravel Required: No",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHoPuYmE8j1inp7UePo4FkKjnveFbNF_-ZaEoD&s=0",
+      "extensions": ["Over 1 month ago", "Full-time"],
+      "detected_extensions": {
+        "posted_at": "Over 1 month ago",
+        "schedule_type": "Full-time"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlciBJbnRlcm4iLCJodGlkb2NpZCI6IldQTnpNUWVDX1dvRzAzcndBQUFBQUE9PSIsImdsIjoidXMiLCJmYyI6IkV1SUJDcUlCUVUxc2RuSndkSGc1Tm1ONGVHWlpiemhPTUhoUFFqZFRSVWxoVjBGdk1GOURUSEZaYlc1bE4ybHlZWGh3U25WaWFHOW1WMWRzU1MxZk9ITmlZbTF5VkdaaWFuWlVibXRTVjA5aFFWYzFhMmxzVVdrNWVYTjZTRUo2YWtRd1dqWjRSblpHUmtaUWIwbHJXRUU1Um5CeWVUSndObFJuYkVGbGVUbFFTM2R3ZUdGeVRtMXpaalEyWWswMlZGaFNSRVpWU1dWSFJVNXBZbFJTYTI5WE1VTXdkR2huRWhkVFQwZERXV1JYWDB0ZlUwMTNZbXRRTFdOcGJXdEJZeG9pUVVoWFUwNXRXRGhVWDFWdU9GQkxlR0Y0UkhGS01HTmtWRmRFVkRWMVoycE1kdyIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzMyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IkFwcGx5IG9uIEFuYWxvZyBEZXZpY2VzIEpvYnMiLCJsaW5rIjoiaHR0cHM6Ly9jYXJlZXJzLmFuYWxvZy5jb20vam9iL0FOTEdVUzk5NDQvU29mdHdhcmUtRW5naW5lZXItSW50ZXJuP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Software Engineering Intern (Summer 2022)",
+      "company_name": "Reddit, Inc.",
+      "location": "Anywhere",
+      "via": "via LinkedIn",
+      "description": "Reddit is a network of more than 100,000 communities where people can dive into anything through experiences built around their interests, hobbies and passions. Reddit users submit, vote and comment on content, stories and discussions about the topics they care about the most. From pets to parenting, there’s a community for everybody on Reddit and with more than 52 million daily active uniques, it is home to the most open and authentic conversations on the internet. For more information, visit redditinc.com.\n\nReddit's University Program is ready for our next cohort of interns, and we need Software Engineering Interns to join our crew! Are you a beginner Software Engineer with a dream of both coding and browsing r/catsstandingup at work? You're in the right place! Reddit is in search of Software Engineering Interns to join our program (and we guarantee you'll get to do some of both!).\n\nResponsibilities\n\nWork on projects that impact the business. You'll gain exposure to how a real... engineering team works, from sprint planning to shipping code.\n\nBe mentored by experienced engineers from all backgrounds. From bootcamps to universities, small to medium and large companies, you'll work with engineers of many different experiences and levels. You'll have a formal mentor on your team guiding you throughout the summer as well!\n\nContribute to the betterment of Reddit, whether that be through making it easier to create content on Reddit, serving up relevant content to users, fighting evil on the site, improving our mobile apps, or a number of other projects we have in the works.\n\nCome to work at our San Francisco or New York office, complete with catered lunch, free snacks, a rooftop terrace, and easy access to downtown SF or NYC. (Subject to change based on safety guidelines created due to the global health pandemic)\n\nContinue making Reddit history as a part of our next intern class. Be a part of a new community, earn piles of sweet Reddit swag and get to know the city during sponsored outings over the course of the summer.\n\nRequired Qualifications\n• Actively working towards a Bachelor’s or Master's degree in Computer Science or a related field\n• Graduating between Fall 2022 and Summer 2023 or beyond\n• Experience working with a database, social networks, or open source projects\n• Strong knowledge of CS fundamentals (able to program your way out of a paper bag)\n• A desire to work at Reddit HQ in San Francisco or New York City over Summer 2022 (Subject to change based on safety guidelines created due to the global pandemic)\n• You’re over the age of 18 and authorized to work in the United States\n\nPreferred Qualifications\n• Experience with interactive design\n• Experience working at a small start-up or mid-sized company\n\nJoin Reddit; help build the front page of the internet.\n\nReddit is committed to providing reasonable accommodations for qualified individuals with disabilities and disabled veterans in our job application procedures. If you need assistance or an accommodation due to a disability, please contact us at ApplicationAssistance@Reddit.com",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZlOyO60VARS9VYb5ub8Pcl2xVhmLQP226OPT-MSk&s",
+      "extensions": ["27 days ago", "Work from home", "Internship"],
+      "detected_extensions": {
+        "posted_at": "27 days ago",
+        "schedule_type": "Internship",
+        "work_from_home": true
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlcmluZyBJbnRlcm4gKFN1bW1lciAyMDIyKSIsImh0aWRvY2lkIjoiU25DMzlmYzdNTFVya2RXREFBQUFBQT09IiwiZ2wiOiJ1cyIsImZjIjoiRXVJQkNxSUJRVTFzZG5Kd2RYQmlWVmQ1WVVGQlpGQnJia1JLYjJsd1JHeHZjWEZoWkhNdE1VVkRVVTlCWlZVeFVFa3pMVlZGVmtWQlZtbFZOMUpCVm5wV1RubHRaRkpPYlZsQ05URmxWek5oU1hwT1V6SmlVbEpSWmpoek9YbGlZblpRU25OUE1WaDFNbEpVVEVKT1pVcEtWakppWlhjMFVHbzVabWx1ZERCUE1WaDVTekJhY0Y5eGFWWmpUblZwWW1OSVRIQndWVmgwY0RablpqWkZURFZ1YzJWSlZIbFJFaGRUVDBkRFdXUlhYMHRmVTAxM1ltdFFMV05wYld0Qll4b2lRVWhYVTA1dFZucHBVMU13ZURGVk1rVlBZemRUYWpaZlZuaGlaVlZxYlV4cVp3IiwiZmN2IjoiMyIsImZjX2lkIjoiZmNfMzkiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gTGlua2VkSW4iLCJsaW5rIjoiaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2pvYnMvdmlldy9zb2Z0d2FyZS1lbmdpbmVlcmluZy1pbnRlcm4tc3VtbWVyLTIwMjItYXQtcmVkZGl0LWluYy0yNzc0NTgwNzQzP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Software Engineering Intern",
+      "company_name": "Hp",
+      "location": "United States",
+      "via": "via WIZBII",
+      "description": "Job description\n\nSoftware Engineering Intern\n\nThis role has been designated as ‘Edge’, which means you will primarily work outside of an HPE office.\n\nJob Description:\n\nAt HPE, we bring together the brightest minds to create breakthrough technology solutions and advance the way people live and work. Our legacy inspires us as we forge ahead dedicated to helping our customers make their mark on the world. Learning does not only happen through training. Relationships are among the most powerful ways for people to learn and grow, and this is part of our HPE culture.\n\nIn addition to working alongside talented colleagues, you will have many opportunities to learn through coaching and stretch assignment opportunities. You’ll be guided by feedback and support to accelerate your learning and maximize your knowledge. We also have a “reverse mentoring” program which allows us to share our knowledge and strengths across our multi-generation workforce.\n\nIn this role you'll design new and... enhancements, updates and programming changes for portions and subsystems of Cloud application software. Analyze design and determine coding, programming and integration activities required based on general objectives and knowledge of Cloud application as well as overall underlying Cloud platform architecture. Owns, executes and delivers quality of the Cloud applications by ensuring appropriate testing matrix and plans are in place as well as, appropriate manual and automated test process are incorporated. Needs to ensure end to end quality of the Cloud application-based Solution by testing and identifying issues as well as, root-causing and resolving the issues so that the Solution meets the Product requirements set forth by the Product management team. Will need to be able to own a medium to larger sized/complexity project that involves effort from multiple engineers and be able to effectively coordinate and lead all the task items between the members to ensure the Solution deliverables are met in a timely manner.\n\nMinimum education required: Bachelor’s or Master’s or foreign degree equivalent in Electronic Engineering, Computer Science/Engineering, Electrical Engineering, or related field.\n\n.\n\nGood to have skills:\n\n· Linux\n· L2/L3 Networking Protocols\n· Go Programming\n· Python Programming\n· REST APIs\n· Source Code Control Tools; Git, Gerrit and Jenkins\n· Any two of the following Cloud application technologies\n\n1. Kubernetes\n\n2. Kafka\n\n· Redis\n· Postgres\n· New Relic\n· Elastic Search\n\nWhat we can offer you:\n\nExtensive benefits, a competitive salary and participation in the shared values and purpose that make Hewlett Packard Enterprise one of the world´s most attractive employers! At HPE, our goal is to provide equal opportunities, flexible work-life balance, and constantly evolving career growth.\n\nIf you are looking for challenges in an exciting, supportive and international work environment, then we definitely want to hear from you. Continue the conversation by clicking apply now below, or directly via our Careers Portal at\n\nwww.hpe.com/careers .\n\nJoin us and make your mark!\n\nFind out more about us and follow us on:\nhttps://www.facebook.com/HPECareers\nhttps://twitter.com/HPE_Careers\n\nHPE is an Equal Employment Opportunity/ Veterans/Disabled/LGBT and Affirmative Action employer. We are committed to diversity and building a team that represents a variety of backgrounds, perspectives, and skills. We do not discriminate and all decisions we make are made on the basis of qualifications, merit, and business need. Our goal is to be one global diverse team that is representative of our customers, in an inclusive environment where we can continue to innovate and grow together.\n\nJob:\nAdministration\n\nJob Level:\nN/A\n\nHewlett Packard Enterprise is EEO F/M/Protected Veteran/ Individual with Disabilities.\n\nHPE will comply with all applicable laws related to the use of arrest and conviction records, including the San Francisco Fair Chance Ordinance and similar laws and will consider for employment qualified applicants with criminal histories",
+      "extensions": ["3 days ago", "Internship"],
+      "detected_extensions": {
+        "posted_at": "3 days ago",
+        "schedule_type": "Internship"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlcmluZyBJbnRlcm4iLCJodGlkb2NpZCI6IjVxYjYwWXk2NkNRTnJoeU1BQUFBQUE9PSIsImdsIjoidXMiLCJmYyI6IkVzd0JDb3dCUVUxc2RuSndjMUY0WDJScllWcFpVeTFVWVVSUE1FVnJZMXBSUWpWWGRsbGZiR2xwUzNweWMyVXpNM2Q1UWpaTlNVaFphMDEzYURCSmFsRjZlVzk2TlhvNVVtUnJUMVZrWTFkaWRUVnVkSFpRU0d4MFJXeDFZVzl1T1dkTk4xbHVPV0pxVmxCeVVtbENUV3BtUkZOVlRrNW5XV3d6Y1d0WGVrMUhWVWhXVVhOZlFXcGlRVEl4Y1hWWWMyTVNGMU5QUjBOWlpGZGZTMTlUVFhkaWExQXRZMmx0YTBGakdpSkJTRmRUVG0xVlMyMXlORzFNY1d4VFYzcExTREZKYkRGYVYwNUNXRlpVV201QiIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzQ2IiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IkFwcGx5IG9uIFdJWkJJSSIsImxpbmsiOiJodHRwczovL2VuLndpemJpaS5jb20vY29tcGFueS9ocC9qb2Ivc29mdHdhcmUtZW5naW5lZXJpbmctaW50ZXJuLTE5MDMyMT91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company_name": "LaunchDarkly",
+      "location": "United States (+2 others)",
+      "via": "via AngelList",
+      "description": "As a Software Engineer Intern, you will work as part of our team summer 2022. This is a unique internship where you will work with other members of the team to ship real improvements to customers by making changes to our primary codebase. You'll have the chance not just to work on interesting technology, but the chance to learn how to contribute to the team at a high level.\n\nYou'll participate in new feature development, contributing to our front-end code. We're looking for someone who thrives on putting new features in front of users and takes pride in the quality of their work.​\n\nWhat we use:\n• React, Redux, TypeScript, MongoDB, AWS\n\nWhat you'll have the opportunity to do:\n• Propose and implement solutions to high impact problems at the nexus of engineering, finance, and sales\n• Craft user-facing features in our API-driven interface, built with React and Redux\n• Write unit and integration tests as necessary\n• Actively participate in code review\n\nYou should have:\n• Experience with... JavaScript and modern best practices\n\n- Knowledge of HTML and CSS\n\nStrong communication skills, a positive attitude, and empathy\n• A high bar for quality of code and quality of user experience\n• Discipline to be a self directed learner\n• Ability to understand, tackle, and communicate problems from both technical and business perspectives\n\nBonus Points:\n• *\n\nExperience with modern frontend frameworks and technologies, such as React and Redux\n• Experience with NoSQL databases (MongoDB, ElasticSearch)\n\nAbout LaunchDarkly:\n\nLaunchDarkly is a Feature Management Platform that serves hundreds of billions of feature flags daily to help software teams build better software, faster. Feature flagging is an industry standard methodology of wrapping a new or risky section of code or infrastructure change with a flag. Each flag can easily be turned off independent of code deployment (aka \"dark launching\"). LaunchDarkly has SDKs for all major web and mobile platforms. We are building a diverse team so that we can offer robust products and services. Our team culture is dynamic, friendly, and supportive. Our headquarters are in Oakland.\n\nAt LaunchDarkly, we believe in the power of teams. We're building a team that is humble, open, collaborative, respectful and kind. We are an equal opportunity employer and value diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, gender identity, sexual orientation, age, marital status, veteran status, or disability status.\n\nDon't let the confidence gap get in the way of applying! We'd love to hear from you.\n\nWe've partnered with KeyValues to help demonstrate the amazing culture we've built here at LaunchDarkly, find more info at https://www.keyvalues.com/launchdarkly.\n\nLaunchDarkly focuses on SaaS, Enterprise Software, Analytics, Software, and Developer Tools. Their company has offices in Oakland. They have a large team that's between 201-500 employees. To date, LaunchDarkly has raised $330.3M of funding; their latest round was closed on August 2021 at a valuation of $2.8B.\n\nYou can view their website at http://launchdarkly.com or find them on Twitter, Facebook, LinkedIn, and Product Hunt",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0nfKJUkR1ct2l9K6Dj7vNoV73sju0kWVbiKk9Cno&s",
+      "extensions": ["21 days ago", "Internship"],
+      "detected_extensions": {
+        "posted_at": "21 days ago",
+        "schedule_type": "Internship"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlciBJbnRlcm4iLCJodGlkb2NpZCI6Im10TE5RSldETWpTRUNVY05BQUFBQUE9PSIsImdsIjoidXMiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gQW5nZWxMaXN0IiwibGluayI6Imh0dHBzOi8vYW5nZWwuY28vY29tcGFueS9sYXVuY2hkYXJrbHkvam9icy8xNzA0ODA3LXNvZnR3YXJlLWVuZ2luZWVyLWludGVybj91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Software Engineering Intern",
+      "company_name": "The MITRE Corporation",
+      "location": "United States",
+      "via": "via Tarta.ai",
+      "description": "Why choose between doing meaningful work and having a fulfilling life? At MITRE, you can have both. That's because MITRE people are committed to tackling our nation's toughest challenges—and we're committed to the long-term well-being of our employees. MITRE is different from most technology companies. We are a not-for-profit corporation chartered to work for the public interest, with no commercial conflicts to influence what we do. The R&D centers we operate for the government create lasting impact in fields as diverse as cybersecurity, healthcare, aviation, defense, and enterprise transformation. We're making a difference every day—working for a safer, healthier, and more secure nation and world. Our workplace reflects our values. We offer competitive benefits, exceptional professional development opportunities, and a culture of innovation that embraces diversity, inclusion, flexibility, collaboration, and career growth. If this sounds like the choice you want to make, then choose... MITRE—and make a difference with us.\n\nAs a Software Engineering Intern at MITRE, you will enjoy an environment where you will work closely with other engineers in an organization that encourages and values collaboration, mentoring, and continuous learning. You will have the opportunity to leverage and grow your hands-on software engineering expertise as you contribute to real challenges across a variety of domains.\n\nYou will leverage and grow your hands-on skills with software design and development, engaging in the full software engineering lifecycle using modern technologies. You will gain experience with one or more of the following:\n• Software Development\n• DevSecOps\n• Cloud Engineering\n• Full-Stack Development\n• Modeling and Simulation\n• Model-Based Engineering\n\nJob Responsibilities\n\nYou will learn and apply new technologies to ever changing problems in a collaborative team and gain skills required to effectively communicate and present/demonstrate your work in a professional environment. You will design and develop software and working prototypes to support Air and Space Force systems and operations.\n\nRequired Qualifications:\n• Candidate must be pursuing a degree in a technical discipline (including, but not limited to Software Engineering, Computer Science, Computer Engineering, Mathematics, etc.)\n• Demonstrated ability and desire to quickly learn and apply new technologies\n• Ability to work both independently and collaboratively with colleagues\n• High level desire to help their nation solve its most critical challenges\n• Ability to obtain a secret security clearance\n\nPreferred Qualifications:\n• Hands-on skills in at least one object-oriented, procedural, functional, or declarative programming language (e.g., Java, C/C++/Objective-C/C#, Python, Go, NodeJS, JavaScript, Ruby)\n• Exposure to software development tools and frameworks, including source control management tools (e.g., Git)\n• Familiarity with Agile software development methodologies\n• Familiarity with DevSecOps framework and tools\n• Knowledge of software design patterns\n• Knowledge of database technologies, including relational or NoSQL\n• Strong written and verbal communication skills\n\nThis requisition requires the candidate to have a minimum of the following clearance(s):\nNone\n\nThis requisition requires the hired candidate to have or obtain, within one year from the date of hire, the following clearance(s):\nSecret\n\nMITRE requires all employees to be fully vaccinated against COVID-19. Newly hired employees must be fully vaccinated prior to their employment start date. MITRE will provide reasonable accommodation to those with a medical condition, disability or a sincerely held religious belief that prevents them from receiving a vaccine so long as it does not create an undue hardship for MITRE and/or does not pose a direct threat to the health or safety of the employee or others in the workplace.\n\nMITRE is proud to be an equal opportunity employer. MITRE recruits, employs, trains, compensates, and promotes regardless of age; ancestry; color; family medical or genetic information; gender identity and expression; marital, military, or veteran status; national and ethnic origin; physical or mental disability; political affiliation; pregnancy; race; religion; sex; sexual orientation; and any other protected characteristics. For further information please visit the Equal Employment Opportunity Commission website EEO is the Law Poster, EEO is the Law Poster-Supplement and Pay Transparency.\n\nMITRE intends to maintain a website that is fully accessible to all individuals. If you are unable to search or apply for jobs and would like to request a reasonable accommodation for any part of MITRE’s employment process, please contact MITRE’s Recruiting Help Line at 703-983-8226 or email at recruitinghelp@mitre.org.\n\nCopyright © 1997-2021, The MITRE Corporation. All rights reserved. MITRE is a registered trademark of The MITRE Corporation. Material on this site may be copied and distributed with permission only.\nBenefits information may be found here",
+      "extensions": ["4 days ago", "Internship"],
+      "detected_extensions": {
+        "posted_at": "4 days ago",
+        "schedule_type": "Internship"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlcmluZyBJbnRlcm4iLCJodGlkb2NpZCI6IkRLQ3dCV3FvRmprdmQ4X3RBQUFBQUE9PSIsImdsIjoidXMiLCJmYyI6IkV2Y0JDcmNCUVUxc2RuSndkSEUzT1dwSU1HMUhXV3BHTUVWcFpqQkRTVGRmVlhJNVFtbFJWbU5PVTI4eU5XRllTVzh4UzBnMlNUTjVNa3AzYm5WVVVGaHNORXMyY2s5TGQycDVNVzFQZEZOVVUzcHRTVzR4VERBeVNYVjNTbXBLUjNvNVdteHdUMDV0UlhZMk9ETjFUMGR5UkVkNlYxSkVha3RNZEY5aVVqTmpNMnhTT0cxblIwRnVRelpOYTFONU5VeHViMEowYW5kRFRGRjFRVUZUTmpFeFJtd3pUVE5FYkd4dGVWUk9WV1V3U2pObGNESndla1F6V1V0ekVoZFRUMGREV1dSWFgwdGZVMDEzWW10UUxXTnBiV3RCWXhvaVFVaFhVMDV0VlV4UVUwdDBVMVZ5UWpoT1RYaDBVMVJ5TUVoaWVXUXplbTF0VVEiLCJmY3YiOiIzIiwiZmNfaWQiOiJmY181OCIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJBcHBseSBvbiBUYXJ0YS5haSIsImxpbmsiOiJodHRwczovL3RhcnRhLmFpL2ovQ24zTTFId0JQVjQwNmw2WHV2V2ktc29mdHdhcmUtZW5naW5lZXJpbmctaW50ZXJuLWF0LXRoZS1taXRyZS1jb3Jwb3JhdGlvbj91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Software Engineer Intern (Summer 2022 - Austin)",
+      "company_name": "Optiver",
+      "location": "United States",
+      "via": "via Built In Austin",
+      "description": "It’s called an internship. But that doesn’t quite do it justice. Our software engineering interns build and release software just like our full-time engineers. After a two-week training program covering the fundamentals of our trading systems and engineering principles, you’ll join a team of senior engineers tasked with finding elegant solutions to complex problems. You won’t just have a chance to contribute, you’ll be expected to. After all, the best way to learn is to do.\nTechnology at Optiver:\nAs an engineer, you are a maker at heart. And at Optiver you will have the opportunity to take ownership of complex problems and craft solutions—to make stuff—from day one. Every day will bring fresh challenges that demand even fresher thinking. And the proprietary trading systems you build will directly impact financial markets that—either directly or indirectly—touch the lives of millions of people.\nWhat you’ll need:\nWorking towards a BS or MS in Computer Science, or related technical... field\nJunior standing\nKnowledge of algorithms, data structures, concurrency, and systems programming concepts\nExperience coding in C++, C#, C, or Java\nAbility to communicate and collaborate with developers, traders, and business operations on a daily basis\nExcitement to learn options trading and apply this knowledge toward well-crafted solutions\nLegal authorization to work in the U.S. is required; we will not sponsor individuals for employment authorization for this job opening\nWho we are:\nOptiver is a proprietary trading firm and leading global market maker. As one of the oldest market making institutions, we are a trusted partner of 50+ exchanges across the globe. Our mission is to constantly improve the market by injecting liquidity, providing accurate pricing, increasing transparency and acting as a stabilizing force no matter the market conditions. With a focus on continuous improvement, we participate in the safeguarding of healthy and efficient markets for everyone who participates.\n• We accept one application per role per year. If you have previously applied to the Software Engineer Intern position during this season and have been unsuccessful, you can reapply once the next recruitment season begins in 2022",
+      "extensions": ["Over 1 month ago", "Full-time"],
+      "detected_extensions": {
+        "posted_at": "Over 1 month ago",
+        "schedule_type": "Full-time"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlciBJbnRlcm4gKFN1bW1lciAyMDIyIC0gQXVzdGluKSIsImh0aWRvY2lkIjoiejlSWlk4bHpYNVo5QW1yTEFBQUFBQT09IiwiZ2wiOiJ1cyIsImZjIjoiRXVJQkNxSUJRVTFzZG5Kd2RsQmhVMDV6ZFRKTU9GOVhObWx4YkZWaFdHWnVTRGhPZW1oQ2MzaEtPRTltWTNZek1FUmZTMlJsYkZGUlZ6ZzJla3RvZEZkUWJrSldRbDg1ZEVaWGRXbHJiVnBWYlhGaFZWVXdkRTV2VldGQmNGbDNWRmxhTW1OSlVVbGhXRWhsTjJObVZ6ZHhOWFpMTFVnM1VGUkdVVTFzYWt0cmFFeDJiRkp4VWtsUVZrWlZTR3RrUm5aM2JYVmlkVkJCTTE5a1NIRXhWbWd0WmpneVZXOUJFaGRUVDBkRFdXUlhYMHRmVTAxM1ltdFFMV05wYld0Qll4b2lRVWhYVTA1dFdHUktWVXBZZFdjME4waFpiVEZHTlhaV1JsVXlVaTFzV2poRVVRIiwiZmN2IjoiMyIsImZjX2lkIjoiZmNfNjQiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gQnVpbHQgSW4gQXVzdGluIiwibGluayI6Imh0dHBzOi8vd3d3LmJ1aWx0aW5hdXN0aW4uY29tL2pvYi9pbnRlcm5zaGlwL3NvZnR3YXJlLWVuZ2luZWVyLWludGVybi1zdW1tZXItMjAyMi1hdXN0aW4vNzk2ODI/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    }
+  ],
+  "chips": [
+    {
+      "type": "Category",
+      "param": "gcat_category.id",
+      "options": [
+        { "text": "All" },
+        { "text": "Computer & IT", "value": "GC08" },
+        { "text": "Science & Engineering", "value": "GC27" },
+        { "text": "Manufacturing & Warehouse", "value": "GC19" },
+        { "text": "Accounting & Finance", "value": "GC01" },
+        { "text": "Business Operations", "value": "GC06" },
+        { "text": "Human Resources", "value": "GC15" },
+        { "text": "Admin & Office", "value": "GC02" },
+        { "text": "Advertising & Marketing", "value": "GC03" },
+        { "text": "Management", "value": "GC18" },
+        { "text": "Media, Communications & Writing", "value": "GC20" },
+        { "text": "Sales & Retail", "value": "GC26" }
+      ]
+    },
+    {
+      "type": "Title",
+      "param": "job_family_1",
+      "options": [
+        { "text": "All" },
+        { "text": "Software engineer", "value": "software engineer" },
+        { "text": "Software engineering", "value": "software engineering" },
+        { "text": "Engineering", "value": "engineering" },
+        { "text": "Engineer", "value": "engineer" },
+        { "text": "Advocate", "value": "advocate" },
+        { "text": "Associate", "value": "associate" },
+        { "text": "Assurance engineer", "value": "assurance engineer" },
+        { "text": "Business", "value": "business" },
+        { "text": "Coach", "value": "coach" },
+        { "text": "College graduate", "value": "college graduate" },
+        { "text": "Data engineer", "value": "data engineer" },
+        { "text": "Data engineering", "value": "data engineering" },
+        { "text": "Development engineer", "value": "development engineer" },
+        { "text": "Devops engineer", "value": "devops engineer" },
+        { "text": "Electrical engineering", "value": "electrical engineering" },
+        { "text": "Graduate", "value": "graduate" },
+        { "text": "Internships", "value": "internships" },
+        { "text": "Product engineer", "value": "product engineer" },
+        { "text": "Recruitment", "value": "recruitment" },
+        { "text": "Science", "value": "science" },
+        { "text": "Senior", "value": "senior" },
+        { "text": "Student", "value": "student" },
+        { "text": "System", "value": "system" },
+        { "text": "Technical", "value": "technical" },
+        { "text": "Test engineer", "value": "test engineer" }
+      ]
+    },
+    { "type": "Location", "param": "city", "options": [{ "text": "All" }] },
+    {
+      "type": "Date posted",
+      "param": "date_posted",
+      "options": [
+        { "text": "All" },
+        { "text": "Past day", "value": "today" },
+        { "text": "Past 3 days", "value": "3days" },
+        { "text": "Past week", "value": "week" },
+        { "text": "Past month", "value": "month" }
+      ]
+    },
+    {
+      "type": "Requirements",
+      "param": "requirements",
+      "options": [
+        { "text": "All" },
+        { "text": "No degree", "value": "no_degree" },
+        { "text": "No experience", "value": "no_experience" },
+        { "text": "Under 3 years of experience", "value": "years3under" },
+        { "text": "3+ years of experience", "value": "years3plus" }
+      ]
+    },
+    {
+      "type": "Type",
+      "param": "employment_type",
+      "options": [
+        { "text": "All" },
+        { "text": "Internship", "value": "INTERN" },
+        { "text": "Full-time", "value": "FULLTIME" },
+        { "text": "Part-time", "value": "PARTTIME" },
+        { "text": "Contractor", "value": "CONTRACTOR" }
+      ]
+    },
+    {
+      "type": "Company type",
+      "param": "industry.id",
+      "options": [
+        { "text": "All" },
+        { "text": "Information", "value": "/business/naics2007/51" },
+        { "text": "Manufacturing", "value": "/business/naics2007/31" },
+        { "text": "Computer Services", "value": "/business/naics2007/5415" },
+        { "text": "Finance", "value": "/business/naics2007/52" },
+        { "text": "Retail", "value": "/business/naics2007/44" },
+        { "text": "Education", "value": "/business/naics2007/61" },
+        { "text": "Construction", "value": "/business/naics2007/23" },
+        { "text": "Consulting", "value": "/business/naics2007/5416" },
+        { "text": "Wholesale", "value": "/business/naics2007/42" },
+        { "text": "Health Care", "value": "/business/naics2007/62" },
+        { "text": "Engineering Services", "value": "/business/naics2007/5413" },
+        { "text": "Advertising", "value": "/business/naics2007/5418" },
+        { "text": "Business Support", "value": "/business/naics2007/5614" },
+        { "text": "Mining", "value": "/business/naics2007/21" },
+        { "text": "Research", "value": "/business/naics2007/5417" },
+        { "text": "Utilities", "value": "/business/naics2007/22" }
+      ]
+    },
+    {
+      "type": "Employer",
+      "param": "organization_mid",
+      "options": [
+        { "text": "All" },
+        { "text": "MyGwork", "value": "/g/11bxb8n9lj" },
+        { "text": "Hp", "value": "/g/11b804x9ty" },
+        { "text": "TuSimple, Inc.", "value": "/g/11fy1s966f" },
+        { "text": "Addepar", "value": "/m/0swnrym" },
+        { "text": "CTI Education Group", "value": "/m/0gff0py" },
+        { "text": "Honeywell", "value": "/m/01gx66" },
+        { "text": "IBM", "value": "/m/03sc8" },
+        { "text": "L3Harris Technologies", "value": "/g/11fm6fqq8c" },
+        { "text": "Lumen", "value": "/m/07sw45" },
+        { "text": "Mitre Corporation", "value": "/m/02bzst" },
+        { "text": "Nvidia", "value": "/m/09rh_" },
+        { "text": "Okta", "value": "/m/0cqdqrq" },
+        { "text": "Oracle", "value": "/m/05njw" },
+        { "text": "T-Mobile", "value": "/m/013rs0" },
+        { "text": "Amazon", "value": "/m/0mgkg" },
+        { "text": "Anduril", "value": "/g/11f_j63lz8" },
+        { "text": "Apple", "value": "/m/0k8z" },
+        { "text": "Argo AI", "value": "/g/11fy1_ny3n" },
+        { "text": "Autodesk", "value": "/m/018nm3" },
+        { "text": "BMW of North America LLC.", "value": "/m/0sh119n" },
+        { "text": "CACI", "value": "/m/0310bt" },
+        { "text": "Cisco", "value": "/m/0dmtp" },
+        { "text": "Collins Aerospace", "value": "/m/0kv61y1" },
+        { "text": "CommScope", "value": "/m/03p1vrf" },
+        { "text": "Facebook", "value": "/m/0hmyfsv" },
+        { "text": "Gap Inc.", "value": "/m/01yfp7" },
+        { "text": "Google", "value": "/m/045c7b" },
+        { "text": "KBR", "value": "/m/01p3w3" },
+        { "text": "Lockheed Martin", "value": "/m/0hkqn" },
+        { "text": "Northrop Grumman", "value": "/m/01frmh" },
+        { "text": "Optiver", "value": "/g/15dp9p_p" },
+        { "text": "Quora", "value": "/g/11b7q_r604" },
+        { "text": "Schneider Electric", "value": "/m/0518qn" },
+        { "text": "TIBCO", "value": "/m/044qc6" },
+        { "text": "Textron Systems", "value": "/m/09mjcn8" },
+        { "text": "Trimble", "value": "/m/02_9hbt" },
+        { "text": "UnitedHealth Group", "value": "/m/060jqm" },
+        { "text": "Waymo", "value": "/g/11bc5cglk9" },
+        { "text": "Wish", "value": "/g/11f3wlxfqn" },
+        { "text": "10x Genomics", "value": "/g/11h6yf7wtf" },
+        {
+          "text": "31 MSI - (Marvell Semiconductor Inc.) US",
+          "value": "/m/09mv71y"
+        },
+        { "text": "Abaco Systems", "value": "/g/11fy280r6y" }
+      ]
+    },
+    {
+      "type": "State",
+      "param": "state",
+      "options": [
+        { "text": "All" },
+        { "text": "Alabama", "value": "1" },
+        { "text": "Alaska", "value": "2" },
+        { "text": "Arizona", "value": "4" },
+        { "text": "Arkansas", "value": "5" },
+        { "text": "California", "value": "6" },
+        { "text": "Colorado", "value": "8" },
+        { "text": "Connecticut", "value": "9" },
+        { "text": "Delaware", "value": "10" },
+        { "text": "District of Columbia", "value": "11" },
+        { "text": "Florida", "value": "12" },
+        { "text": "Georgia", "value": "13" },
+        { "text": "Hawaii", "value": "15" },
+        { "text": "Idaho", "value": "16" },
+        { "text": "Illinois", "value": "17" },
+        { "text": "Indiana", "value": "18" },
+        { "text": "Iowa", "value": "19" },
+        { "text": "Kansas", "value": "awF8cXEXo4dfCT5LqbTCaA==" },
+        { "text": "Kentucky", "value": "21" },
+        { "text": "Louisiana", "value": "22" },
+        { "text": "Maine", "value": "23" },
+        { "text": "Maryland", "value": "24" },
+        { "text": "Massachusetts", "value": "25" },
+        { "text": "Michigan", "value": "26" },
+        { "text": "Minnesota", "value": "27" },
+        { "text": "Mississippi", "value": "28" },
+        { "text": "Missouri", "value": "29" },
+        { "text": "Montana", "value": "30" },
+        { "text": "Nebraska", "value": "31" },
+        { "text": "Nevada", "value": "32" },
+        { "text": "New Hampshire", "value": "33" },
+        { "text": "New Jersey", "value": "34" },
+        { "text": "New Mexico", "value": "35" },
+        { "text": "New York", "value": "36" },
+        { "text": "North Carolina", "value": "37" },
+        { "text": "North Dakota", "value": "38" },
+        { "text": "Ohio", "value": "39" },
+        { "text": "Oklahoma", "value": "40" },
+        { "text": "Oregon", "value": "41" },
+        { "text": "Pennsylvania", "value": "42" },
+        { "text": "Rhode Island", "value": "44" },
+        { "text": "South Carolina", "value": "45" },
+        { "text": "South Dakota", "value": "46" },
+        { "text": "Tennessee", "value": "47" },
+        { "text": "Texas", "value": "48" },
+        { "text": "Utah", "value": "49" },
+        { "text": "Vermont", "value": "50" },
+        { "text": "Virginia", "value": "51" },
+        { "text": "Washington", "value": "53" },
+        { "text": "West Virginia", "value": "54" },
+        { "text": "Wisconsin", "value": "55" },
+        { "text": "Wyoming", "value": "56" },
+        { "text": "American Samoa", "value": "60" },
+        { "text": "Federated States of Micronesia", "value": "64" },
+        { "text": "Guam", "value": "66" },
+        { "text": "Marshall Islands", "value": "68" },
+        { "text": "Northern Mariana Islands", "value": "69" },
+        { "text": "Palau", "value": "70" },
+        { "text": "Puerto Rico", "value": "72" },
+        { "text": "US Minor Outlying Islands", "value": "74" },
+        { "text": "US Virgin Islands", "value": "78" }
+      ]
+    }
+  ]
+}

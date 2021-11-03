@@ -2,24 +2,40 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+const DetectedExtensionsSchema = new Schema({
+  posted_at: {
+    type: String,
+  },
+  schedule_type: {
+    type: String,
+  },
+  work_from_home: {
+    type: Boolean,
+  },
+});
+
 const JobSchema = new Schema({
-  position: {
+  title: {
     type: String,
-    required: true,
   },
+  company_name: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  via: { type: String },
   description: { type: String },
-  salary_range: {
+  thumbnail: {
     type: String,
   },
-  company: {
-    type:String,
-    requried: true
-    // type: Schema.Types.ObjectId,
-    // // ref: "Company",
-    // // required: true,
-  
+  detected_extensions: {
+    type: DetectedExtensionsSchema,
   },
-  status: {
+  job_id: {
+    type: String,
+  },
+  link: {
     type: String,
   },
   creation_date: {

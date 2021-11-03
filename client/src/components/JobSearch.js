@@ -8,31 +8,37 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 
 function Home() {
+  const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const history = useHistory();
+
+  const handleQueryChange = (event) => {
+    setQuery(event.target.value);
+  };
 
   const handleSearchByRole = () => {
-    const data = {};
-    axios
-      .post("http://localhost:5000/getAPI", {
-        data,
-      })
-      .then((response) => {
-        console.log(response);
-        const data = response.data;
-        const jobResults = data.values.jobs_results;
-        console.log(jobResults);
-        setJobs(jobResults);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const data = { query };
   };
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/jobs");
+        console.log(response.data);
+        setJobs(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchJobs();
+  }, []);
 
   const handleToggleFavorites = (jobId) => {
     if (favorites.includes(jobId)) {
@@ -52,9 +58,6 @@ function Home() {
 
   return (
     <Box id="search">
-      <Box>
-        <Typography></Typography>
-      </Box>
       <Box marginRight={2} marginLeft={2} marginTop={2}>
         <Paper elevation={2}>
           <Box padding={3}>
@@ -63,7 +66,12 @@ function Home() {
                 <Typography>What role are you searching for?</Typography>
               </Box>
               <Box flexGrow={1} marginRight={2}>
-                <TextField fullWidth label="Enter Role" variant="outlined" />
+                <TextField
+                  fullWidth
+                  label="Enter Role"
+                  variant="outlined"
+                  onChange={handleQueryChange}
+                />
               </Box>
               <Box>
                 <Button variant="outlined" onClick={handleSearchByRole}>
@@ -91,10 +99,10 @@ function Home() {
                         <Box>
                           <IconButton
                             onClick={() => {
-                              handleToggleFavorites(job.job_id);
+                              handleToggleFavorites(job._id);
                             }}
                           >
-                            {favorites.includes(job.job_id) ? (
+                            {favorites.includes(job._id) ? (
                               <StarIcon style={{ color: "#cfc644" }} />
                             ) : (
                               <StarBorderIcon />
@@ -122,8 +130,14 @@ function Home() {
                     <Box>
                       <Toolbar disableGutters>
                         <Box flexGrow={1} textAlign="left">
-                          <Button variant="outlined" size="small">
-                            Read more
+                          <Button
+                            variant="outlined"
+                            size="small"
+                            onClick={() => {
+                              history.push(`/jobs/${job._id}`);
+                            }}
+                          >
+                            See more
                           </Button>
                         </Box>
                         <Box>
@@ -188,7 +202,6 @@ export default Home;
 //     })
 //     .catch((error) => console.error("Error:", error));
 // }
-
 
 // function SearchAPI() {
 //   // const data = { roleName: document.getElementById('roleQuery').value + " " + document.getElementById('') };
@@ -275,7 +288,6 @@ export default Home;
 //     .catch((error) => console.error("Error:", error));
 //   };
 
-
 // const CompanySubmit = () => {
 //   const data = { companyName: document.getElementById('CompanyQuery').value };
 //   fetch("http://localhost:5000/getJobsByCompany", {
@@ -295,7 +307,6 @@ export default Home;
 //         list.appendChild(listing);
 //         listing.classList.add("job");
 //       }
-
 
 //     })
 //     .catch((error) => console.error("Error:", error));
