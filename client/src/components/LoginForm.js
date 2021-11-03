@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import {loggedin} from "./Navbar"
+// import {loggedin} from "./Navbar"
 
 function LoginForm() {
   const [username, setEmail] = useState("");
@@ -27,21 +27,25 @@ function LoginForm() {
     })
       .then((res) => res.json())
       .then((response) => {
-        alert((response.message))
+        alert(response.message);
         if (response.success) {
-          localStorage.setItem("username", data.username)
-          localStorage.setItem("token", response.accessToken)
-          loggedin()
-
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("token", response.accessToken);
+          // loggedin()
         }
       })
       .catch((error) => console.error("Error:", error));
-  
-    };
+  };
 
   return (
-
-    <Box  id="loginForm"display="none" marginTop={3} marginLeft="auto" marginRight="auto" maxWidth={400}>
+    <Box
+      id="loginForm"
+      // display="none"
+      marginTop={3}
+      marginLeft="auto"
+      marginRight="auto"
+      maxWidth={400}
+    >
       <Paper elevation={3}>
         <Box padding={3}>
           <Box marginBottom={2}>

@@ -4,11 +4,11 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import LoginOn from "./Navbar"
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
+import LoginOn from "./Navbar";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 
-function Register() {
+function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -36,17 +36,24 @@ function Register() {
     setPassword(event.target.value);
   };
   const majors = [
-    'Computer Science',
-    'Biomedical Engineering',
-    'Computer Engineering',
-    'Data Science',
-    'Electrical Engineering',
-    'Chemical Engineering',
-    'Mechanical Engineering',
+    "Computer Science",
+    "Biomedical Engineering",
+    "Computer Engineering",
+    "Data Science",
+    "Electrical Engineering",
+    "Chemical Engineering",
+    "Mechanical Engineering",
   ];
 
   const handleSubmit = () => {
-    const data = { username: username, password: password, email: email, major: major,role:role,location:loc };
+    const data = {
+      username: username,
+      password: password,
+      email: email,
+      major: major,
+      role: role,
+      location: loc,
+    };
     console.log(data);
     fetch("http://localhost:5000/register", {
       method: "POST",
@@ -55,17 +62,23 @@ function Register() {
     })
       .then((res) => res.json())
       .then((response) => {
-        alert((response.message))
+        alert(response.message);
         if (response.success) {
-          LoginOn()
+          LoginOn();
         }
       })
       .catch((error) => console.error("Error:", error));
-        };
+  };
 
   return (
-
-    <Box id="registerForm" display="none" marginTop={3} marginLeft="auto" marginRight="auto" maxWidth={400}>
+    <Box
+      id="registerForm"
+      // display="none"
+      marginTop={3}
+      marginLeft="auto"
+      marginRight="auto"
+      maxWidth={400}
+    >
       <Paper elevation={3}>
         <Box padding={3}>
           <Box marginBottom={2}>
@@ -98,7 +111,6 @@ function Register() {
               onChange={handleEmailChange}
             />
           </Box>
-
           <Box marginBottom={2}>
             <Select
               value={major}
@@ -106,10 +118,10 @@ function Register() {
               fullWidth
               onChange={handleMajorChange}
             >
-              <MenuItem value={majors[0]} >Computer Science</MenuItem>
+              <MenuItem value={majors[0]}>Computer Science</MenuItem>
               <MenuItem value={majors[1]}>Biomedical Engineering</MenuItem>
               <MenuItem value={majors[2]}>Computer Engineering</MenuItem>
-              <MenuItem value={majors[3]} >Data Science</MenuItem>
+              <MenuItem value={majors[3]}>Data Science</MenuItem>
               <MenuItem value={majors[4]}>Electrical Engineering</MenuItem>
               <MenuItem value={majors[5]}>Chemical Engineering</MenuItem>
             </Select>
@@ -124,14 +136,14 @@ function Register() {
             />
           </Box>
           <Box marginBottom={2}>
-          <TextField
+            <TextField
               label="Desired Location"
               type="text"
               fullWidth
               value={loc}
               onChange={handleLocChange}
             />
-            </Box>
+          </Box>
           <Box>
             <Button variant="contained" onClick={handleSubmit}>
               Register
@@ -143,4 +155,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegisterForm;

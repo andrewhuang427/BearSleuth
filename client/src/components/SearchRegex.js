@@ -1,6 +1,3 @@
-
-
-
 function LanguageFind(string) {
     var languagesfind = /(?:C\#|C\++|Java\b|JavaScript|\bC\b|Python|Ruby|\bGo\b|Swift|PHP|OOP|Object Oriented Language|\bR\b)/gi;
     var j = (new Set(string.description.toLowerCase().match(languagesfind)))
