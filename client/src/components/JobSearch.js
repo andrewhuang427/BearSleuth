@@ -57,7 +57,7 @@ function Home() {
 
   useEffect(() => {
     console.log(favorites);
-    let username="Bob";
+    let username="bob";
     let data={ user:username, fav:favorites};
     console.log(favorites);
     fetch("http://localhost:5000/setFavorites", {

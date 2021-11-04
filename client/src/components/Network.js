@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 function Network() {
+  console.log('test');
   getHistory();
   getFriends();
   //console.log(favorites);
@@ -88,7 +89,7 @@ function Network() {
       </div>
       <div id="recommendedSection">
         <div className="title">
-       Recommended Jobs:
+       R  ecommended Jobs:
         <div id="recs"> 
 
         </div>
