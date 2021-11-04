@@ -156,6 +156,21 @@ app.post("/addHistory", async (request, response) => {
     }
   );
 });
+app.post("/setFavorites", async (request, response) => {
+  data = request.body;
+  query = usermodel.updateOne(
+    { username: data.user },
+    { $set: {favorites: data.fav }},
+    function (err, users) {
+      if (err) {
+        return err;
+      } else {
+        ret = { success: true };
+        response.json(ret);
+      }
+    }
+  );
+});
 
 app.post("/getHistory", async (request, response) => {
   data = request.body;

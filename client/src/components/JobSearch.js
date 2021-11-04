@@ -43,17 +43,34 @@ function Home() {
   const handleToggleFavorites = (jobId) => {
     if (favorites.includes(jobId)) {
       // remove from favories
+      //console.log(jobId);
       setFavorites(favorites.filter((fav) => fav != jobId));
     } else {
       // add to favorites
       let newFavs = [...favorites];
       newFavs.push(jobId);
       setFavorites(newFavs);
+      
     }
   };
 
   useEffect(() => {
     console.log(favorites);
+    let username="Bob";
+    let data={ user:username, fav:favorites};
+    console.log(favorites);
+    fetch("http://localhost:5000/setFavorites", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      if (response.success) {
+        console.log("Favorites Updated");
+      }
+    })
+    .catch((error) => console.error("Error:", error));
   }, [favorites]);
 
   return (

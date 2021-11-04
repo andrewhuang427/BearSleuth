@@ -34,6 +34,10 @@ const UserSchema = new Schema(
       type:Array,
       required:false,
     },
+    favorites:{
+      type:Array,
+      required:false,
+    },
     desiredRole: {
       type: String,
       unique: true,

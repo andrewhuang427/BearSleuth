@@ -3,6 +3,63 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 function Network() {
+  getHistory();
+  getFriends();
+  //console.log(favorites);
+  //getRecs();
+  function getRecs(){
+    let role="SWE";
+    let data={role:role};
+    fetch("http://localhost:5000/getRecs", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        if (response.success) {
+           let recs=response.values;
+           console.log(recs);
+          const recList = document.getElementById("recs");
+            recList.innerHTML = "";
+            for (let i = 0; i < recs.length; i++){
+                const job = document.createElement("div");
+                let name=document.createElement("p");
+                name.innerText=recs[i].position+" at "+ recs[i].company;
+                job.appendChild(name);
+                recList.appendChild(job);
+              }
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+  
+  }
+  function getHistory(){
+    let current="bob";
+    const data={username:current};
+    fetch("http://localhost:5000/getHistory", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        if (response.success) {
+            let history=response.values[0].history;
+            const previousHistory = document.getElementById("last5Jobs");
+            previousHistory.innerHTML = "";
+          console.log(history);
+            for (let i = history.length-1; i >= history.length-5; i--){
+                const job = document.createElement("div");
+                let jobVisitedName=document.createElement("p");
+                jobVisitedName.innerText=history[i];
+                job.appendChild(jobVisitedName);
+                previousHistory.appendChild(job);
+              }
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+  }
   return (
     <>
       <Box id="searchFriend">
@@ -21,6 +78,23 @@ function Network() {
           <div className="title">Friends:</div>
           <div id="friends"></div>
         </div>
+        <div id="previousHistory">
+        <div className="title">
+        Recently Viewed Jobs:
+        <div id="last5Jobs"> 
+
+        </div>
+        </div>
+      </div>
+      <div id="recommendedSection">
+        <div className="title">
+       Recommended Jobs:
+        <div id="recs"> 
+
+        </div>
+        </div>
+        
+      </div>
       </Box>
     </>
   );
@@ -35,7 +109,6 @@ function getFriends() {
   })
     .then((res) => res.json())
     .then((response) => {
-      alert(response.message);
       if (response.success) {
         let friendsList = response.values[0].friends;
         const friends = document.getElementById("friends");
@@ -68,9 +141,9 @@ function addFriend(e) {
   })
     .then((res) => res.json())
     .then((response) => {
-      alert(response.message);
       if (response.success) {
         //console.log("useradded");
+        getFriends();
       }
     })
     .catch((error) => console.error("Error:", error));
