@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
-import Divider from "@mui/material/Divider"
+import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
@@ -13,7 +13,6 @@ import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 import axios from "axios";
@@ -61,17 +60,20 @@ function JobDetails({ jobId }) {
             <Grid item xs={12} sm={7}>
               <Paper>
                 <Box padding={5}>
-                  <Box textAlign="left" fontWeight={800} color={"#137658"}>
+                  <Box textAlign="left" fontWeight={800} color={"#137658"} marginBottom={2}>
                     <Toolbar disableGutters>
+                      <Box marginRight={2}>
+                        <Avatar src={job.thumbnail} />
+                      </Box>
                       <Box flexGrow={1}>
                         <Typography variant="h6">{job.company_name}</Typography>
                       </Box>
                     </Toolbar>
                   </Box>
-                  <Box textAlign="left" marginBottom={2}>
+                  <Box textAlign="left" marginBottom={3}>
                     <Typography variant="subtitle1">{job.title}</Typography>
                   </Box>
-                  <Box marginBottom={2}>
+                  <Box marginBottom={3}>
                     <Tags Details={job.detected_extensions} />
                   </Box>
                   <Box marginBottom={3} textAlign="left" color="#616161">
@@ -92,7 +94,10 @@ function JobDetails({ jobId }) {
                     <Box textAlign="left" fontWeight={800}>
                       <Toolbar disableGutters>
                         <Box flexGrow={1}>
-                          <Typography variant="subtitle1"> Job Actions</Typography>
+                          <Typography variant="subtitle1">
+                            {" "}
+                            Job Actions
+                          </Typography>
                         </Box>
                       </Toolbar>
                     </Box>

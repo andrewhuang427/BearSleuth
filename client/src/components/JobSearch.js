@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -86,11 +87,22 @@ function Home() {
         <Grid container spacing={2}>
           {jobs.map((job) => {
             return (
-              <Grid item xs={12} sm={4} md={3}>
+              <Grid item xs={12} sm={4}>
                 <Paper elevation={2} style={{ height: "100%" }}>
                   <Box padding={3}>
-                    <Box textAlign="left" fontWeight={800} color={"#137658"}>
+                    <Box
+                      textAlign="left"
+                      fontWeight={800}
+                      color={"#137658"}
+                      marginBottom={1}
+                    >
                       <Toolbar disableGutters>
+                        <Box marginRight={2}>
+                          <Avatar
+                            src={job.thumbnail}
+                            sx={{ height: 30, width: 30 }}
+                          />
+                        </Box>
                         <Box flexGrow={1}>
                           <Typography variant="h6">
                             {job.company_name}
@@ -111,7 +123,7 @@ function Home() {
                         </Box>
                       </Toolbar>
                     </Box>
-                    <Box textAlign="left" marginBottom={2}>
+                    <Box textAlign="left" marginBottom={3}>
                       <Typography variant="subtitle1">{job.title}</Typography>
                     </Box>
                     <Box

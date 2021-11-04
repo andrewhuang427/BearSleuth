@@ -110,7 +110,7 @@ export default function Navbar() {
 
   return (
     <Box flexGrow={1}>
-      <AppBar position="static" style={{ background: "#dedede" }}>
+      <AppBar position="static" style={{ background: "#fefefe" }}>
         <Toolbar>
           <Box marginRight={1}>
             <IconButton>
@@ -127,7 +127,7 @@ export default function Navbar() {
             />
           </Box>
           <Box>
-            <Button
+            {/* <Button
               id="loginButton"
               display="block"
               color="inherit"
@@ -136,8 +136,8 @@ export default function Navbar() {
               }}
             >
               Login
-            </Button>
-            <Button
+            </Button> */}
+            {/* <Button
               id="RegistrationButton"
               display="block"
               color="inherit"
@@ -146,18 +146,25 @@ export default function Navbar() {
               }}
             >
               New Account
+            </Button> */}
+            <Button
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              Jobs
             </Button>
             <Button
               id="network"
               onClick={() => {
-                history.push("/network");
+                history.push("/me");
               }}
             >
-              Your Network
+              Profile
             </Button>
-            <Button id="logoutBut" onClick={handleLogout}>
+            {/* <Button id="logoutBut" onClick={handleLogout}>
               Logout
-            </Button>
+            </Button> */}
           </Box>
           {/* <Box id="loginGroup" display="none">
             <DropDownMenu />
