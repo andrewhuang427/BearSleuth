@@ -2,8 +2,16 @@ const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const LoginReg = require("./routes/login-register.js");
+const http = require("http");
+const socketIO = require("socket.io");
 
 const app = express();
+const server = http.createServer(app);
+
+const io = socketIO(server, {
+  cors: true,
+  origins:["localhost:3000"]
+});
 
 // ----- Import API Routes -----
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
