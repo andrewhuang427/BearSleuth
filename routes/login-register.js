@@ -184,6 +184,17 @@ app.post("/getHistory", async (request, response) => {
     }
   );
 });
+app.post("/getFavorites", async (request, response) => {
+  data = request.body;
+  query = usermodel.find(
+    { username: { $regex: data.username } },
+    function (err, jobs) {
+      if (err) return err;
+      ret = { values: jobs, success: true };
+      response.json(ret);
+    }
+  );
+});
 app.post("/getRecs", async (request, response) => {
   data = request.body;
   console.log(data);
