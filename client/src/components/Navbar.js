@@ -56,6 +56,7 @@ import "./test.css";
 //   document.getElementById("searchFriend").style.display = "block";
 // }
 
+
 function DropDownMenu() {
   const [opened, setOpened] = useState(null);
   const open = Boolean(opened);
@@ -91,6 +92,61 @@ function DropDownMenu() {
   );
 }
 
+function Login(props) {
+  let history = useHistory();
+  if (!localStorage.getItem("username")){
+    return (
+      <Box>
+        <Button
+          id="loginButton"
+          display="block"
+          color="inherit"
+          onClick={() => {
+             history.push("/login");
+          }}
+        >
+          Login
+        </Button>
+        <Button
+          id="RegistrationButton"
+          display="block"
+          color="inherit"
+          onClick={() => {
+             history.push("/register");
+          }}
+        >
+          New Account
+        </Button>
+      </Box>
+    )
+  }
+  else {
+    return (
+      <Box>
+        <Button
+          onClick={() => {
+            history.push("/");
+          }}
+        >
+          Jobs
+        </Button>
+        <Button
+          id="network"
+          onClick={() => {
+            history.push("/me");
+          }}
+        >
+          Profile
+        </Button>
+      </Box>
+    )
+  }
+}
+
+
+
+
+
 function stringAvatar(name) {
   if (localStorage.getItem("username")) {
     name = localStorage.getItem("username");
@@ -105,7 +161,6 @@ function stringAvatar(name) {
 
 export default function Navbar() {
   let history = useHistory();
-
   const handleLogout = () => {};
 
   return (
@@ -126,46 +181,7 @@ export default function Navbar() {
               }}
             />
           </Box>
-          <Box>
-            {/* <Button
-              id="loginButton"
-              display="block"
-              color="inherit"
-              onClick={() => {
-                history.push("/login");
-              }}
-            >
-              Login
-            </Button> */}
-            {/* <Button
-              id="RegistrationButton"
-              display="block"
-              color="inherit"
-              onClick={() => {
-                history.push("/register");
-              }}
-            >
-              New Account
-            </Button> */}
-            <Button
-              onClick={() => {
-                history.push("/");
-              }}
-            >
-              Jobs
-            </Button>
-            <Button
-              id="network"
-              onClick={() => {
-                history.push("/me");
-              }}
-            >
-              Profile
-            </Button>
-            {/* <Button id="logoutBut" onClick={handleLogout}>
-              Logout
-            </Button> */}
-          </Box>
+          <Login/>
           {/* <Box id="loginGroup" display="none">
             <DropDownMenu />
           </Box> */}

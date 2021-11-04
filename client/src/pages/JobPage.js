@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import JobDetails from "../components/JobDetails";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 function JobPage() {
+  let history = useHistory();
+  if (!localStorage.getItem("username")){
+    history.push("/login");
+  }
+
   const { jobId } = useParams();
 
   return (

@@ -5,8 +5,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 // import {loggedin} from "./Navbar"
+import { useHistory } from "react-router-dom";
+
 
 function LoginForm() {
+  let history = useHistory();
   const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,6 +34,7 @@ function LoginForm() {
         if (response.success) {
           localStorage.setItem("username", data.username);
           localStorage.setItem("token", response.accessToken);
+          history.push("/home")
           // loggedin()
         }
       })

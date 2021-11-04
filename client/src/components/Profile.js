@@ -21,11 +21,21 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import StarIcon from "@mui/icons-material/Star";
 import ShareIcon from "@mui/icons-material/Share";
-
+import { useHistory } from "react-router-dom";
 import { deepOrange, green } from "@mui/material/colors";
 
+
+
+
+
 function Profile() {
-  return (
+  let history = useHistory();
+  const logout = () => {
+    localStorage.removeItem("username")
+    localStorage.removeItem("token")
+    history.push('/login')
+  }
+    return (
     <Box marginLeft={2} marginRight={2} marginTop={2}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
@@ -54,7 +64,7 @@ function Profile() {
                   </Button>
                 </Box>
                 <Box>
-                  <Button variant="outlined" size="small">
+                  <Button variant="outlined" size="small" onClick={logout}>
                     Logout
                   </Button>
                 </Box>
