@@ -7,6 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
+import Grid from "@mui/material/Grid";
 import Logo from "../BearSleuth(site).png";
 import { useHistory } from "react-router-dom";
 import { deepOrange } from "@mui/material/colors";
@@ -58,13 +59,16 @@ import "./test.css";
 
 
 function DropDownMenu() {
-  const [opened, setOpened] = useState(null);
+  const [anchor, setAnchor] = useState(null);
+  const [opened, setOpened] = useState(false);
   const open = Boolean(opened);
 
-  function handleClick() {
+  const handleClick = (event) => {
+    setAnchor(event.currentTarget)
     setOpened(!opened);
   }
   function handleClose() {
+    setAnchor(null)
     setOpened(null);
   }
 
@@ -81,16 +85,55 @@ function DropDownMenu() {
       </Button>
       <Menu
         id="basic-menu"
+        anchorEl = {anchor}
         opened={opened}
         open={open}
         onClose={handleClose}
+        anchorOrigin = {{
+          vertical: "top",
+          horizontal: 'left'
+        }}
+        trnasformOrigin={{
+          vertical:"top",
+          horizontal:"left"
+        }}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
-      ></Menu>
+      >
+        <Options/>
+      </Menu>
     </div>
   );
 }
+
+
+function Options() {
+  const logout = () => {
+    localStorage.removeItem("username")
+    localStorage.removeItem("token")
+    history.push('/login')
+  }
+  let history = useHistory();
+  return (
+    <Box>
+      <Button
+        id="network"
+        onClick={() => {
+          history.push("/me")
+        }}
+      > Profile
+      </Button>
+      <Button
+        id="logout"
+        onClick={logout}>
+      Logout
+      </Button>
+    </Box>
+
+  )
+}
+
 
 function Login(props) {
   let history = useHistory();
@@ -99,8 +142,6 @@ function Login(props) {
       <Box>
         <Button
           id="loginButton"
-          display="block"
-          color="inherit"
           onClick={() => {
              history.push("/login");
           }}
@@ -109,8 +150,6 @@ function Login(props) {
         </Button>
         <Button
           id="RegistrationButton"
-          display="block"
-          color="inherit"
           onClick={() => {
              history.push("/register");
           }}
@@ -122,23 +161,20 @@ function Login(props) {
   }
   else {
     return (
-      <Box>
-        <Button
-          onClick={() => {
-            history.push("/");
-          }}
-        >
-          Jobs
-        </Button>
-        <Button
-          id="network"
-          onClick={() => {
-            history.push("/me");
-          }}
-        >
-          Profile
-        </Button>
-      </Box>
+      <Grid container justifyContent = "flex-end" alignItems="center">
+        <Grid item xs={0} justify="center">
+          <Button
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            Jobs
+          </Button>
+        </Grid>
+        <Grid item xs={1}>
+          <DropDownMenu />
+        </Grid>
+      </Grid>
     )
   }
 }
@@ -182,9 +218,6 @@ export default function Navbar() {
             />
           </Box>
           <Login/>
-          {/* <Box id="loginGroup" display="none">
-            <DropDownMenu />
-          </Box> */}
         </Toolbar>
       </AppBar>
     </Box>
