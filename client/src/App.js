@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage";
 import NetworkPage from "./pages/NetworkPage";
 import JobPage from "./pages/JobPage";
 import ProfilePage from "./pages/ProfilePage";
+import ChatPage from "./pages/ChatPage";
 // User Context
 import UserContext from "./providers/UserContext";
 import axios from "axios";
@@ -67,6 +68,9 @@ function App() {
             </Route>
             <Route path="/home">
               <HomePage />
+            </Route>
+            <Route path="/chat">
+              <ChatPage />
             </Route>
           </Switch>
         </Router>

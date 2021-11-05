@@ -170,6 +170,13 @@ function Login(props) {
           >
             Jobs
           </Button>
+          <Button
+            onClick={() => {
+              history.push("/chat");
+            }}
+          >
+            Chat
+          </Button>
         </Grid>
         <Grid item xs={1}>
           <DropDownMenu />
