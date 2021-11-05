@@ -91,7 +91,7 @@ function Home() {
   };
 
   const refreshFavs = () => {
-    if (user != null) {
+    if (user != null && user.favorites != null) {
       let newFavs = [];
       for (let i = 0; i < user.favorites.length; ++i) {
         newFavs.push(user.favorites[i]._id);
