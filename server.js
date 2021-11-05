@@ -10,16 +10,16 @@ const server = http.createServer(app);
 
 const io = socketIO(server, {
   cors: true,
-  origins:["localhost:3000"]
+  origins: ["localhost:3000"],
 });
 
 // ----- Import API Routes -----
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
-const { JobRouter } = require("./routes/JobRoutes");
+const UserRoutes = require("./routes/UserRoutes");
+const JobRouter = require("./routes/JobRoutes");
 
 // ----- Job Scraping Route -----
-const { removeAllJobs, scrapeJobs } = require("./utils/ScrapeJobs");
-
+// const { removeAllJobs, scrapeJobs } = require("./utils/ScrapeJobs");
 // removeAllJobs()
 // scrapeJobs()
 
@@ -46,6 +46,7 @@ mongoose
 // ----- API Routes ----
 app.use("/api/auth", AuthenticationRoutes);
 app.use("/api/jobs", JobRouter);
+app.use("/api/user", UserRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello Word!");

@@ -26,18 +26,12 @@ const UserSchema = new Schema(
       type: String,
       required: false,
     },
-    friends:{
-      type:Array,
-      required:false,
+    friends: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    history: {
+      type: Array,
+      required: false,
     },
-    history:{
-      type:Array,
-      required:false,
-    },
-    favorites:{
-      type:Array,
-      required:false,
-    },
+    favorites: [{ type: Schema.Types.ObjectId, ref: "Job" }],
     desiredRole: {
       type: String,
       unique: true,
@@ -47,7 +41,7 @@ const UserSchema = new Schema(
       type: String,
       unique: true,
       required: false,
-    }
+    },
   },
   { _id: true }
 );
@@ -55,4 +49,3 @@ const UserSchema = new Schema(
 const UserModel = mongoose.model("User", UserSchema);
 
 module.exports = UserModel;
-

@@ -28,6 +28,4 @@ JobRouter.route("/create").post((req, res) => {
   res.status(200).json({ msg: "create job endpoint" });
 });
 
-module.exports = {
-  JobRouter,
-};
+module.exports = JobRouter

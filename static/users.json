@@ -1,0 +1,262 @@
+[
+  {
+    "_id": "6184cc3e39e2e939576ebd2f",
+    "username": "andrewhuang",
+    "major": "Computer Science",
+    "friends": [
+      {
+        "_id": "6184ccba39e2e939576ebeee",
+        "username": "testUser",
+        "email": "testuser@gmail.com",
+        "hash": "$2b$10$OPBfCi6iogirqQ0uu48xfOvV0tkI3.HGtRs.nf8T1ocakOqyjyFgm",
+        "major": "Data Science",
+        "friends": [
+          "6184cc6e39e2e939576ebd7d",
+          "6184ccba39e2e939576ebeee",
+          "6184cc3e39e2e939576ebd2f"
+        ],
+        "history": [],
+        "favorites": [],
+        "desiredRole": "Data Scientist",
+        "desiredLocation": "New York City",
+        "register_date": "2021-11-05T06:18:34.726Z",
+        "__v": 0
+      },
+      {
+        "_id": "6184cc6e39e2e939576ebd7d",
+        "username": "andrewhuang427",
+        "email": "andrewhuang427@gmail.com",
+        "hash": "$2b$10$D9jX4eR64UeF8usju1bUx.LVhJO/Fizfh8O9bH7SPOltFVxMNgjNa",
+        "major": "Biomedical Engineering",
+        "friends": ["6184ccba39e2e939576ebeee"],
+        "history": [],
+        "favorites": [
+          "6182e4aab71bef72c55426e3",
+          "6182e4abb71bef72c55426f1",
+          "6182e4abb71bef72c55426eb",
+          "6182e4ce87fe30cfe35abff5",
+          "6182e4aab71bef72c55426e5"
+        ],
+        "desiredRole": "Biomedical Engineer",
+        "desiredLocation": "Boston",
+        "register_date": "2021-11-05T06:17:18.180Z",
+        "__v": 0
+      },
+      {
+        "_id": "6184cc3e39e2e939576ebd2f",
+        "username": "andrewhuang",
+        "email": "ahuang2000@gmail.com",
+        "hash": "$2b$10$oD/B2Vhr/ZetxLcfYgFP1.kta.zBYp30X8ZEnggMJjhoD5rsRQE5O",
+        "major": "Computer Science",
+        "friends": [
+          "6184ccba39e2e939576ebeee",
+          "6184cc6e39e2e939576ebd7d",
+          "6184cc3e39e2e939576ebd2f"
+        ],
+        "history": [],
+        "favorites": ["6182e4e1b4f5ec771aec4f32"],
+        "desiredRole": "Software Engineer",
+        "desiredLocation": "San Francisco",
+        "register_date": "2021-11-05T06:16:30.184Z",
+        "__v": 0
+      }
+    ],
+    "favorites": [
+      {
+        "_id": "6182e4e1b4f5ec771aec4f32",
+        "title": "Sr. Manager Industrial/Mechanical Engineering",
+        "company_name": "Healthcare Recruiters International",
+        "location": "Hinkley, CA",
+        "via": "via Jobilize",
+        "description": "We are actively seeking a hands-on Mechanical or Industrial Design Leader with a strong background in rapid pro-typing and concept development.\n\nThis position will be joining a growing, high-potential startup company that is developing a next-generation treatment system for a condition that affects upwards of 900M people per year. The next-generation system aims to reduce the invasiveness of the therapy and increase patient compliance by reducing surgical invasiveness and improve the patients? sleeping habits.\n\nQualifications & Essential Requirements\n• MS/MA Mechanical engineering or equivalent experience.\n• 5+ years of experience working on consumer goods (preferably Medical Goods)\n• Strong experience with Concept Development & Rapid Prototyping\n• Excellent written and oral communication skills.\n• Good organizational skills and ability to balance multiple projects simultaneously.\n• Demonstrable understanding of FDA regulatory guidance on safety and usability of medical devices.\n•... Familiarity with healthcare industry guidance (e.g., AAMI/ANSI HE75:\n2009, IEC 62366- 1:\n2015/62366-2:\n2016, ISO 14971:\n2019, etc.)\n\nAssociated topics:\nansys, assembly, autocad, boiler, cae, mechanical, mechanical engineer, motor, msme, thermal",
+        "detected_extensions": {
+          "posted_at": "6 days ago",
+          "schedule_type": "Full-time",
+          "_id": "6182e4e1b4f5ec771aec4f33"
+        },
+        "job_id": "eyJqb2JfdGl0bGUiOiJTci4gTWFuYWdlciBJbmR1c3RyaWFsL01lY2hhbmljYWwgRW5naW5lZXJpbmciLCJodGlkb2NpZCI6Inc0cDFQWmdWWVhoVERGWHpBQUFBQUE9PSIsImdsIjoidXMiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gSm9iaWxpemUiLCJsaW5rIjoiaHR0cHM6Ly93d3cuam9iaWxpemUuY29tL2FtcC9qb2Ivc3ItbWFuYWdlci1pbmR1c3RyaWFsLW1lY2hhbmljYWwtZW5naW5lZXJpbmctaGlua2xleS1oZWFsdGhjYXJlLXJlY3J1aXRlcnMtMzQ0ZDg5NWY3MjIzYjQ/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ==",
+        "creation_date": "2021-11-03T19:37:05.987Z",
+        "__v": 0
+      }
+    ],
+    "desiredLocation": "San Francisco"
+  },
+  {
+    "_id": "6184cc6e39e2e939576ebd7d",
+    "username": "andrewhuang427",
+    "major": "Biomedical Engineering",
+    "friends": [
+      {
+        "_id": "6184ccba39e2e939576ebeee",
+        "username": "testUser",
+        "email": "testuser@gmail.com",
+        "hash": "$2b$10$OPBfCi6iogirqQ0uu48xfOvV0tkI3.HGtRs.nf8T1ocakOqyjyFgm",
+        "major": "Data Science",
+        "friends": [
+          "6184cc6e39e2e939576ebd7d",
+          "6184ccba39e2e939576ebeee",
+          "6184cc3e39e2e939576ebd2f"
+        ],
+        "history": [],
+        "favorites": [],
+        "desiredRole": "Data Scientist",
+        "desiredLocation": "New York City",
+        "register_date": "2021-11-05T06:18:34.726Z",
+        "__v": 0
+      }
+    ],
+    "favorites": [
+      {
+        "_id": "6182e4aab71bef72c55426e3",
+        "title": "Software Engineering Intern",
+        "company_name": "Mobinity Global",
+        "location": "United States",
+        "via": "via LinkedIn",
+        "description": "About Mobinity Global:\n\nMobinity Global is a recruitment consultancy firm that helps companies such as Dell, Citadel, Qualtrics, PNC, Venture for America, RippleMatch, SAP, etc recruit faster and with more convenience.\n\nWe are transforming the way recruiting is done in the digital age. We work with a number of top tier companies, tech startups, freelance companies, industry professionals and subject matter experts for projects, internships, jobs and freelance work.\n\nIf you meet the below eligibility criteria, please apply and our recruitment team will\n\nconnect with you to understand your strengths and strategize your career ahead.\n\nWe plan to build a strong connection with all of our applicants so that we can facilitate both our employment partners and potential employees now as well as in the future.\n\nEligibility Criteria:\n• Your year of graduation is 2022 or later.\n• You have a bachelor's degree from a USA university.\n• Currently enrolled as a student.\n\nJOB DESCRIPTION:\n• Interns... are responsible for developing and shipping a project and verifying that it works in production. You will collaborate with your mentor and manager when you start to spec a project that will best contribute to your team.\n• You will ship code and monitor the deployment of your work. Our intern projects are not isolated or intended to be thrown away: your team will depend on your contributions!\n• We will pair you with a dedicated mentor who will be by your side to give advice and ensure the success of your project. You can expect to meet with them on a regular basis and receive feedback.\n• You'll have the opportunity to attend events with other interns and full-time employees!\n• You will present your work to the entire engineering organization at the end of your internship.\n\nSkills:\n• Frontend experience in WebApps/JavaScript/AngularJS/React\n• Strong communication skills\n• Deployment and testing frameworks\n• API development/documentation",
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpFN90zFBnW9PUZT3EPf2aau5jKNkF5mlEk7Qh11E&s",
+        "detected_extensions": {
+          "posted_at": "2 hours ago",
+          "schedule_type": "Full-time",
+          "_id": "6182e4aab71bef72c55426e4"
+        },
+        "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlcmluZyBJbnRlcm4iLCJodGlkb2NpZCI6InMyVS1MZURIRXR3SE41eTVBQUFBQUE9PSIsImdsIjoidXMiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gTGlua2VkSW4iLCJsaW5rIjoiaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2pvYnMvdmlldy9zb2Z0d2FyZS1lbmdpbmVlcmluZy1pbnRlcm4tYXQtbW9iaW5pdHktZ2xvYmFsLTI3ODMzNDAwODg/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ==",
+        "creation_date": "2021-11-03T19:36:10.995Z",
+        "__v": 0
+      },
+      {
+        "_id": "6182e4abb71bef72c55426f1",
+        "title": "Software Engineer Intern",
+        "company_name": "LaunchDarkly",
+        "location": "United States (+2 others)",
+        "via": "via AngelList",
+        "description": "As a Software Engineer Intern, you will work as part of our team summer 2022. This is a unique internship where you will work with other members of the team to ship real improvements to customers by making changes to our primary codebase. You'll have the chance not just to work on interesting technology, but the chance to learn how to contribute to the team at a high level.\n\nYou'll participate in new feature development, contributing to our front-end code. We're looking for someone who thrives on putting new features in front of users and takes pride in the quality of their work.​\n\nWhat we use:\n• React, Redux, TypeScript, MongoDB, AWS\n\nWhat you'll have the opportunity to do:\n• Propose and implement solutions to high impact problems at the nexus of engineering, finance, and sales\n• Craft user-facing features in our API-driven interface, built with React and Redux\n• Write unit and integration tests as necessary\n• Actively participate in code review\n\nYou should have:\n• Experience with... JavaScript and modern best practices\n\n- Knowledge of HTML and CSS\n\nStrong communication skills, a positive attitude, and empathy\n• A high bar for quality of code and quality of user experience\n• Discipline to be a self directed learner\n• Ability to understand, tackle, and communicate problems from both technical and business perspectives\n\nBonus Points:\n• *\n\nExperience with modern frontend frameworks and technologies, such as React and Redux\n• Experience with NoSQL databases (MongoDB, ElasticSearch)\n\nAbout LaunchDarkly:\n\nLaunchDarkly is a Feature Management Platform that serves hundreds of billions of feature flags daily to help software teams build better software, faster. Feature flagging is an industry standard methodology of wrapping a new or risky section of code or infrastructure change with a flag. Each flag can easily be turned off independent of code deployment (aka \"dark launching\"). LaunchDarkly has SDKs for all major web and mobile platforms. We are building a diverse team so that we can offer robust products and services. Our team culture is dynamic, friendly, and supportive. Our headquarters are in Oakland.\n\nAt LaunchDarkly, we believe in the power of teams. We're building a team that is humble, open, collaborative, respectful and kind. We are an equal opportunity employer and value diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, gender identity, sexual orientation, age, marital status, veteran status, or disability status.\n\nDon't let the confidence gap get in the way of applying! We'd love to hear from you.\n\nWe've partnered with KeyValues to help demonstrate the amazing culture we've built here at LaunchDarkly, find more info at https://www.keyvalues.com/launchdarkly.\n\nLaunchDarkly focuses on SaaS, Enterprise Software, Analytics, Software, and Developer Tools. Their company has offices in Oakland. They have a large team that's between 201-500 employees. To date, LaunchDarkly has raised $330.3M of funding; their latest round was closed on August 2021 at a valuation of $2.8B.\n\nYou can view their website at http://launchdarkly.com or find them on Twitter, Facebook, LinkedIn, and Product Hunt",
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0nfKJUkR1ct2l9K6Dj7vNoV73sju0kWVbiKk9Cno&s",
+        "detected_extensions": {
+          "posted_at": "21 days ago",
+          "schedule_type": "Internship",
+          "_id": "6182e4abb71bef72c55426f2"
+        },
+        "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlciBJbnRlcm4iLCJodGlkb2NpZCI6Im10TE5RSldETWpTRUNVY05BQUFBQUE9PSIsImdsIjoidXMiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiQXBwbHkgb24gQW5nZWxMaXN0IiwibGluayI6Imh0dHBzOi8vYW5nZWwuY28vY29tcGFueS9sYXVuY2hkYXJrbHkvam9icy8xNzA0ODA3LXNvZnR3YXJlLWVuZ2luZWVyLWludGVybj91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19",
+        "creation_date": "2021-11-03T19:36:11.002Z",
+        "__v": 0
+      },
+      {
+        "_id": "6182e4abb71bef72c55426eb",
+        "title": "Software Engineer Intern",
+        "company_name": "Analog Devices",
+        "location": "United States",
+        "via": "via Analog Devices Jobs",
+        "description": "Are you a problem solver looking for a hands-on internship position with a market-leading company that will help develop your career and reward you intellectually and professionally?\n\nAnalog Devices (ADI) has just over $9 billion in revenue with offices around the world. As a global leader in the design and manufacturing of analog, mixed signal, power management and DSP integrated circuits, ADI is known for helping to solve its customers’ toughest engineering challenges. With a commitment to engineering for good, ADI strives to create a more sustainable future, while also focusing on its employees through mentoring programs, employee networks and continuous learning opportunities.\n\nAt ADI, you will learn from the brightest minds who are here to help you grow and succeed. During your internship, you will make an impact through work on meaningful projects alongside a team of experts. Collaborating with colleagues in an environment of respect and responsibility, you will create... connections that will become a part of your professional network.\n\nADI’s culture values aligned goals, work-life balance, continuous and life-long learning opportunities, and shared rewards. The internship program features various lunch-and-learn topics and social events with other interns and full-time employees.\n\nAt ADI, our goal is to develop our interns so they are the first to be considered for full-time roles.\n\nApply now for the opportunity to grow your career and help innovate ahead of what’s possible.\n\nBusiness unit: - (-)\nJob Grade: N00\nHiring Manager: Jamie Ellen Keith\n\nAre you an insatiably curious problem solver searching for a hands-on engineering position with a market leader that cares about you and that will leave you feeling both intellectually and professionally rewarded? Consider Analog Devices – the place where Curiosity meets Mentors. ADI helps customers bridge the physical and digital worlds with unmatched technologies that sense, measure, connect, interpret, power and secure to solve real-life problems that make world smarter, healthier, safer and greener.\n\nAt ADI, you’ll be mentored by the brightest minds with a shared commitment to help you learn, grow and succeed. Throughout your internship at ADI, you can accelerate your impact by working on challenging projects alongside a team of collaborative experts in an environment of respect and responsibility. Make meaningful connections who will become a part of your professional network for years to come. Enjoy a balanced work-life and enjoy various social activities involving both interns and full-time engineers. Join us on afternoons dedicated to bowling, various lunch and learns, and even an exclusive tour of our FAB lab!\n\nHere at Analog, we turn to our inside talent first for the consideration of future full-time roles. Apply to ADI today for the opportunity to grow your career and make your work day meaningful!\n\nJob Description: The Software Engineering Intern will be join the Autonomous Vehicle Perception team at Analog Devices. The intern will participate in the development of a data gathering platform to enable the team to collect data from our sensors in real world automotive environments. The intern will join the team developing this platform and will participate in the design, software development, testing and debugging of this platform. The team is looking for an enthusiastic and hands-on individual who is currently completing their bachelor’s or graduate degrees in engineering. During the internship the intern will be required to develop code for the system and participate in the design, algorithm development and testing phases. The ideal candidate should have experience in developing with C/C++ and either Python and Java. Familiarity with Linux and device drivers is desired. Familiarity with the Robot Operating System (ROS), the MathWorks tools and signal processing is also a plus.\n\nMinimum Qualifications:\n• Design develop, test and support device drivers, embedded firmware, platform drivers and hardware abstraction layer, GUI, and DLL software\n• Develop test code/scripts for logical and functional test of the software and the system in an embedded environment\n• Work with Silicon Designers, FPGA designers, Applications Engineers, and other team members\n• Function in environment where target system may be Windows PC for GUI and DLL and embedded processor-based systems running Linux, or bare metal\n• Become familiar with the problem domain, whether it be RF transceivers, radar, automotive, medical or other problem domains, system designs and industries. As an\n\nexample - Understand RF systems and associated equipment including power management and drivers/power amplifiers in RADAR applications.\n• Follow coding standard and code documentation requirements and participate in code reviews\n• Deliver high quality code as software is used internally by customers in end application systems\n\nAs part of our ongoing commitment to safeguard the health of our employees, families, our customers and the community at large from COVID-19 and its variants, ADI has adopted a policy requiring full COVID-19 vaccination by December 1, 2021. All newly hired U.S. employees will be required to show proof of vaccination or obtain an approved accommodation prior to your official start date.\n\nFor positions requiring access to technical data, Analog Devices, Inc. may have to obtain export licensing approval from the U.S. Department of Commerce - Bureau of Industry and Security and/or the U.S. Department of State - Directorate of Defense Trade Controls. As such, applicants for this position – except US Citizens, US Permanent Residents, and protected individuals as defined by 8 U.S.C. 1324b(a)(3) – may have to go through an export licensing review process.\n\nAnalog Devices, Inc. is an Equal Opportunity Employer Minorities/Females/Vet/Disability\n\nEEO is the Law: Notice of Applicant Rights Under the Law\n\nEducation Level: High School Diploma/GED/Leaving Certificate\nTravel Required: No",
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHoPuYmE8j1inp7UePo4FkKjnveFbNF_-ZaEoD&s=0",
+        "detected_extensions": {
+          "posted_at": "Over 1 month ago",
+          "schedule_type": "Full-time",
+          "_id": "6182e4abb71bef72c55426ec"
+        },
+        "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlciBJbnRlcm4iLCJodGlkb2NpZCI6IldQTnpNUWVDX1dvRzAzcndBQUFBQUE9PSIsImdsIjoidXMiLCJmYyI6IkV1SUJDcUlCUVUxc2RuSndkSGc1Tm1ONGVHWlpiemhPTUhoUFFqZFRSVWxoVjBGdk1GOURUSEZaYlc1bE4ybHlZWGh3U25WaWFHOW1WMWRzU1MxZk9ITmlZbTF5VkdaaWFuWlVibXRTVjA5aFFWYzFhMmxzVVdrNWVYTjZTRUo2YWtRd1dqWjRSblpHUmtaUWIwbHJXRUU1Um5CeWVUSndObFJuYkVGbGVUbFFTM2R3ZUdGeVRtMXpaalEyWWswMlZGaFNSRVpWU1dWSFJVNXBZbFJTYTI5WE1VTXdkR2huRWhkVFQwZERXV1JYWDB0ZlUwMTNZbXRRTFdOcGJXdEJZeG9pUVVoWFUwNXRXRGhVWDFWdU9GQkxlR0Y0UkhGS01HTmtWRmRFVkRWMVoycE1kdyIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzMyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IkFwcGx5IG9uIEFuYWxvZyBEZXZpY2VzIEpvYnMiLCJsaW5rIjoiaHR0cHM6Ly9jYXJlZXJzLmFuYWxvZy5jb20vam9iL0FOTEdVUzk5NDQvU29mdHdhcmUtRW5naW5lZXItSW50ZXJuP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0=",
+        "creation_date": "2021-11-03T19:36:11.000Z",
+        "__v": 0
+      },
+      {
+        "_id": "6182e4ce87fe30cfe35abff5",
+        "title": "Technical Staff Software Engineer-Data Analytics/Data Science Team...",
+        "company_name": "CMP CPAS",
+        "location": "Laura, OH",
+        "via": "via Jobs",
+        "description": "**Technical Staff Software Engineer-Data Analytics/Data Science Team (Remote-United States)**\nBe a part of a team thats ensuring Dell Technologies' product integrity and customer satisfaction. Our IT Software Engineer team turns business requirements into technology solutions by designing, coding and testing/debugging applications, as well as documenting procedures for use and constantly seeking quality improvements.\nJoin us to do the best work of your career and make a profound social impact as a Technical Staff Software Engineer on our AI products team within our Dell Digital organization.\n• *What youll achieve**\nAs a Technical Staff Software Engineer, you will build and enhance high traffic next-generation applications. This group works at the cutting edge to design and develop AI-driven software for platforms, peripherals, applications and diagnostics all with the most advanced technologies, tools and software engineering methodologies.\n• *You will:**Work with solution architects... to review proposed solutions, assess feasibility and create detailed Technology Reference Architecture and detail Reference Architecture to Sprint's/POD'sPlan and design the structure of a technology solution for proposalsEvaluate and select appropriate software or hardware and suggest integration methodsProvide technical SME support in reviewing large transformational and complex technical solutions/data models in terms of compliance to requirements, efficiency of solution or implementationCollaborate with the technology community to bring best practices on various technologies and tollsLead and mentor the development teams on newer technology stacks, DevSecOps best practices and perform code reviewsImplement Technology and Architecture Governance with the development teams to ensure architecture and quality standards alignment and coding best practicesPerform proof of concepts demonstrating the gains in cost reduction, productivity improvements and turnaround time\n• *Take the first step towards your dream career**\nEvery Dell Technologies team member brings something unique to the table. Heres what we are looking for with this role:\n• *Essential Requirements**15+ years industry experience or equivalent skill; must include experience working on application architecture, design, development and deliveryProficiency in Machine Learning to include state-of-art knowledge across Deep learning, NLP, Classification, Regression etc. on large datasetsExtensive experience in ML model deployment and API buildingStrong technical skills with: Angular, C#, .NET Core, .NET Framework; Data-SQL Server, ElasticSearch/MongoDB, Teradata; Platforms/Services-ASP.NET MVC, ASP.NET Web, Web API, Web Services, Entity Framework, Microservices, REST; Messaging/Streaming-Kafka, RabiitMQ, Redis Streams; Cloud-AWS, Azure, PCF, Docker, KubernatesGraduate degree in Computer Science or related fieldExperience building cloud native applications\n• *Heres our story; now tell us yours**\nDell Technologies helps organizations and individuals build a brighter digital tomorrow. Our company is made up of more than 150,000 people, located in over 180 locations around the world. Were proud to be a diverse and inclusive team and have an endless passion for our mission to drive human progress.\nWhats most important to us is that you are respected, feel like you can be yourself and have the opportunity to do the best work of your life -- while still having a life. We offer excellent benefits, bonus programs, flexible work arrangements, a variety of career development opportunities, employee resource groups, and much more.\nWe started with computers, but we didnt stop there. We are helping customers move into the future with multi-cloud, AI and machine learning through the most innovative technology and services portfolio for the data era. Join us and become a part of whats next in technology, starting today.\nYou can also learn more about us by reading our latest Diversity and Inclusion Report and our plan to make the world a better place by 2030 [here](https://jobs.dell.com/diversity-and-inclusion).\nDell is committed to the principle of equal employment opportunity for all employees and to providing employees with a work environment free of discrimination and harassment. All employment decisions at Dell are based on business needs, job requirements and individual qualifications, without regard to race, color, religion or belief, national, social or ethnic origin, sex (including pregnancy), age, physical, mental or sensory disability, HIV Status, sexual orientation, gender identity and/or expression, marital, civil union or domestic partnership status, past or present military service, family medical history or genetic information, family or parental status, or any other status protected by the laws or regulations in the locations where we operate. Dell will not tolerate discrimination or harassment based on any of these characteristics. Dell encourages applicants of all ages. Read the full Employment Opportunity Policy [here](https://jobs.dell.com/equal-employment-opportunity-policy).\n\"LIPriority\"\n#LI-Remote\nAdvertised through Zoek 9e3f1c9333fb4010ab990c66a53adfa00",
+        "detected_extensions": {
+          "posted_at": "4 days ago",
+          "schedule_type": "Full-time",
+          "_id": "6182e4ce87fe30cfe35abff6"
+        },
+        "job_id": "eyJqb2JfdGl0bGUiOiJUZWNobmljYWwgU3RhZmYgU29mdHdhcmUgRW5naW5lZXItRGF0YSBBbmFseXRpY3MvRGF0YSBTY2llbmNlIFRlYW0gKFJlbW90ZS1Vbml0ZWQgU3RhdGVzKSIsImh0aWRvY2lkIjoiSEZsNy04ZnIta0NSblVGOEFBQUFBQT09IiwiZ2wiOiJ1cyIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJBcHBseSBvbiBKb2JzIiwibGluayI6Imh0dHBzOi8vdXMuZmlkYW50by5jb20vam9icy9qb2Itb3BlbmluZy9zb2Z0d2FyZS1xdWFsaXR5LWFzc3VyYW5jZS1lbmdpbmVlcnMtYW5kLXRlc3RlcnMvdGVjaG5pY2FsLXN0YWZmLXNvZnR3YXJlLWVuZ2luZWVyLWRhdGEtYW5hbHl0aWNzZGF0YS1zY2llbmNlLXRlYW0tcmVtb3RlLXVuaXRlZC1zdGF0ZXMtNjQ1NTY3MTU4P3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0=",
+        "creation_date": "2021-11-03T19:36:46.102Z",
+        "__v": 0
+      },
+      {
+        "_id": "6182e4aab71bef72c55426e5",
+        "title": "Software Engineering Intern",
+        "company_name": "Blackboard",
+        "location": "Anywhere",
+        "via": "via LinkedIn",
+        "description": "Description\n\nSoftware Engineering Intern\n\nRemote – US\n\nThe Opportunity:\n\nWe’re looking for a Software Engineering Intern to help us push the boundaries of what education can offer through the power of technology. Education is our passion, and our team members bring that to work each day as they aim to advance learning in every region of the world. Blackboard is the world's leading education technology company, providing dynamic products and services to the global education community. We’re focused on driving innovation in EdTech and working with our clients to create a smarter learning environment.   \n\nAt Blackboard, we believe in the power of a truly diverse and inclusive workforce. As we expand globally, we are committed to making diversity, inclusion, and belonging a foundational part of not only our hiring practices, but who we are as a company.\n\nFor more information about Blackboard Inc. and our career opportunities, please visit www.blackboard.com. \n\nThis role focuses on our... Ultra Platform, which provides students with a simple and intuitive learning experience that they can access anytime and anywhere. It’s a solution that’s continuously evolving to meet users’ needs, and we’re looking for someone to join the team and get deeply involved in the existing product code base, improving the quality, and enhancing the functionality of the product.\n\nAs a member of our Product Development team, you’ll work in an agile environment delivering industry-leading SaaS products and web service platforms. You’ll be deeply involved in translating wireframes and sketches into working prototypes to refine user interface behaviors.\n\nAs a Software Engineering Intern, you will be responsible for developing web applications and demonstrating expertise with Java, JavaScript, REST APIs, etc. You will be active on an agile team by participating in daily stand-ups, design sessions, code reviews, and sprint demos. You will embrace test development as an integral part of what you deliver as a software developer. You will also be responsible for delivering, maintaining, and troubleshooting cloud-based applications. In addition to this, you will participate in minimizing downtime and quickly responding to client issues.\n\nThe Candidate:\n\nRequired skills/qualifications:\n• Pursuing a bachelor’s or master’s degree (at time of internship) in Computer Science or related field, or pursuing skills in those areas while completing degree in a relevant field\n• Exposure to web application development and SQL databases\n• Any experience with Java and JavaScript frameworks like React and Angular\n• Exposure to OOD/OOP, data structure, and algorithm analysis\n• Strong problem-solving skills in large, scalable, complicated systems\n• Ability to learn new technologies and frameworks\n• Ability to work with cross-functional teams and communicate effectively with both technical and non-technical audiences\n\nPreferred skills/qualifications:\n• Knowledge of single-page applications, Node, jQuery, and related technologies\n• Knowledge of REST APIs and microservices\n\nThis job description is not designed to contain a comprehensive listing of activities, duties, or responsibilities that are required. Nothing in this job description restricts management's right to assign or reassign duties and responsibilities at any time.  \n\nBlackboard is an equal employment opportunity/affirmative action employer and considers qualified applicants for employment without regard to race, gender, age, color, religion, national origin, marital status, disability, sexual orientation, gender identity/expression, protected military/veteran status, or any other legally protected factor. \n\nThis position is not available for candidates residing in the following states: CO, CA, MA\n\nReq ID: 609",
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYo54PZbKFXN0mFtwWwsrXwhsC1yu8q59Eg7F9jRw&s",
+        "detected_extensions": {
+          "posted_at": "2 days ago",
+          "schedule_type": "Internship",
+          "work_from_home": true,
+          "_id": "6182e4aab71bef72c55426e6"
+        },
+        "job_id": "eyJqb2JfdGl0bGUiOiJTb2Z0d2FyZSBFbmdpbmVlcmluZyBJbnRlcm4iLCJodGlkb2NpZCI6IjdMUEd4dUNQaWpDdnlILWpBQUFBQUE9PSIsImdsIjoidXMiLCJmYyI6IkV1SUJDcUlCUVUxc2RuSndjMnhNU21adWVFdG9OelIxTmtaZk4wUm1WVEp2UVRWbVNHRjRVblZ6UkdkNWNHdFlObTgxUWxwcWRHVjFRM293WWtZd2EwdDNhVkowY25KVVgzSkxTbGxtYkdoS05uUkdhSE4yTUhOWVJVOU9RamxMV21aM0xUUkRlSGRIV0Y5cE9TMXFVVmxQU2tGYWQzUkhjVkJGYjJzemVtVmphVUpMTFU5MVNYRkxiSFpLYmxveGEyZFlMVGM0WlVRelpGTTNkamxpVmtoRGRVUm9WbUZuRWhkVFQwZERXV1JYWDB0ZlUwMTNZbXRRTFdOcGJXdEJZeG9pUVVoWFUwNXRWbVV6WW01cE4yUlplRGMzWmxSclNsazJaWFYwU1ZGS05FbFFkdyIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzEzIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IkFwcGx5IG9uIExpbmtlZEluIiwibGluayI6Imh0dHBzOi8vd3d3LmxpbmtlZGluLmNvbS9qb2JzL3ZpZXcvc29mdHdhcmUtZW5naW5lZXJpbmctaW50ZXJuLWF0LWJsYWNrYm9hcmQtMjc3NDU3NDMyNz91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19",
+        "creation_date": "2021-11-03T19:36:10.997Z",
+        "__v": 0
+      }
+    ],
+    "desiredLocation": "Boston"
+  },
+  {
+    "_id": "6184ccba39e2e939576ebeee",
+    "username": "testUser",
+    "major": "Data Science",
+    "friends": [
+      {
+        "_id": "6184cc6e39e2e939576ebd7d",
+        "username": "andrewhuang427",
+        "email": "andrewhuang427@gmail.com",
+        "hash": "$2b$10$D9jX4eR64UeF8usju1bUx.LVhJO/Fizfh8O9bH7SPOltFVxMNgjNa",
+        "major": "Biomedical Engineering",
+        "friends": ["6184ccba39e2e939576ebeee"],
+        "history": [],
+        "favorites": [
+          "6182e4aab71bef72c55426e3",
+          "6182e4abb71bef72c55426f1",
+          "6182e4abb71bef72c55426eb",
+          "6182e4ce87fe30cfe35abff5",
+          "6182e4aab71bef72c55426e5"
+        ],
+        "desiredRole": "Biomedical Engineer",
+        "desiredLocation": "Boston",
+        "register_date": "2021-11-05T06:17:18.180Z",
+        "__v": 0
+      },
+      {
+        "_id": "6184ccba39e2e939576ebeee",
+        "username": "testUser",
+        "email": "testuser@gmail.com",
+        "hash": "$2b$10$OPBfCi6iogirqQ0uu48xfOvV0tkI3.HGtRs.nf8T1ocakOqyjyFgm",
+        "major": "Data Science",
+        "friends": [
+          "6184cc6e39e2e939576ebd7d",
+          "6184ccba39e2e939576ebeee",
+          "6184cc3e39e2e939576ebd2f"
+        ],
+        "history": [],
+        "favorites": [],
+        "desiredRole": "Data Scientist",
+        "desiredLocation": "New York City",
+        "register_date": "2021-11-05T06:18:34.726Z",
+        "__v": 0
+      },
+      {
+        "_id": "6184cc3e39e2e939576ebd2f",
+        "username": "andrewhuang",
+        "email": "ahuang2000@gmail.com",
+        "hash": "$2b$10$oD/B2Vhr/ZetxLcfYgFP1.kta.zBYp30X8ZEnggMJjhoD5rsRQE5O",
+        "major": "Computer Science",
+        "friends": [
+          "6184ccba39e2e939576ebeee",
+          "6184cc6e39e2e939576ebd7d",
+          "6184cc3e39e2e939576ebd2f"
+        ],
+        "history": [],
+        "favorites": ["6182e4e1b4f5ec771aec4f32"],
+        "desiredRole": "Software Engineer",
+        "desiredLocation": "San Francisco",
+        "register_date": "2021-11-05T06:16:30.184Z",
+        "__v": 0
+      }
+    ],
+    "favorites": [],
+    "desiredLocation": "New York City"
+  }
+]

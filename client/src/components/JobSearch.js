@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import UserContext from "../providers/UserContext";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -15,6 +16,7 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 
 function Home() {
+  const { user, setUser } = useContext(UserContext);
   const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -32,7 +34,6 @@ function Home() {
     const fetchJobs = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/jobs");
-        console.log(response.data);
         setJobs(response.data);
       } catch (error) {
         console.log(error);
@@ -42,37 +43,71 @@ function Home() {
   }, []);
 
   const handleToggleFavorites = (jobId) => {
-    if (favorites.includes(jobId)) {
-      // remove from favories
-      //console.log(jobId);
-      setFavorites(favorites.filter((fav) => fav != jobId));
-    } else {
-      // add to favorites
-      let newFavs = [...favorites];
-      newFavs.push(jobId);
-      setFavorites(newFavs);
-      
+    console.log("toggle favs...")
+    if (user != null) {
+      if (favorites.includes(jobId)) {
+        // remove from favories
+        setFavorites(favorites.filter((fav) => fav != jobId));
+      } else {
+        // add to favorites
+        let newFavs = [...favorites];
+        newFavs.push(jobId);
+        handleAddToFavorites(jobId);
+        setFavorites(newFavs);
+      }
     }
   };
 
-  useEffect(() => {
-    console.log(favorites);
-    let username="bob";
-    let data={ user:username, fav:favorites};
-    console.log(favorites);
-    fetch("http://localhost:5000/setFavorites", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((response) => {
-      if (response.success) {
-        console.log("Favorites Updated");
+  const handleAddToFavorites = async (jobId) => {
+    try {
+      const jwt = localStorage.getItem("token");
+      const config = {
+        headers: { Authorization: `Bearer ${jwt}` },
+      };
+      const body = { jobId };
+      const response = await axios.post(
+        "http://localhost:5000/api/user/addFavorite",
+        body,
+        config
+      );
+      console.log(response.data);
+      setUser(response.data);
+      refreshFavs();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const refreshFavs = () => {
+    if (user != null) {
+      let newFavs = [];
+      for (let i = 0; i < user.favorites.length; ++i) {
+        newFavs.push(user.favorites[i]._id);
       }
-    })
-    .catch((error) => console.error("Error:", error));
-  }, [favorites]);
+      console.log(newFavs)
+      setFavorites(newFavs);
+    }
+    
+  };
+
+  // useEffect(() => {
+  //   console.log(favorites);
+  //   let username = "bob";
+  //   let data = { user: username, fav: favorites };
+  //   console.log(favorites);
+  //   fetch("http://localhost:5000/setFavorites", {
+  //     method: "POST",
+  //     body: JSON.stringify(data),
+  //     headers: { "Content-Type": "application/json" },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((response) => {
+  //       if (response.success) {
+  //         console.log("Favorites Updated");
+  //       }
+  //     })
+  //     .catch((error) => console.error("Error:", error));
+  // }, [favorites]);
 
   return (
     <Box id="search">

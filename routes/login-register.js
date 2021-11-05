@@ -1,6 +1,6 @@
 const express = require("express");
-const usermodel = require("../models/UserModel");
-const jobModel = require("../models/JobModel");
+const UserModel = require("../models/UserModel");
+const JobModel = require("../models/JobModel");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
@@ -10,26 +10,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const JobModel = require("../models/JobModel");
 require("dotenv").config();
 
 app.post("/login", async (request, response) => {
   data = request.body;
-  query = usermodel.findOne({ username: data.username }, function (err, user) {
-    if (err) return err;
-    if (user == null) {
+  const query = UserModel.findOne({ username: data.username })
+    .populate("friends")
+    .populate("favorites")
+    .populate("history");
+
+  query.exec((err, doc) => {
+    if (err) res.status(500).send({ msg: "internal service error" });
+    if (doc == null) {
       ret = { message: "User Does not Exist", success: false };
       response.json(ret);
     } else {
-      bcrypt.compare(data.password, user.hash).then((result) => {
+      bcrypt.compare(data.password, doc.hash).then((result) => {
         console.log(result);
         if (result) {
           const username = data.username;
           const user = { name: username };
-          console.log(user.name);
           const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
           response.json({
             message: "Logged in Successfully",
+            user: doc,
             accessToken: accessToken,
             success: true,
           });
@@ -42,35 +46,16 @@ app.post("/login", async (request, response) => {
   });
 });
 
-function authenticateToken(req, res, next) {
-  token = req.body.accessToken;
-  if (token == null) return res.sendStatus(401);
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
-}
-
-app.get("/users", async (req, res) => {
-  var query = usermodel.find();
-  query.select("-_id");
-  query.exec(function (err, users) {
-    if (err) return err;
-    res.send(users);
-  });
-});
-
 app.post("/register", async (request, response) => {
   console.log("test");
   data = request.body;
   console.log(data);
-  query = usermodel.exists({ username: data.username }, function (err, user) {
+  query = UserModel.exists({ username: data.username }, function (err, user) {
     if (err) return err;
     if (user == null) {
       salt = bcrypt.genSaltSync(10);
       bcrypt.hash(data.password, salt).then((result) => {
-        query = usermodel.create(
+        query = UserModel.create(
           {
             username: data.username,
             email: data.email,
@@ -79,6 +64,8 @@ app.post("/register", async (request, response) => {
             desiredRole: data.role,
             desiredLocation: data.location,
             friends: [],
+            history: [],
+            favorites: [],
           },
           function (err) {
             if (err) return err;
@@ -96,7 +83,7 @@ app.post("/register", async (request, response) => {
 
 app.post("/getJobsByTitle", async (request, response) => {
   data = request.body;
-  query = jobModel.find(
+  query = JobModel.find(
     { position: { $regex: data.roleName, $options: "i" } },
     function (err, jobs) {
       if (err) return err;
@@ -111,7 +98,7 @@ app.post("/getJobsByTitle", async (request, response) => {
 
 app.post("/getJobsByCompany", async (request, response) => {
   data = request.body;
-  query = jobModel.find({ company: data.companyName }, function (err, jobs) {
+  query = JobModel.find({ company: data.companyName }, function (err, jobs) {
     if (err) return err;
     console.log(jobs.length);
     console.log(jobs[0]);
@@ -126,7 +113,7 @@ app.post("/getJobsByCompany", async (request, response) => {
 app.post("/addFriend", async (request, response) => {
   data = request.body;
   console.log(data);
-  query = usermodel.updateOne(
+  query = UserModel.updateOne(
     { username: data.username },
     { $push: { friends: data.new } },
     function (err, users) {
@@ -143,7 +130,7 @@ app.post("/addFriend", async (request, response) => {
 app.post("/addHistory", async (request, response) => {
   data = request.body;
   //console.log(data);
-  query = usermodel.updateOne(
+  query = UserModel.updateOne(
     { username: data.username },
     { $push: { history: data.jobVisited } },
     function (err, users) {
@@ -158,9 +145,9 @@ app.post("/addHistory", async (request, response) => {
 });
 app.post("/setFavorites", async (request, response) => {
   data = request.body;
-  query = usermodel.updateOne(
+  query = UserModel.updateOne(
     { username: data.user },
-    { $set: {favorites: data.fav }},
+    { $set: { favorites: data.fav } },
     function (err, users) {
       if (err) {
         return err;
@@ -175,7 +162,7 @@ app.post("/setFavorites", async (request, response) => {
 app.post("/getHistory", async (request, response) => {
   data = request.body;
   console.log(data);
-  query = usermodel.find(
+  query = UserModel.find(
     { username: { $regex: data.username } },
     function (err, jobs) {
       if (err) return err;
@@ -186,7 +173,7 @@ app.post("/getHistory", async (request, response) => {
 });
 app.post("/getFavorites", async (request, response) => {
   data = request.body;
-  query = usermodel.find(
+  query = UserModel.find(
     { username: { $regex: data.username } },
     function (err, jobs) {
       if (err) return err;
@@ -198,7 +185,7 @@ app.post("/getFavorites", async (request, response) => {
 app.post("/getRecs", async (request, response) => {
   data = request.body;
   console.log(data);
-  query = jobModel.find(
+  query = JobModel.find(
     { position: { $regex: data.role } },
     function (err, jobs) {
       if (err) return err;
@@ -211,7 +198,7 @@ app.post("/getRecs", async (request, response) => {
 app.post("/getFriends", async (request, response) => {
   data = request.body;
   console.log(data.major);
-  query = usermodel.find(
+  query = UserModel.find(
     { username: { $regex: data.username } },
     function (err, users) {
       if (err) return err;
@@ -224,7 +211,7 @@ app.post("/getFriends", async (request, response) => {
 app.post("/getUsers", async (request, response) => {
   data = request.body;
   console.log(data.major);
-  query = usermodel.find(
+  query = UserModel.find(
     { major: { $regex: data.major, $options: "i" } },
     function (err, users) {
       if (err) return err;
@@ -797,6 +784,6 @@ var search = {
       ],
     },
   ],
-}
+};
 
 module.exports = app;

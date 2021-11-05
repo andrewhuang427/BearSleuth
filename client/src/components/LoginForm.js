@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "../providers/UserContext";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -6,12 +7,13 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 // import {loggedin} from "./Navbar"
 import { useHistory } from "react-router-dom";
-
+import axios from "axios";
 
 function LoginForm() {
   let history = useHistory();
   const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useContext(UserContext);
 
   const handleUserNameChange = (event) => {
     setEmail(event.target.value);
@@ -21,24 +23,21 @@ function LoginForm() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = () => {
-    const data = { username: username, password: password };
-    fetch("http://localhost:5000/login", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        alert(response.message);
-        if (response.success) {
-          localStorage.setItem("username", data.username);
-          localStorage.setItem("token", response.accessToken);
-          history.push("/home")
-          // loggedin()
-        }
-      })
-      .catch((error) => console.error("Error:", error));
+  const handleSubmit = async () => {
+    try {
+      const body = { username: username, password: password };
+      const response = await axios.post("http://localhost:5000/login", body);
+      const data = response.data;
+      alert(data.message);
+      if (data.success) {
+        localStorage.setItem("username", username);
+        localStorage.setItem("token", data.accessToken);
+        history.push("/home");
+        setUser(data.user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
