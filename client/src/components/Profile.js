@@ -128,28 +128,30 @@ function Profile() {
           </Grid>
           <Grid item xs={12} sm={8}>
             <Paper>
-              <Box padding={3} marginBottom={2}>
-                <Toolbar disableGutters>
-                  <Box marginRight={2}>
-                    <Avatar sx={{ height: 35, width: 35 }} variant="squared">
-                      <StarIcon />
-                    </Avatar>
-                  </Box>
-                  <Box flexGrow={1}>
-                    <Typography>Your Favorites</Typography>
-                  </Box>
-                  <Box>
-                    <Chip
-                      color="primary"
-                      icon={<AddIcon />}
-                      clickable
-                      label={"Explore Jobs"}
-                      variant="outlined"
-                    />
-                  </Box>
-                </Toolbar>
-                <Box textAlign="center" marginBottom={2}>
-                  <Favorites favorites={user != null ? user.favorites : []} />
+              <Box padding={3}>
+                <Box marginBottom={2}>
+                  <Toolbar disableGutters>
+                    <Box marginRight={2}>
+                      <Avatar sx={{ height: 35, width: 35 }}>
+                        <StarIcon />
+                      </Avatar>
+                    </Box>
+                    <Box flexGrow={1}>
+                      <Typography>Your Favorites</Typography>
+                    </Box>
+                    <Box>
+                      <Chip
+                        color="primary"
+                        icon={<AddIcon />}
+                        clickable
+                        label={"Explore Jobs"}
+                        variant="outlined"
+                      />
+                    </Box>
+                  </Toolbar>
+                </Box>
+                <Box textAlign="center">
+                  <Favorites jobs={user != null ? user.favorites : []} />
                 </Box>
               </Box>
               <Box padding={3} marginBottom={2}>
@@ -212,11 +214,54 @@ function Profile() {
 
 export default Profile;
 
-function Favorites({ favorites }) {
+function Favorites({ jobs }) {
+  const history = useHistory();
   return (
     <Box>
-      {favorites.length > 0 ? (
-        ""
+      {jobs.length > 0 ? (
+        <Grid container spacing={2}>
+          {jobs.map((job) => {
+            return (
+              <Grid item xs={12} sm={6}>
+                <Paper variant="outlined">
+                  <Box padding={3}>
+                    <Box
+                      textAlign="left"
+                      fontWeight={800}
+                      color={"#137658"}
+                      marginBottom={1}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        history.push(`/jobs/${job._id}`);
+                      }}
+                    >
+                      <Toolbar disableGutters>
+                        <Box marginRight={3}>
+                          <Avatar
+                            src={job.thumbnail}
+                            sx={{ height: 30, width: 30 }}
+                          />
+                        </Box>
+                        <Box flexGrow={1}>
+                          <Box marginBottom={1}>
+                            <Typography variant="subtitle1">
+                              {job.company_name}
+                            </Typography>
+                          </Box>
+                          <Box textAlign="left">
+                            <Typography variant="subtitle2">
+                              {job.title}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Toolbar>
+                    </Box>
+                  </Box>
+                </Paper>
+              </Grid>
+            );
+          })}
+        </Grid>
       ) : (
         <Typography style={{ fontSize: 12 }}>
           Your currently do not have any favorited jobs

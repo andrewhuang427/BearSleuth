@@ -56,4 +56,20 @@ Router.route("/addFavorite").post(withAuth, async (req, res) => {
   });
 });
 
+Router.route("/removeFavorite").post(withAuth, async (req,res) => {
+  const { name } = req.user;
+  const { jobId } = req.body;
+  const query = UserModel.findOneAndUpdate(
+    { username: name },
+    { $pull: { favorites: jobId } },
+    { new: true }
+  ).populate(["friends", "favorites"]);
+  query.exec((err, doc) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send({ msg: "internal service error" });
+    }
+    res.send(doc);
+  });
+})
 module.exports = Router;

@@ -43,18 +43,31 @@ function Home() {
   }, []);
 
   const handleToggleFavorites = (jobId) => {
-    console.log("toggle favs...")
     if (user != null) {
       if (favorites.includes(jobId)) {
-        // remove from favories
-        setFavorites(favorites.filter((fav) => fav != jobId));
+        handleRemoveFromFavorites(jobId);
       } else {
-        // add to favorites
-        let newFavs = [...favorites];
-        newFavs.push(jobId);
         handleAddToFavorites(jobId);
-        setFavorites(newFavs);
       }
+    }
+  };
+
+  const handleRemoveFromFavorites = async (jobId) => {
+    try {
+      const jwt = localStorage.getItem("token");
+      const config = {
+        headers: { Authorization: `Bearer ${jwt}` },
+      };
+      const body = { jobId };
+      const response = await axios.post(
+        "http://localhost:5000/api/user/removeFavorite",
+        body,
+        config
+      );
+      setUser(response.data);
+      refreshFavs();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -70,7 +83,6 @@ function Home() {
         body,
         config
       );
-      console.log(response.data);
       setUser(response.data);
       refreshFavs();
     } catch (error) {
@@ -84,30 +96,15 @@ function Home() {
       for (let i = 0; i < user.favorites.length; ++i) {
         newFavs.push(user.favorites[i]._id);
       }
-      console.log(newFavs)
       setFavorites(newFavs);
     }
-    
   };
 
-  // useEffect(() => {
-  //   console.log(favorites);
-  //   let username = "bob";
-  //   let data = { user: username, fav: favorites };
-  //   console.log(favorites);
-  //   fetch("http://localhost:5000/setFavorites", {
-  //     method: "POST",
-  //     body: JSON.stringify(data),
-  //     headers: { "Content-Type": "application/json" },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       if (response.success) {
-  //         console.log("Favorites Updated");
-  //       }
-  //     })
-  //     .catch((error) => console.error("Error:", error));
-  // }, [favorites]);
+  useEffect(() => {
+    if (user != null) {
+      refreshFavs();
+    }
+  }, [user]);
 
   return (
     <Box id="search">
