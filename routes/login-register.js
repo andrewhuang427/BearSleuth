@@ -50,7 +50,7 @@ app.post("/register", async (request, response) => {
   console.log("test");
   data = request.body;
   console.log(data);
-  query = UserModel.exists({ username: data.username }, function (err, user) {
+  let query = UserModel.exists({ username: data.username }, function (err, user) {
     if (err) return err;
     if (user == null) {
       salt = bcrypt.genSaltSync(10);
@@ -79,6 +79,7 @@ app.post("/register", async (request, response) => {
       response.json(ret);
     }
   });
+  console.log(query);
 });
 
 app.post("/getJobsByTitle", async (request, response) => {
@@ -129,11 +130,11 @@ app.post("/addFriend", async (request, response) => {
 });
 app.post("/addHistory", async (request, response) => {
   data = request.body;
-  //console.log(data);
+  console.log(data.jobVisited);
   query = UserModel.updateOne(
     { username: data.username },
     { $push: { history: data.jobVisited } },
-    function (err, users) {
+    function (err) {
       if (err) {
         return err;
       } else {

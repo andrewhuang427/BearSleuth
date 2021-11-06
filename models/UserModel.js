@@ -27,10 +27,7 @@ const UserSchema = new Schema(
       required: false,
     },
     friends: [{ type: Schema.Types.ObjectId, ref: "User" }],
-    history: {
-      type: Array,
-      required: false,
-    },
+    history: [{ type: Schema.Types.ObjectId, ref: "Job" }],
     favorites: [{ type: Schema.Types.ObjectId, ref: "Job" }],
     desiredRole: {
       type: String,

@@ -84,7 +84,7 @@ app.listen(PORT, () => {
 app.use(LoginReg);
 
 app.get("/users", async (req, res) => {
-  var query = usermodel.find();
+  var query = UserModel.find();
   query.select("-_id");
   query.exec(function (err, users) {
     if (err) return err;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-
+import ListItem from "@mui/material/ListItem";
 import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -25,8 +25,17 @@ import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ShareIcon from "@mui/icons-material/Share";
+import UserContext from "../providers/UserContext";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import AddIcon from "@mui/icons-material/Add";
+import { useHistory } from "react-router-dom";
+//import Friends from "./Profile.js";
 
 function JobDetails({ jobId }) {
+  const { user, setUser } = useContext(UserContext);
+  const [users, setUsers] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  let history = useHistory();
   const [job, setJob] = useState(null);
 
   useEffect(() => {
@@ -103,7 +112,7 @@ function JobDetails({ jobId }) {
                     </Box>
                   </Box>
                   <Divider />
-                  <Box marginTop={1} marginBottom={3}>
+                  {/* <Box marginTop={1} marginBottom={3}>
                     <Toolbar disableGutters>
                       <Box marginRight={1}>
                         <Button
@@ -133,7 +142,7 @@ function JobDetails({ jobId }) {
                         </Button>
                       </Box>
                     </Toolbar>
-                  </Box>
+                  </Box> */}
                   <Box textAlign="left" fontWeight={800}>
                     <Toolbar disableGutters>
                       <Box flexGrow={1}>
@@ -146,7 +155,18 @@ function JobDetails({ jobId }) {
                   <Divider />
                   <Box marginTop={1}>
                     <List>
-                      <ListItemButton
+                    <Paper>
+                  <Box padding={3} marginBottom={2}>
+                    <Toolbar disableGutters>
+                      <Box marginRight={2}>
+                      </Box>
+                    </Toolbar>
+                    <Box textAlign="center" marginBottom={1}>
+                      <Friends friends={user != null ? user.friends : []} />
+                    </Box>
+                  </Box>
+                  </Paper>
+                      {/* <ListItemButton
                         secondaryAction={
                           <IconButton>
                             <ShareIcon />
@@ -205,7 +225,7 @@ function JobDetails({ jobId }) {
                           primary={"Teddy Fujimoto"}
                           secondary={"Looking for Software Engineering Roles"}
                         />
-                      </ListItemButton>
+                      </ListItemButton> */}
                     </List>
                   </Box>
                 </Box>
@@ -219,7 +239,45 @@ function JobDetails({ jobId }) {
     </>
   );
 }
-
+function Friends({ friends }) {
+  return (
+    <List>
+      {friends.length > 0 ? (
+        <>
+          {friends.map((friend) => {
+            return (
+              <ListItem
+                secondaryAction={
+                  <Chip
+                    variant="outlined"
+                    color="primary"
+                    clickable
+                    label="Share this Job"
+                    icon={<AddIcon />}
+                  />
+                }
+              >
+                <ListItemAvatar>
+                  <Avatar sx={{ height: 30, width: 30, bgcolor: "blue" }}>
+                    {friend.username.charAt(0)}
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={friend.username}
+                  secondary={`Looking for ${friend.desiredRole} Roles`}
+                />
+              </ListItem>
+            );
+          })}
+        </>
+      ) : (
+        <Typography style={{ fontSize: 12 }}>
+          Your currently do not have any friends
+        </Typography>
+      )}
+    </List>
+  );
+}
 function Tags({ Details }) {
   return (
     <Box display="flex">

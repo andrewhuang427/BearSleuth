@@ -99,6 +99,18 @@ function Home() {
       setFavorites(newFavs);
     }
   };
+  function updateHistory(job){
+    const data = { username: user.username, jobVisited:job };
+    console.log(data);
+      fetch("http://localhost:5000/addHistory", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => res.json())
+       .then((response) => {console.log(response)})
+        .catch((error) => console.error("Error:", error));
+  }
 
   useEffect(() => {
     if (user != null) {
@@ -195,6 +207,7 @@ function Home() {
                             variant="outlined"
                             size="small"
                             onClick={() => {
+                              updateHistory(job._id);
                               history.push(`/jobs/${job._id}`);
                             }}
                           >
@@ -224,19 +237,6 @@ export default Home;
 // getHistory();
 // getRecs();
 
-// function visit(event){
-//   let current="bob";
-//   let jobName=event.target.childNodes[0].innerText;
-//   const data = { username: current, jobVisited:jobName };
-//     fetch("http://localhost:5000/addHistory", {
-//       method: "POST",
-//       body: JSON.stringify(data),
-//       headers: { "Content-Type": "application/json" },
-//     })
-//       .then((res) => res.json())
-//       .then((response) => {})
-//       .catch((error) => console.error("Error:", error));
-// }
 // function getHistory(){
 //   let current="bob";
 //   const data={username:current};

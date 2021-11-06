@@ -109,9 +109,9 @@ function Profile() {
                 </Box>
                 <Box display="flex" justifyContent="center">
                   <Box marginRight={1}>
-                    <Button variant="outlined" size="small">
+                    {/* <Button variant="outlined" size="small">
                       Edit Profile
-                    </Button>
+                    </Button> */}
                   </Box>
                   <Box>
                     <Button
@@ -140,13 +140,13 @@ function Profile() {
                       <Typography>Your Favorites</Typography>
                     </Box>
                     <Box>
-                      <Chip
+                      {/* <Chip
                         color="primary"
                         icon={<AddIcon />}
                         clickable
                         label={"Explore Jobs"}
                         variant="outlined"
-                      />
+                      /> */}
                     </Box>
                   </Toolbar>
                 </Box>
@@ -273,13 +273,13 @@ function Favorites({ jobs }) {
 function History({ history }) {
   return (
     <Box>
-      {history.length > 0 ? (
+      {/* {history.length > 0 ? (
         ""
       ) : (
         <Typography style={{ fontSize: 12 }}>
           Your currently do not have any favorited jobs
         </Typography>
-      )}
+      )} */}
     </Box>
   );
 }
@@ -339,3 +339,4 @@ function FindAFriend() {
     </>
   );
 }
+//export default {Profile,Friends};
