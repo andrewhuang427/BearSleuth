@@ -4,18 +4,17 @@ import Chat from "../components/Chat";
 import { useHistory } from "react-router-dom";
 
 
-function ChatPage() {
-    let history = useHistory();
-    if (!localStorage.getItem("username")){
-      history.push("/login");
-    }
-    alert("HEY");
-    return (
-      <>
-        <Navbar />
-        <Chat />
-      </>
-    );
-}
 
+function ChatPage() {
+  let history = useHistory();
+  if (!localStorage.getItem("username")){
+    history.push("/login");
+  }
+  return (
+    <>
+      <Navbar />
+      <Chat />
+    </>
+  );
+}
 export default ChatPage;

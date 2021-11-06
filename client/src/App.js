@@ -55,7 +55,7 @@ function App() {
               <RegisterPage />
             </Route>
             <Route path="/network">
-              <NetworkPage />
+              <ChatPage />
             </Route>
             <Route path="/jobs/:jobId">
               <JobPage />
