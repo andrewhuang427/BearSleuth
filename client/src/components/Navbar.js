@@ -204,7 +204,7 @@ function stringAvatar(name) {
 
 export default function Navbar() {
   let history = useHistory();
-  const handleLogout = () => {};
+  //const handleLogout = () => {};
 
   return (
     <Box flexGrow={1}>

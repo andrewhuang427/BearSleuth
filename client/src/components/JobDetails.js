@@ -1,10 +1,10 @@
 import React, { useState, useEffect,useContext } from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+//import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
+//import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -12,7 +12,7 @@ import ListItem from "@mui/material/ListItem";
 import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemButton from "@mui/material/ListItemButton";
+//import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
 import axios from "axios";
@@ -20,15 +20,15 @@ import axios from "axios";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import HomeIcon from "@mui/icons-material/Home";
-import TurnedInIcon from "@mui/icons-material/TurnedIn";
-import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
-import PendingActionsIcon from "@mui/icons-material/PendingActions";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import ShareIcon from "@mui/icons-material/Share";
+//import TurnedInIcon from "@mui/icons-material/TurnedIn";
+//import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
+//import PendingActionsIcon from "@mui/icons-material/PendingActions";
+//import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+//import ShareIcon from "@mui/icons-material/Share";
 import UserContext from "../providers/UserContext";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
+//import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import AddIcon from "@mui/icons-material/Add";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import {TechSkillsFind,LanguageFind} from "./SearchRegex.js";
 //import Friends from "./Profile.js";
 
@@ -56,8 +56,8 @@ function JobDetails({ jobId }) {
       //console.log(job.description);
        languages=LanguageFind(job.description);
        skills=TechSkillsFind(job.description);
-       console.log(languages);
-       console.log(skills);
+       //console.log(languages);
+       //console.log(skills);
        GetLanguages();
     }
   }, [job]);
@@ -65,15 +65,16 @@ function JobDetails({ jobId }) {
   function GetLanguages(){
     console.log(languages);
     return(
-    <List>
+    <List id="list">
          {languages.length > 0 ? (
           <>
             {languages.map((language) => {
               console.log(language);
+            console.log(document.getElementById('list'));
               return (
                 <ListItem>
                   <ListItemText
-                    primary={language}
+                  primary={language}
                   />
                 </ListItem>
               );
@@ -81,14 +82,35 @@ function JobDetails({ jobId }) {
           </>
         ) : (
           <Typography style={{ fontSize: 12 }}>
-            No skills or languages were found
+            No languages were found
           </Typography>
         )}
+        {skills.length > 0 ? (
+          <>
+            {skills.map((skill) => {
+              console.log(skill);
+              return (
+                <ListItem>
+                  <ListItemText
+                  primary={skill}
+                  />
+                </ListItem>
+              );
+            })}
+          </>
+        ) : (
+          <Typography style={{ fontSize: 12 }}>
+            No skills were found
+          </Typography>
+        )}
+        
     </List>
+    
     );
+    
   }
   
-  const handleAddToFavorites = () => {};
+  //const handleAddToFavorites = () => {};
 
   return (
     <>
