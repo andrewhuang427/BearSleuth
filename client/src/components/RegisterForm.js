@@ -53,6 +53,7 @@ function RegisterForm() {
       major: major,
       role: role,
       location: loc,
+      history:[],
     };
     console.log(data);
     fetch("http://localhost:5000/register", {

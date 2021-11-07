@@ -47,9 +47,7 @@ app.post("/login", async (request, response) => {
 });
 
 app.post("/register", async (request, response) => {
-  console.log("test");
   data = request.body;
-  console.log(data);
   let query = UserModel.exists({ username: data.username }, function (err, user) {
     if (err) return err;
     if (user == null) {
@@ -133,7 +131,7 @@ app.post("/addHistory", async (request, response) => {
   console.log(data.jobVisited);
   query = UserModel.updateOne(
     { username: data.username },
-    { $push: { history: data.jobVisited } },
+    { $push: { history: data.jobVisited._id } },
     function (err) {
       if (err) {
         return err;

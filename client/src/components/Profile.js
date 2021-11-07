@@ -166,7 +166,7 @@ function Profile() {
                   </Box>
                 </Toolbar>
                 <Box textAlign="center" marginBottom={2}>
-                  <History history={user != null ? user.history : []} />
+                  <History jobs={user != null ? user.history : []} />
                 </Box>
               </Box>
             </Paper>
@@ -270,16 +270,64 @@ function Favorites({ jobs }) {
     </Box>
   );
 }
-function History({ history }) {
+function History({ jobs }) {
+  const history = useHistory();
+  jobs=jobs.slice(1,); //the first index is always empty so I am just slicing it out here
+  if(jobs.length>5){
+    jobs=jobs.slice(jobs.length-5,jobs.length);
+  }
+  console.log(jobs);
   return (
     <Box>
-      {/* {history.length > 0 ? (
-        ""
+       {jobs.length > 0 ? (
+        <>
+        {jobs.map((job) => {
+            return (
+              <Grid item xs={20} sm={6}>
+                <Paper variant="outlined">
+                  <Box padding={3}>
+                    <Box
+                      textAlign="center"
+                      fontWeight={800}
+                      color={"#137658"}
+                      marginBottom={1}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        history.push(`/jobs/${job._id}`);
+                      }}
+                    >
+                      <Toolbar disableGutters>
+                        <Box marginRight={3}>
+                          <Avatar
+                            src={job.thumbnail}
+                            sx={{ height: 50, width: 50 }}
+                          />
+                        </Box>
+                        <Box flexGrow={1}>
+                          <Box marginBottom={1}>
+                            <Typography variant="subtitle1">
+                              {job.company_name}
+                            </Typography>
+                          </Box>
+                          <Box textAlign="center">
+                            <Typography variant="subtitle2">
+                              {job.title}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Toolbar>
+                    </Box>
+                  </Box>
+                </Paper>
+              </Grid>
+            );
+          })}
+      </>
       ) : (
         <Typography style={{ fontSize: 12 }}>
-          Your currently do not have any favorited jobs
+          You have not visited any jobs yet
         </Typography>
-      )} */}
+      )}
     </Box>
   );
 }
