@@ -29,21 +29,19 @@ import UserContext from "../providers/UserContext";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import AddIcon from "@mui/icons-material/Add";
 import { useHistory } from "react-router-dom";
+import {TechSkillsFind,LanguageFind} from "./SearchRegex.js";
 //import Friends from "./Profile.js";
 
 function JobDetails({ jobId }) {
   const { user, setUser } = useContext(UserContext);
-  /*const [users, setUsers] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  let history = useHistory();*/
   const [job, setJob] = useState(null);
-
+  let languages=[];
+  let skills=[];
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
         const path = `http://localhost:5000/api/jobs/${jobId}`;
         const response = await axios.get(path);
-        console.log(response.data);
         setJob(response.data);
       } catch (error) {
         console.log(error);
@@ -54,11 +52,42 @@ function JobDetails({ jobId }) {
 
   useEffect(() => {
     if (job != null) {
-      console.log(job);
-      console.log(job.description);
+      //console.log(job);
+      //console.log(job.description);
+       languages=LanguageFind(job.description);
+       skills=TechSkillsFind(job.description);
+       console.log(languages);
+       console.log(skills);
+       GetLanguages();
     }
   }, [job]);
 
+  function GetLanguages(){
+    console.log(languages);
+    return(
+    <List>
+         {languages.length > 0 ? (
+          <>
+            {languages.map((language) => {
+              console.log(language);
+              return (
+                <ListItem>
+                  <ListItemText
+                    primary={language}
+                  />
+                </ListItem>
+              );
+            })}
+          </>
+        ) : (
+          <Typography style={{ fontSize: 12 }}>
+            No skills or languages were found
+          </Typography>
+        )}
+    </List>
+    );
+  }
+  
   const handleAddToFavorites = () => {};
 
   return (
@@ -143,6 +172,31 @@ function JobDetails({ jobId }) {
                       </Box>
                     </Toolbar>
                   </Box> */}
+                                    <Box textAlign="left" fontWeight={800}>
+                    <Toolbar disableGutters>
+                      <Box flexGrow={1}>
+                        <Typography variant="subtitle1">
+                          Recommended Languages
+                        </Typography>
+                      </Box>
+                    </Toolbar>
+                  </Box>
+                  <Divider />
+                  <Box marginTop={1}>
+                    <List>
+                    <Paper>
+                  <Box padding={3} marginBottom={2}>
+                    <Toolbar disableGutters>
+                      <Box marginRight={2}>
+                      </Box>
+                    </Toolbar>
+                    <Box textAlign="center" marginBottom={1}>
+                     <GetLanguages/>
+                    </Box>
+                  </Box>
+                  </Paper>
+                    </List>
+                  </Box>
                   <Box textAlign="left" fontWeight={800}>
                     <Toolbar disableGutters>
                       <Box flexGrow={1}>
@@ -166,66 +220,6 @@ function JobDetails({ jobId }) {
                     </Box>
                   </Box>
                   </Paper>
-                      {/* <ListItemButton
-                        secondaryAction={
-                          <IconButton>
-                            <ShareIcon />
-                          </IconButton>
-                        }
-                      >
-                        <ListItemAvatar>
-                          <Avatar>A</Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={"Andrew Huang"}
-                          secondary={"Looking for Software Engineering Roles"}
-                        />
-                      </ListItemButton>
-                      <ListItemButton
-                        secondaryAction={
-                          <IconButton>
-                            <ShareIcon />
-                          </IconButton>
-                        }
-                      >
-                        <ListItemAvatar>
-                          <Avatar>B</Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={"Ben Gross"}
-                          secondary={"Looking for Software Engineering Roles"}
-                        />
-                      </ListItemButton>
-                      <ListItemButton
-                        secondaryAction={
-                          <IconButton>
-                            <ShareIcon />
-                          </IconButton>
-                        }
-                      >
-                        <ListItemAvatar>
-                          <Avatar>A</Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={"Allen Buckner"}
-                          secondary={"Looking for Software Engineering Roles"}
-                        />
-                      </ListItemButton>
-                      <ListItemButton
-                        secondaryAction={
-                          <IconButton>
-                            <ShareIcon />
-                          </IconButton>
-                        }
-                      >
-                        <ListItemAvatar>
-                          <Avatar>T</Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={"Teddy Fujimoto"}
-                          secondary={"Looking for Software Engineering Roles"}
-                        />
-                      </ListItemButton> */}
                     </List>
                   </Box>
                 </Box>
@@ -278,6 +272,7 @@ function Friends({ friends }) {
     </List>
   );
 }
+
 function Tags({ Details }) {
   return (
     <Box display="flex">

@@ -35,6 +35,7 @@ function Home() {
       try {
         const response = await axios.get("http://localhost:5000/api/jobs");
         setJobs(response.data);
+        console.log(jobs);
       } catch (error) {
         console.log(error);
       }
