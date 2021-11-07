@@ -1,6 +1,8 @@
 const fs = require("fs");
 const { getSystemErrorMap } = require("util");
 const JobModel = require("../models/JobModel");
+var request = require('request')
+
 
 const queries = [
   "software engineering intern",
@@ -30,9 +32,24 @@ function scrapeJobs() {
     q: "biomedical engineer",
     gl: "us",
     lrad: "20",
+    output: "output  = 'html'"
+
   };
   search.json(params, (result) => {
     const jobResults = result.jobs_results;
+    const url = result.search_metadata.raw_html_file
+    request({uri: url}, 
+      function(error, response, body) {
+      const vals = body.split("pMhGee Co68jc j0vryd")
+      for (i=1; i<vals.length;i++){
+        second = vals[i].split("href=")
+        ret = second[1].split('" title')
+        console.log(ret[0])
+      }
+      
+    })
+
+
     for (let i in jobResults) {
       const job = jobResults[i];
 
@@ -62,5 +79,7 @@ function scrapeJobs() {
     }
   });
 }
+
+
 
 module.exports = { removeAllJobs, scrapeJobs };
