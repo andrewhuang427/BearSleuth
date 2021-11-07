@@ -172,7 +172,7 @@ function Login(props) {
           </Button>
           <Button
             onClick={() => {
-              history.push("/network");
+              history.push("/chat");
             }}
           >
             Chat
