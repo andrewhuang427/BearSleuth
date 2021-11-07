@@ -33,9 +33,9 @@ import { useHistory } from "react-router-dom";
 
 function JobDetails({ jobId }) {
   const { user, setUser } = useContext(UserContext);
-  const [users, setUsers] = useState([]);
+  /*const [users, setUsers] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  let history = useHistory();
+  let history = useHistory();*/
   const [job, setJob] = useState(null);
 
   useEffect(() => {

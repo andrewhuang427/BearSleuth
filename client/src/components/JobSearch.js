@@ -100,7 +100,15 @@ function Home() {
     }
   };
   function updateHistory(job){
-    const data = { username: user.username, jobVisited:job };
+    console.log(user.history.includes(job));
+    if(user.history.includes(job)==false){
+      user.history.push(job);
+    }
+    console.log(user.history);
+      
+    
+    //user.history.push(job_id);
+    /*const data = { username: user.username, jobVisited:job };
     console.log(data);
       fetch("http://localhost:5000/addHistory", {
         method: "POST",
@@ -109,7 +117,7 @@ function Home() {
       })
         .then((res) => res.json())
        .then((response) => {console.log(response)})
-        .catch((error) => console.error("Error:", error));
+        .catch((error) => console.error("Error:", error));*/
   }
 
   useEffect(() => {
@@ -207,7 +215,7 @@ function Home() {
                             variant="outlined"
                             size="small"
                             onClick={() => {
-                              updateHistory(job._id);
+                              updateHistory(job);
                               history.push(`/jobs/${job._id}`);
                             }}
                           >
