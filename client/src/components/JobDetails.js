@@ -64,49 +64,63 @@ function JobDetails({ jobId }) {
 
   function GetLanguages(){
     console.log(languages);
-    return(
-    <List id="list">
-         {languages.length > 0 ? (
-          <>
-            {languages.map((language) => {
-              console.log(language);
-            console.log(document.getElementById('list'));
-              return (
-                <ListItem>
-                  <ListItemText
-                  primary={language}
-                  />
-                </ListItem>
-              );
-            })}
-          </>
-        ) : (
-          <Typography style={{ fontSize: 12 }}>
-            No languages were found
-          </Typography>
-        )}
-        {skills.length > 0 ? (
-          <>
-            {skills.map((skill) => {
-              console.log(skill);
-              return (
-                <ListItem>
-                  <ListItemText
-                  primary={skill}
-                  />
-                </ListItem>
-              );
-            })}
-          </>
-        ) : (
-          <Typography style={{ fontSize: 12 }}>
-            No skills were found
-          </Typography>
-        )}
+    console.log(skills);
+    document.getElementById('languages').innerHTML="";
+    document.getElementById('skills').innerHTML="";
+    for(let i=0;i<languages.length;i++){
+      let language =document.createElement("p");
+      language.innerText=languages[i];
+      document.getElementById("languages").appendChild(language);
+    }
+    for(let i=0;i<skills.length;i++){
+      let skill =document.createElement("p");
+      skill.innerText=skills[i];
+      document.getElementById("skills").appendChild(skill);
+    }
+    //return 0;
+    // return(
+    // <List id="list">
+    //      {languages.length > 0 ? (
+    //       <>
+    //         {languages.map((language) => {
+    //           console.log(language);
+    //         console.log(document.getElementById('list'));
+    //           return (
+    //             <ListItem>
+    //               <ListItemText
+    //               primary={language}
+    //               />
+    //             </ListItem>
+    //           );
+    //         })}
+    //       </>
+    //     ) : (
+    //       <Typography style={{ fontSize: 12 }}>
+    //         No languages were found
+    //       </Typography>
+    //     )}
+    //     {skills.length > 0 ? (
+    //       <>
+    //         {skills.map((skill) => {
+    //           console.log(skill);
+    //           return (
+    //             <ListItem>
+    //               <ListItemText
+    //               primary={skill}
+    //               />
+    //             </ListItem>
+    //           );
+    //         })}
+    //       </>
+    //     ) : (
+    //       <Typography style={{ fontSize: 12 }}>
+    //         No skills were found
+    //       </Typography>
+    //     )}
         
-    </List>
+    // </List>
     
-    );
+    // );
     
   }
   
@@ -213,7 +227,21 @@ function JobDetails({ jobId }) {
                       </Box>
                     </Toolbar>
                     <Box textAlign="center" marginBottom={1}>
-                     <GetLanguages/>
+                     {/* <GetLanguages/> */}
+                     <List id="listOfLanguagesAndSkills">
+                     <Box flexGrow={1}>
+                        <Typography variant="subtitle1">
+                          Recommended Languages:
+                        </Typography>
+                      </Box>
+                      <List id="languages">
+                      </List>
+                      <Typography variant="subtitle1">
+                          Recommended Skills:
+                        </Typography>
+                      <List id="skills">
+                      </List>
+                     </List>
                     </Box>
                   </Box>
                   </Paper>
