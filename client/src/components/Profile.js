@@ -140,19 +140,21 @@ function Profile() {
                       <Typography>Your Favorites</Typography>
                     </Box>
                     <Box>
-                      {/* <Chip
+                      <Chip
                         color="primary"
                         icon={<AddIcon />}
                         clickable
                         label={"Explore Jobs"}
                         variant="outlined"
-                      /> */}
+                        onClick={() => {
+                          history.push("/");
+                        }}
+                      />
                     </Box>
                   </Toolbar>
                 </Box>
-                <Box textAlign="center">
-                  <Favorites jobs={user != null ? user.favorites : []} />
-                </Box>
+
+                <Favorites jobs={user != null ? user.favorites : []} />
               </Box>
               <Box padding={3} marginBottom={2}>
                 <Toolbar disableGutters>
@@ -165,9 +167,7 @@ function Profile() {
                     <Typography>Recent Job Search History</Typography>
                   </Box>
                 </Toolbar>
-                <Box textAlign="center" marginBottom={2}>
-                  <History jobs={user != null ? user.history : []} />
-                </Box>
+                <History jobs={user != null ? user.history : []} />
               </Box>
             </Paper>
             <Paper>
@@ -272,22 +272,22 @@ function Favorites({ jobs }) {
 }
 function History({ jobs }) {
   const history = useHistory();
-  jobs=jobs.slice(1,); //the first index is always empty so I am just slicing it out here
-  if(jobs.length>5){
-    jobs=jobs.slice(jobs.length-5,jobs.length);
+  jobs = jobs.slice(1); //the first index is always empty so I am just slicing it out here
+  if (jobs.length > 5) {
+    jobs = jobs.slice(jobs.length - 5, jobs.length);
   }
   console.log(jobs);
   return (
     <Box>
-       {jobs.length > 0 ? (
-        <>
-        {jobs.map((job) => {
+      {jobs.length > 0 ? (
+        <Grid container spacing={2}>
+          {jobs.map((job) => {
             return (
-              <Grid item xs={20} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <Paper variant="outlined">
                   <Box padding={3}>
                     <Box
-                      textAlign="center"
+                      textAlign="left"
                       fontWeight={800}
                       color={"#137658"}
                       marginBottom={1}
@@ -304,12 +304,12 @@ function History({ jobs }) {
                           />
                         </Box>
                         <Box flexGrow={1}>
-                          <Box marginBottom={1}>
+                          <Box marginBottom={1} text>
                             <Typography variant="subtitle1">
                               {job.company_name}
                             </Typography>
                           </Box>
-                          <Box textAlign="center">
+                          <Box>
                             <Typography variant="subtitle2">
                               {job.title}
                             </Typography>
@@ -322,7 +322,7 @@ function History({ jobs }) {
               </Grid>
             );
           })}
-      </>
+        </Grid>
       ) : (
         <Typography style={{ fontSize: 12 }}>
           You have not visited any jobs yet

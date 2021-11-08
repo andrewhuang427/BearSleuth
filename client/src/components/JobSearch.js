@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -19,15 +20,24 @@ function Home() {
   const { user, setUser } = useContext(UserContext);
   const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const history = useHistory();
 
-  const handleQueryChange = (event) => {
-    setQuery(event.target.value);
-  };
-
-  const handleSearchByRole = () => {
-    const data = { query };
+  const handleSearchByRole = async () => {
+    if (query !== "") {
+      setIsLoading(true);
+      try {
+        const url =
+          "http://localhost:5000/api/jobs/search?query=" + encodeURI(query);
+        const response = await axios.get(url);
+        setJobs(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    }
   };
 
   useEffect(() => {
@@ -100,25 +110,11 @@ function Home() {
       setFavorites(newFavs);
     }
   };
-  function updateHistory(job){
-    console.log(user.history.includes(job));
-    if(user.history.includes(job)==false){
+
+  function updateHistory(job) {
+    if (user.history.includes(job) == false) {
       user.history.push(job);
     }
-    console.log(user.history);
-      
-    
-    //user.history.push(job_id);
-    /*const data = { username: user.username, jobVisited:job };
-    console.log(data);
-      fetch("http://localhost:5000/addHistory", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => res.json())
-       .then((response) => {console.log(response)})
-        .catch((error) => console.error("Error:", error));*/
   }
 
   useEffect(() => {
@@ -141,12 +137,15 @@ function Home() {
                   fullWidth
                   label="Enter Role"
                   variant="outlined"
-                  onChange={handleQueryChange}
+                  value={query}
+                  onChange={(event) => {
+                    setQuery(event.target.value);
+                  }}
                 />
               </Box>
               <Box>
                 <Button variant="outlined" onClick={handleSearchByRole}>
-                  Search
+                  {isLoading ? <CircularProgress size={20} /> : "Search"}
                 </Button>
               </Box>
             </Toolbar>
@@ -157,7 +156,7 @@ function Home() {
         <Grid container spacing={2}>
           {jobs.map((job) => {
             return (
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={4} key={job.job_id}>
                 <Paper elevation={2} style={{ height: "100%" }}>
                   <Box padding={3}>
                     <Box
@@ -242,142 +241,3 @@ function Home() {
 }
 
 export default Home;
-
-// getHistory();
-// getRecs();
-
-// function getHistory(){
-//   let current="bob";
-//   const data={username:current};
-//   fetch("http://localhost:5000/getHistory", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((res) => res.json())
-//     .then((response) => {
-//       if (response.success) {
-//           let history=response.values[0].history;
-//           const previousHistory = document.getElementById("last5Jobs");
-//           previousHistory.innerHTML = "";
-//         console.log(history);
-//           for (let i = history.length-1; i >= history.length-5; i--){
-//               const job = document.createElement("div");
-//               let jobVisitedName=document.createElement("p");
-//               jobVisitedName.innerText=history[i];
-//               job.appendChild(jobVisitedName);
-//               previousHistory.appendChild(job);
-//             }
-//       }
-//     })
-//     .catch((error) => console.error("Error:", error));
-// }
-
-// function SearchAPI() {
-//   // const data = { roleName: document.getElementById('roleQuery').value + " " + document.getElementById('') };
-//   const data = { apiName: document.getElementById('apiName').value };
-//   fetch("http://localhost:5000/getAPI", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((res) => res.json())
-//     .then((response) => {
-//       var jobs = response.values.jobs_results
-//       const list = document.getElementById("list");
-//       list.innerHTML = "";
-//       alert("Found " + jobs.length + " jobs")
-//       for (let i = 0; i < jobs.length; i++) {
-//         const listing = document.createElement("div");
-//         listing.addEventListener("click",visit);
-//         let info=document.createElement('p');
-//         info.innerHTML=jobs[i].title + " at " + jobs[i].company_name + " in " + jobs[i].location;
-//         //const info = document.createTextNode(jobs[i].title + " at " + jobs[i].company_name + " in " + jobs[i].location);
-//         const langs = document.createTextNode(LanguageFind(jobs[i]))
-//         const techSkills = document.createTextNode(TechSkillsFind(jobs[i]))
-//         //const desc = document.createTextNode(jobs[i].description);
-//         listing.appendChild(info);
-//         listing.appendChild(langs);
-//         listing.appendChild(techSkills);
-//         list.appendChild(listing);
-//         listing.classList.add("job");
-//       }
-//     })
-// }
-
-// function getRecs(){
-//   let role="SWE";
-//   let data={role:role};
-//   fetch("http://localhost:5000/getRecs", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((res) => res.json())
-//     .then((response) => {
-//       if (response.success) {
-//          let recs=response.values;
-//          console.log(recs);
-//         const recList = document.getElementById("recs");
-//           recList.innerHTML = "";
-//           for (let i = 0; i < recs.length; i++){
-//               const job = document.createElement("div");
-//               let name=document.createElement("p");
-//               name.innerText=recs[i].position+" at "+ recs[i].company;
-//               job.appendChild(name);
-//               recList.appendChild(job);
-//             }
-//       }
-//     })
-//     .catch((error) => console.error("Error:", error));
-
-// }
-
-// const RoleSubmit = () => {
-//   const data = { roleName: document.getElementById('roleQuery').value};
-//   fetch("http://localhost:5000/getJobsByTitle", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((res) => res.json())
-//     .then((response) => {
-//       const list = document.getElementById("list");
-//       list.innerHTML = "";
-//       alert("Found " + response.values.length + " jobs")
-//       for (let i = 0; i < response.values.length; i++){
-//         const listing = document.createElement("div");
-//         const info = document.createTextNode(response.values[i].position + " at " + response.values[i].company);
-//         listing.appendChild(info);
-//         list.appendChild(listing);
-//         listing.classList.add("job");
-//         //alert((response.values[i].position + " at " + response.values[i].company ))
-//       }
-
-//     })
-//     .catch((error) => console.error("Error:", error));
-//   };
-
-// const CompanySubmit = () => {
-//   const data = { companyName: document.getElementById('CompanyQuery').value };
-//   fetch("http://localhost:5000/getJobsByCompany", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((response) => response.json())
-//     .then((response) => {
-//       const list = document.getElementById("list");
-//       list.innerHTML = "";
-//       alert("Found " + response.values.length + " jobs")
-//       for (let i = 0; i < response.values.length; i++){
-//         const listing = document.createElement("div");
-//         const info = document.createTextNode(response.values[i].position + " at " + response.values[i].company);
-//         listing.appendChild(info);
-//         list.appendChild(listing);
-//         listing.classList.add("job");
-//       }
-
-//     })
-//     .catch((error) => console.error("Error:", error));
-// };

@@ -1,7 +1,7 @@
 const fs = require("fs");
-const { getSystemErrorMap } = require("util");
 const JobModel = require("../models/JobModel");
-var request = require('request')
+const SerpApi = require("google-search-results-nodejs");
+// var request = require('request')
 
 
 const queries = [
@@ -23,7 +23,6 @@ function removeAllJobs() {
 }
 
 function scrapeJobs() {
-  const SerpApi = require("google-search-results-nodejs");
   const search = new SerpApi.GoogleSearch(
     "df6a71fa7a6e850a4c1c34e54e6dc4071c296cb642e6ae8082baac5cb4ab2114"
   );
@@ -37,17 +36,17 @@ function scrapeJobs() {
   };
   search.json(params, (result) => {
     const jobResults = result.jobs_results;
-    const url = result.search_metadata.raw_html_file
-    request({uri: url}, 
-      function(error, response, body) {
-      const vals = body.split("pMhGee Co68jc j0vryd")
-      for (i=1; i<vals.length;i++){
-        second = vals[i].split("href=")
-        ret = second[1].split('" title')
-        console.log(ret[0])
-      }
+    // const url = result.search_metadata.raw_html_file
+    // request({uri: url}, 
+    //   function(error, response, body) {
+    //   const vals = body.split("pMhGee Co68jc j0vryd")
+    //   for (i=1; i<vals.length;i++){
+    //     second = vals[i].split("href=")
+    //     ret = second[1].split('" title')
+    //     console.log(ret[0])
+    //   }
       
-    })
+    // })
 
 
     for (let i in jobResults) {

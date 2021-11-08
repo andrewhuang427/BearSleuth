@@ -1,7 +1,9 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
-//import Button from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
+import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 //import IconButton from "@mui/material/IconButton";
@@ -15,34 +17,36 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 //import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
-import axios from "axios";
-
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import AddIcon from "@mui/icons-material/Add";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import HomeIcon from "@mui/icons-material/Home";
-//import TurnedInIcon from "@mui/icons-material/TurnedIn";
-//import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
-//import PendingActionsIcon from "@mui/icons-material/PendingActions";
-//import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-//import ShareIcon from "@mui/icons-material/Share";
+import TurnedInIcon from "@mui/icons-material/TurnedIn";
+import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import ShareIcon from "@mui/icons-material/Share";
 import UserContext from "../providers/UserContext";
-//import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import AddIcon from "@mui/icons-material/Add";
-//import { useHistory } from "react-router-dom";
-import {TechSkillsFind,LanguageFind} from "./SearchRegex.js";
-//import Friends from "./Profile.js";
+
+import axios from "axios";
+import { TechSkillsFind, LanguageFind } from "./SearchRegex.js";
 
 function JobDetails({ jobId }) {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [job, setJob] = useState(null);
-  let languages=[];
-  let skills=[];
+  const [extras, setExtras] = useState(null);
+  const [languages, setLanguages] = useState([]);
+  const [skills, setSkills] = useState([]);
+
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
         const path = `http://localhost:5000/api/jobs/${jobId}`;
         const response = await axios.get(path);
-        setJob(response.data);
+        console.log(response);
+
+        setJob(response.data.job);
+        setExtras(response.data.extras);
       } catch (error) {
         console.log(error);
       }
@@ -52,78 +56,11 @@ function JobDetails({ jobId }) {
 
   useEffect(() => {
     if (job != null) {
-      //console.log(job);
-      //console.log(job.description);
-       languages=LanguageFind(job.description);
-       skills=TechSkillsFind(job.description);
-       //console.log(languages);
-       //console.log(skills);
-       GetLanguages();
+      setLanguages(LanguageFind(job.description));
+      setSkills(TechSkillsFind(job.description));
     }
   }, [job]);
 
-  function GetLanguages(){
-    console.log(languages);
-    console.log(skills);
-    document.getElementById('languages').innerHTML="";
-    document.getElementById('skills').innerHTML="";
-    for(let i=0;i<languages.length;i++){
-      let language =document.createElement("p");
-      language.innerText=languages[i];
-      document.getElementById("languages").appendChild(language);
-    }
-    for(let i=0;i<skills.length;i++){
-      let skill =document.createElement("p");
-      skill.innerText=skills[i];
-      document.getElementById("skills").appendChild(skill);
-    }
-    //return 0;
-    // return(
-    // <List id="list">
-    //      {languages.length > 0 ? (
-    //       <>
-    //         {languages.map((language) => {
-    //           console.log(language);
-    //         console.log(document.getElementById('list'));
-    //           return (
-    //             <ListItem>
-    //               <ListItemText
-    //               primary={language}
-    //               />
-    //             </ListItem>
-    //           );
-    //         })}
-    //       </>
-    //     ) : (
-    //       <Typography style={{ fontSize: 12 }}>
-    //         No languages were found
-    //       </Typography>
-    //     )}
-    //     {skills.length > 0 ? (
-    //       <>
-    //         {skills.map((skill) => {
-    //           console.log(skill);
-    //           return (
-    //             <ListItem>
-    //               <ListItemText
-    //               primary={skill}
-    //               />
-    //             </ListItem>
-    //           );
-    //         })}
-    //       </>
-    //     ) : (
-    //       <Typography style={{ fontSize: 12 }}>
-    //         No skills were found
-    //       </Typography>
-    //     )}
-        
-    // </List>
-    
-    // );
-    
-  }
-  
   //const handleAddToFavorites = () => {};
 
   return (
@@ -134,7 +71,12 @@ function JobDetails({ jobId }) {
             <Grid item xs={12} sm={7}>
               <Paper>
                 <Box padding={5}>
-                  <Box textAlign="left" fontWeight={800} color={"#137658"} marginBottom={2}>
+                  <Box
+                    textAlign="left"
+                    fontWeight={800}
+                    color={"#137658"}
+                    marginBottom={2}
+                  >
                     <Toolbar disableGutters>
                       <Box marginRight={2}>
                         <Avatar src={job.thumbnail} />
@@ -155,7 +97,7 @@ function JobDetails({ jobId }) {
                       variant="subtitle2"
                       style={{ whiteSpace: "pre-line" }}
                     >
-                      {`${job.description}`}
+                      {job.description}
                     </Typography>
                   </Box>
                 </Box>
@@ -164,89 +106,16 @@ function JobDetails({ jobId }) {
             <Grid item xs={12} sm={5}>
               <Paper>
                 <Box padding={5}>
-                  <Box>
-                    <Box textAlign="left" fontWeight={800}>
-                      <Toolbar disableGutters>
-                        <Box flexGrow={1}>
-                          <Typography variant="subtitle1">
-                            {" "}
-                            Job Actions
-                          </Typography>
-                        </Box>
-                      </Toolbar>
-                    </Box>
-                  </Box>
-                  <Divider />
-                  {/* <Box marginTop={1} marginBottom={3}>
-                    <Toolbar disableGutters>
-                      <Box marginRight={1}>
-                        <Button
-                          size="small"
-                          startIcon={<TurnedInNotIcon />}
-                          variant="outlined"
-                        >
-                          Save Job
-                        </Button>
-                      </Box>
-                      <Box marginRight={1}>
-                        <Button
-                          size="small"
-                          startIcon={<PendingActionsIcon />}
-                          variant="outlined"
-                        >
-                          Apply
-                        </Button>
-                      </Box>
-                      <Box marginRight={1}>
-                        <Button
-                          size="small"
-                          startIcon={<LocalPhoneIcon />}
-                          variant="outlined"
-                        >
-                          Contact Recruiter
-                        </Button>
-                      </Box>
-                    </Toolbar>
-                  </Box> */}
-                                    <Box textAlign="left" fontWeight={800}>
+                  <Box textAlign="left" fontWeight={800}>
                     <Toolbar disableGutters>
                       <Box flexGrow={1}>
-                        <Typography variant="subtitle1">
-                          Recommended Languages
-                        </Typography>
+                        <Typography variant="subtitle1">Job Actions</Typography>
                       </Box>
                     </Toolbar>
                   </Box>
                   <Divider />
-                  <Box marginTop={1}>
-                    <List>
-                    <Paper>
-                  <Box padding={3} marginBottom={2}>
-                    <Toolbar disableGutters>
-                      <Box marginRight={2}>
-                      </Box>
-                    </Toolbar>
-                    <Box textAlign="center" marginBottom={1}>
-                     {/* <GetLanguages/> */}
-                     <List id="listOfLanguagesAndSkills">
-                     <Box flexGrow={1}>
-                        <Typography variant="subtitle1">
-                          Recommended Languages:
-                        </Typography>
-                      </Box>
-                      <List id="languages">
-                      </List>
-                      <Typography variant="subtitle1">
-                          Recommended Skills:
-                        </Typography>
-                      <List id="skills">
-                      </List>
-                     </List>
-                    </Box>
-                  </Box>
-                  </Paper>
-                    </List>
-                  </Box>
+                  <Extras extras={extras} />
+                  <LanguagesAndSkills languages={languages} skills={skills} />
                   <Box textAlign="left" fontWeight={800}>
                     <Toolbar disableGutters>
                       <Box flexGrow={1}>
@@ -258,19 +127,9 @@ function JobDetails({ jobId }) {
                   </Box>
                   <Divider />
                   <Box marginTop={1}>
-                    <List>
-                    <Paper>
-                  <Box padding={3} marginBottom={2}>
-                    <Toolbar disableGutters>
-                      <Box marginRight={2}>
-                      </Box>
-                    </Toolbar>
-                    <Box textAlign="center" marginBottom={1}>
+                    <Box marginBottom={2}>
                       <Friends friends={user != null ? user.friends : []} />
                     </Box>
-                  </Box>
-                  </Paper>
-                    </List>
                   </Box>
                 </Box>
               </Paper>
@@ -278,11 +137,94 @@ function JobDetails({ jobId }) {
           </Grid>
         </Box>
       ) : (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={true}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      )}
+    </>
+  );
+}
+
+function Tags({ Details }) {
+  return (
+    <>
+      {Details != null ? (
+        <Box display="flex">
+          {Details.posted_at != null ? (
+            <Box marginRight={1}>
+              <Chip
+                icon={<AccessTimeIcon />}
+                label={"Posted: " + Details.posted_at}
+                variant="outlined"
+              />
+            </Box>
+          ) : (
+            ""
+          )}
+          {Details.schedule_type != null ? (
+            <Box marginRight={1}>
+              <Chip
+                icon={<DateRangeIcon />}
+                label={Details.schedule_type}
+                variant="outlined"
+              />
+            </Box>
+          ) : (
+            ""
+          )}
+          {Details.work_from_home != null ? (
+            <Box>
+              <Chip
+                icon={<HomeIcon />}
+                label={"Work From Home"}
+                variant="outlined"
+              />
+            </Box>
+          ) : (
+            ""
+          )}
+        </Box>
+      ) : (
         ""
       )}
     </>
   );
 }
+
+function Extras({ extras }) {
+  return (
+    <>
+      {extras != null ? (
+        <Box marginTop={1} marginBottom={3}>
+          {extras.apply_options.map((option) => {
+            return (
+              <Box marginTop={2} marginBottom={2} key={option.link}>
+                <a
+                  href={option.link}
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  <Button
+                    size="small"
+                    startIcon={<PendingActionsIcon />}
+                    variant="outlined"
+                  >
+                    {option.title}
+                  </Button>
+                </a>
+              </Box>
+            );
+          })}
+        </Box>
+      ) : (
+        ""
+      )}
+    </>
+  );
+}
+
 function Friends({ friends }) {
   return (
     <List>
@@ -296,7 +238,7 @@ function Friends({ friends }) {
                     variant="outlined"
                     color="primary"
                     clickable
-                    label="Share this Job"
+                    label="Share"
                     icon={<AddIcon />}
                   />
                 }
@@ -323,43 +265,58 @@ function Friends({ friends }) {
   );
 }
 
-function Tags({ Details }) {
+function LanguagesAndSkills({ languages, skills }) {
   return (
-    <Box display="flex">
-      {Details.posted_at != null ? (
-        <Box marginRight={1}>
-          <Chip
-            icon={<AccessTimeIcon />}
-            label={"Posted: " + Details.posted_at}
-            variant="outlined"
-          />
+    <>
+      {languages.length > 0 ? (
+        <Box marginBottom={3}>
+          <Box marginBottom={2}>
+            <Typography variant="subtitle1">Recommended Languages:</Typography>
+          </Box>
+          <Divider />
+          <Box marginTop={2} display="flex">
+            {languages.map((l) => {
+              return (
+                <Box marginRight={1}>
+                  <Chip
+                    key={l}
+                    label={l.charAt(0).toUpperCase() + l.slice(1)}
+                    variant="outlined"
+                    color="secondary"
+                  />
+                </Box>
+              );
+            })}
+          </Box>
         </Box>
       ) : (
         ""
       )}
-      {Details.schedule_type != null ? (
-        <Box marginRight={1}>
-          <Chip
-            icon={<DateRangeIcon />}
-            label={Details.schedule_type}
-            variant="outlined"
-          />
+      {skills.length > 0 ? (
+        <Box marginBottom={2}>
+          <Box marginBottom={2}>
+            <Typography variant="subtitle1">Recommended Skills:</Typography>
+          </Box>
+          <Divider />
+          <Box marginTop={2} display="flex">
+            {skills.map((s) => {
+              return (
+                <Box marginRight={1}>
+                  <Chip
+                    key={s}
+                    label={s.charAt(0).toUpperCase() + s.slice(1)}
+                    variant="outlined"
+                    color="secondary"
+                  />
+                </Box>
+              );
+            })}
+          </Box>
         </Box>
       ) : (
         ""
       )}
-      {Details.work_from_home != null ? (
-        <Box>
-          <Chip
-            icon={<HomeIcon />}
-            label={"Work From Home"}
-            variant="outlined"
-          />
-        </Box>
-      ) : (
-        ""
-      )}
-    </Box>
+    </>
   );
 }
 
