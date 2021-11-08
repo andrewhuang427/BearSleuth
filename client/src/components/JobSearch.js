@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -12,6 +13,8 @@ import Paper from "@mui/material/Paper";
 import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+
+import ClipLoader from "react-spinners/ClipLoader";
 
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
@@ -22,6 +25,8 @@ function Home() {
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  const [toggleId, setToggleId] = useState("");
+  const [isFavoriting, setIsFavoriting] = useState(false);
   const history = useHistory();
 
   const handleSearchByRole = async () => {
@@ -55,6 +60,8 @@ function Home() {
 
   const handleToggleFavorites = (jobId) => {
     if (user != null) {
+      setIsFavoriting(true);
+      setToggleId(jobId);
       if (favorites.includes(jobId)) {
         handleRemoveFromFavorites(jobId);
       } else {
@@ -77,8 +84,12 @@ function Home() {
       );
       setUser(response.data);
       refreshFavs();
+      setIsFavoriting(false);
+      setToggleId("");
     } catch (error) {
       console.log(error);
+      setIsFavoriting(false);
+      setToggleId("");
     }
   };
 
@@ -96,8 +107,12 @@ function Home() {
       );
       setUser(response.data);
       refreshFavs();
+      setIsFavoriting(false);
+      setToggleId("");
     } catch (error) {
       console.log(error);
+      setIsFavoriting(false);
+      setToggleId("");
     }
   };
 
@@ -178,17 +193,26 @@ function Home() {
                           </Typography>
                         </Box>
                         <Box>
-                          <IconButton
-                            onClick={() => {
-                              handleToggleFavorites(job._id);
-                            }}
-                          >
-                            {favorites.includes(job._id) ? (
-                              <StarIcon style={{ color: "#cfc644" }} />
-                            ) : (
-                              <StarBorderIcon />
-                            )}
-                          </IconButton>
+                          {isFavoriting && toggleId == job._id ? (
+                            <ClipLoader
+                              color={"rgba(58, 180, 75, 1)"}
+                              size={30}
+                            />
+                          ) : (
+                            <Tooltip title="Favorite">
+                              <IconButton
+                                onClick={() => {
+                                  handleToggleFavorites(job._id);
+                                }}
+                              >
+                                {favorites.includes(job._id) ? (
+                                  <StarIcon style={{ color: "#cfc644" }} />
+                                ) : (
+                                  <StarBorderIcon />
+                                )}
+                              </IconButton>
+                            </Tooltip>
+                          )}
                         </Box>
                       </Toolbar>
                     </Box>

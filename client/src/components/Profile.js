@@ -128,46 +128,52 @@ function Profile() {
           </Grid>
           <Grid item xs={12} sm={8}>
             <Paper>
-              <Box padding={3}>
-                <Box marginBottom={2}>
-                  <Toolbar disableGutters>
-                    <Box marginRight={2}>
-                      <Avatar sx={{ height: 35, width: 35 }}>
-                        <StarIcon />
-                      </Avatar>
-                    </Box>
-                    <Box flexGrow={1}>
-                      <Typography>Your Favorites</Typography>
-                    </Box>
-                    <Box>
-                      <Chip
-                        color="primary"
-                        icon={<AddIcon />}
-                        clickable
-                        label={"Explore Jobs"}
-                        variant="outlined"
-                        onClick={() => {
-                          history.push("/");
-                        }}
-                      />
-                    </Box>
-                  </Toolbar>
+              <Box marginBottom={2}>
+                <Box padding={3}>
+                  <Box marginBottom={2}>
+                    <Toolbar disableGutters>
+                      <Box marginRight={2}>
+                        <Avatar sx={{ height: 35, width: 35 }}>
+                          <StarIcon />
+                        </Avatar>
+                      </Box>
+                      <Box flexGrow={1}>
+                        <Typography>Your Favorites</Typography>
+                      </Box>
+                      <Box>
+                        <Chip
+                          color="primary"
+                          icon={<AddIcon />}
+                          clickable
+                          label={"Explore Jobs"}
+                          variant="outlined"
+                          onClick={() => {
+                            history.push("/");
+                          }}
+                        />
+                      </Box>
+                    </Toolbar>
+                  </Box>
+                  <Favorites jobs={user != null ? user.favorites : []} />
                 </Box>
-
-                <Favorites jobs={user != null ? user.favorites : []} />
-              </Box>
-              <Box padding={3} marginBottom={2}>
-                <Toolbar disableGutters>
-                  <Box marginRight={2}>
-                    <Avatar sx={{ height: 35, width: 35 }} variant="squared">
-                      <GroupAddIcon />
-                    </Avatar>
+                <Box padding={3}>
+                  <Box marginBottom={2}>
+                    <Toolbar disableGutters>
+                      <Box marginRight={2}>
+                        <Avatar
+                          sx={{ height: 35, width: 35 }}
+                          variant="squared"
+                        >
+                          <GroupAddIcon />
+                        </Avatar>
+                      </Box>
+                      <Box flexGrow={1}>
+                        <Typography>Recent Job Search History</Typography>
+                      </Box>
+                    </Toolbar>
                   </Box>
-                  <Box flexGrow={1}>
-                    <Typography>Recent Job Search History</Typography>
-                  </Box>
-                </Toolbar>
-                <History jobs={user != null ? user.history : []} />
+                  <History jobs={user != null ? user.history : []} />
+                </Box>
               </Box>
             </Paper>
             <Paper>
@@ -263,7 +269,7 @@ function Favorites({ jobs }) {
           })}
         </Grid>
       ) : (
-        <Typography style={{ fontSize: 12 }}>
+        <Typography style={{ fontSize: 12, textAlign: "center" }}>
           Your currently do not have any favorited jobs
         </Typography>
       )}
@@ -324,7 +330,7 @@ function History({ jobs }) {
           })}
         </Grid>
       ) : (
-        <Typography style={{ fontSize: 12 }}>
+        <Typography style={{ fontSize: 12, textAlign: "center" }}>
           You have not visited any jobs yet
         </Typography>
       )}

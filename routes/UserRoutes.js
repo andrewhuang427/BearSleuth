@@ -34,7 +34,7 @@ Router.route("/addFriend").post(withAuth, async (req, res) => {
     { new: true }
   ).populate(["friends", "favorites"]);
   query.exec((err, doc) => {
-    if (err) res.status(500).send({ msg: "internal service error" });
+    if (err) res.status(500).send({ msg: "internal server error" });
     res.send(doc);
   });
 });
@@ -50,7 +50,7 @@ Router.route("/addFavorite").post(withAuth, async (req, res) => {
   query.exec((err, doc) => {
     if (err) {
       console.log(err);
-      res.status(500).send({ msg: "internal service error" });
+      res.status(500).send({ msg: "internal server error" });
     }
     res.send(doc);
   });
@@ -67,7 +67,7 @@ Router.route("/removeFavorite").post(withAuth, async (req,res) => {
   query.exec((err, doc) => {
     if (err) {
       console.log(err);
-      res.status(500).send({ msg: "internal service error" });
+      res.status(500).send({ msg: "internal server error" });
     }
     res.send(doc);
   });
