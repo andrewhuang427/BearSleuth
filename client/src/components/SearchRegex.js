@@ -9,6 +9,11 @@ function TechSkillsFind(string) {
     let skills=new Set(string.toLowerCase().match(skillsfind));
     return Array.from(skills);
 }
+function requirementFind(string){
+    var requirementSearch = /(?:US Citizen|Bachelor|Master|AUTHORIZATION TO WORK IN US|ABET accreditation|vaccinated| Security Clearance)/gi;
+    let requirements=new Set(string.toLowerCase().match(requirementSearch));
+    return Array.from(requirements);
+}
 
 
 
@@ -16,7 +21,7 @@ function TechSkillsFind(string) {
 
 
 
-export {LanguageFind, TechSkillsFind}
+export {LanguageFind, TechSkillsFind,requirementFind}
 
 
 // var skillsfind = /(?:Node|Angular|React|AWS|Paas|((?<!no)SQL)|nosql)/gi;
