@@ -27,6 +27,7 @@ import PendingActionsIcon from "@mui/icons-material/PendingActions";
 //import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 //import ShareIcon from "@mui/icons-material/Share";
 import UserContext from "../providers/UserContext";
+import {host} from "../index"
 
 import axios from "axios";
 import { TechSkillsFind, LanguageFind } from "./SearchRegex.js";
@@ -41,7 +42,7 @@ function JobDetails({ jobId }) {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        const path = `http://localhost:5000/api/jobs/${jobId}`;
+        const path = host + `api/jobs/${jobId}`;
         const response = await axios.get(path);
         console.log(response);
 

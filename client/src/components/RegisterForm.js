@@ -7,6 +7,8 @@ import Paper from "@mui/material/Paper";
 import LoginOn from "./Navbar";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import {host} from "../index"
+
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -56,7 +58,7 @@ function RegisterForm() {
       history:[],
     };
     console.log(data);
-    fetch("http://localhost:5000/register", {
+    fetch(host + "register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },

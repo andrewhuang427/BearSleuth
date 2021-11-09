@@ -18,6 +18,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import {host} from "../index"
+
 
 function Home() {
   const { user, setUser } = useContext(UserContext);
@@ -34,7 +36,7 @@ function Home() {
       setIsLoading(true);
       try {
         const url =
-          "http://localhost:5000/api/jobs/search?query=" + encodeURI(query);
+          host + "api/jobs/search?query=" + encodeURI(query);
         const response = await axios.get(url);
         setJobs(response.data);
         setIsLoading(false);
@@ -48,7 +50,7 @@ function Home() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/jobs");
+        const response = await axios.get(host + "api/jobs");
         setJobs(response.data);
         console.log(jobs);
       } catch (error) {
@@ -78,7 +80,7 @@ function Home() {
       };
       const body = { jobId };
       const response = await axios.post(
-        "http://localhost:5000/api/user/removeFavorite",
+        host + "api/user/removeFavorite",
         body,
         config
       );
@@ -101,7 +103,7 @@ function Home() {
       };
       const body = { jobId };
       const response = await axios.post(
-        "http://localhost:5000/api/user/addFavorite",
+        host + "api/user/addFavorite",
         body,
         config
       );

@@ -19,6 +19,10 @@ const theme= createTheme({
   },
 });
 
+//export const host = "http://localhost:5000/"
+export const host = "http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:5000/"
+
+
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

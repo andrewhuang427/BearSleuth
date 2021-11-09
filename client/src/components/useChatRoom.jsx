@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
+import {host} from "../index"
+
 
 // this is the same event name as our server. This will allow communication between the server and client possible.
 const NEW_MESSAGE_EVENT = "new-message-event"; 
-const SOCKET_SERVER_URL = "http://localhost:3030";
+const SOCKET_SERVER_URL = "http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:3030";
+//const SOCKET_SERVER_URL = "http://localhost:3030";
 
 const useChatRoom = () => {
   const [messages, setMessages] = useState([]);

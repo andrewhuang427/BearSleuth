@@ -1,7 +1,10 @@
+import {host} from "../index"
+
+
 function getFavorites() {
   let current = "bob";
   const data = { username: current };
-  fetch("http://localhost:5000/getFavorites", {
+  fetch(host + "getFavorites", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -28,7 +31,7 @@ function getFavorites() {
 function getFriends() {
   let current = "bob";
   const data = { username: current };
-  fetch("http://localhost:5000/getFriends", {
+  fetch(host + "getFriends", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -59,7 +62,7 @@ function getFriends() {
 function getHistory() {
   let current = "bob";
   const data = { username: current };
-  fetch("http://localhost:5000/getHistory", {
+  fetch(host + "getHistory", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -87,7 +90,7 @@ function addFriend(e) {
   let current = "bob";
   let newFriend = e.target.parentNode.firstChild.innerText;
   const data = { username: current, new: newFriend };
-  fetch("http://localhost:5000/addFriend", {
+  fetch(host + "addFriend", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -105,7 +108,7 @@ function userSearch() {
   let query = document.getElementById("usernameSearch").value;
   let data = { major: query };
   //console.log(data);
-  fetch("http://localhost:5000/getUsers", {
+  fetch(host + "getUsers", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },

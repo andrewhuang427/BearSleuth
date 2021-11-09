@@ -16,6 +16,7 @@ import ChatPage from "./pages/ChatPage";
 // User Context
 import UserContext from "./providers/UserContext";
 import axios from "axios";
+import { host } from "./index.js"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,7 +32,8 @@ function App() {
           headers: { Authorization: `Bearer ${jwt}` },
         };
         const response = await axios.get(
-          "http://localhost:5000/api/user",
+          host + "api/user",
+//          "http://localhost:5000/api/user",
           config
         );
         console.log(response.data);

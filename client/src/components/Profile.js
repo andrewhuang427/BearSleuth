@@ -25,6 +25,8 @@ import StarIcon from "@mui/icons-material/Star";
 import { useHistory } from "react-router-dom";
 
 import AddFriendsModal from "./AddFriendsModal";
+import {host} from "../index"
+
 
 import axios from "axios";
 
@@ -48,7 +50,7 @@ function Profile() {
           headers: { Authorization: `Bearer ${jwt}` },
         };
         const response = await axios.get(
-          "http://localhost:5000/api/user/all",
+          host + "api/user/all",
           config
         );
         setUsers(response.data);
@@ -66,7 +68,7 @@ function Profile() {
       };
       const data = { uid };
       const response = await axios.post(
-        "http://localhost:5000/api/user/addFriend",
+        host + "api/user/addFriend",
         data,
         config
       );

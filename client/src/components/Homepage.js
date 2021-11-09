@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import {LanguageFind, TechSkillsFind} from "./SearchRegex";
+import {host} from "../index"
 
 // const SerpApi = require('google-search-results-nodejs');
 // const search = new SerpApi.GoogleSearch("df6a71fa7a6e850a4c1c34e54e6dc4071c296cb642e6ae8082baac5cb4ab2114");
@@ -17,7 +18,7 @@ function visit(event){
   let current="bob";
   let jobName=event.target.childNodes[0].innerText;
   const data = { username: current, jobVisited:jobName };
-    fetch("http://localhost:5000/addHistory", {
+    fetch(host + "addHistory", {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
@@ -29,7 +30,7 @@ function visit(event){
 function getHistory(){
   let current="bob";
   const data={username:current};
-  fetch("http://localhost:5000/getHistory", {
+  fetch(host + "getHistory", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -57,7 +58,7 @@ function getHistory(){
 function SearchAPI() {
   // const data = { roleName: document.getElementById('roleQuery').value + " " + document.getElementById('') };
   const data = { apiName: document.getElementById('apiName').value };
-  fetch("http://localhost:5000/getAPI", {
+  fetch( host + "getAPI", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -89,7 +90,7 @@ function SearchAPI() {
 function getRecs(){
   let role="SWE";
   let data={role:role};
-  fetch("http://localhost:5000/getRecs", {
+  fetch(host + "getRecs", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -166,7 +167,7 @@ function Homepage() {
 
 const RoleSubmit = () => {
   const data = { roleName: document.getElementById('roleQuery').value};
-  fetch("http://localhost:5000/getJobsByTitle", {
+  fetch(host + "getJobsByTitle", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -192,7 +193,7 @@ const RoleSubmit = () => {
 
 const CompanySubmit = () => {
   const data = { companyName: document.getElementById('CompanyQuery').value };
-  fetch("http://localhost:5000/getJobsByCompany", {
+  fetch(host + "getJobsByCompany", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },

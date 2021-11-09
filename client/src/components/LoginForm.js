@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import {host} from "../index"
 
 function LoginForm() {
   let history = useHistory();
@@ -25,7 +26,7 @@ function LoginForm() {
   const handleSubmit = async () => {
     try {
       const body = { username: username, password: password };
-      const response = await axios.post("http://localhost:5000/login", body);
+      const response = await axios.post(host + "login", body);
       const data = response.data;
       alert(data.message);
       if (data.success) {
