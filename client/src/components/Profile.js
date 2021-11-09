@@ -3,9 +3,9 @@ import UserContext from "../providers/UserContext";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
-import Divider from "@mui/material/Divider";
+//import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
+//import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -15,13 +15,13 @@ import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemButton from "@mui/material/ListItemButton";
+//import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
 import AddIcon from "@mui/icons-material/Add";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import StarIcon from "@mui/icons-material/Star";
-import ShareIcon from "@mui/icons-material/Share";
+//import ShareIcon from "@mui/icons-material/Share";
 import { useHistory } from "react-router-dom";
 
 import AddFriendsModal from "./AddFriendsModal";
@@ -277,8 +277,8 @@ function Favorites({ jobs }) {
   );
 }
 function History({ jobs }) {
+  console.log(jobs);
   const history = useHistory();
-  jobs = jobs.slice(1); //the first index is always empty so I am just slicing it out here
   if (jobs.length > 5) {
     jobs = jobs.slice(jobs.length - 5, jobs.length);
   }
@@ -383,14 +383,6 @@ function Friends({ friends }) {
         </Typography>
       )}
     </List>
-  );
-}
-
-function FindAFriend() {
-  return (
-    <>
-      <Box id="searchFriend">Find Friend</Box>
-    </>
   );
 }
 //export default {Profile,Friends};

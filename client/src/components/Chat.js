@@ -1,5 +1,5 @@
 import React, {useRef, useState, useEffect} from "react";
-import {Box, Paper, TextField, Button, makeStyles} from "@material-ui/core";
+import { Paper, TextField, Button, makeStyles} from "@material-ui/core";
 
 import useChatRoom from "./useChatRoom";
 import clsx from "clsx";

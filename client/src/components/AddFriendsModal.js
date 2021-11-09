@@ -103,7 +103,7 @@ function Users({ users, addFriend }) {
                       secondary={`Majoring in ${user.major}`}
                     />
                   </ListItem>
-                  {index != users.length - 1 ? <Divider /> : ""}
+                  {index !== users.length - 1 ? <Divider /> : ""}
                 </Box>
               );
             })}

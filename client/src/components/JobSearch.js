@@ -127,7 +127,9 @@ function Home() {
   };
 
   function updateHistory(job) {
-    if (user.history.includes(job) == false) {
+    //user.history.push(job);
+    //console.log(user.history);
+    if (user.history.includes(job) === false) {
       user.history.push(job);
     }
   }
@@ -193,7 +195,7 @@ function Home() {
                           </Typography>
                         </Box>
                         <Box>
-                          {isFavoriting && toggleId == job._id ? (
+                          {isFavoriting && toggleId === job._id ? (
                             <ClipLoader
                               color={"rgba(58, 180, 75, 1)"}
                               size={30}

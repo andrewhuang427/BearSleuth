@@ -218,6 +218,7 @@ export default function Navbar() {
           <Box flexGrow={1} paddingTop={1}>
             <img
               src={Logo}
+              alt="Logo"
               style={{ height: 60, objectFit: "contain", cursor: "pointer" }}
               onClick={() => {
                 history.push("/");

@@ -8,7 +8,7 @@ function Network() {
   getFriends();
   //console.log(favorites);
   //getRecs();
-  function getRecs(){
+  /*function getRecs(){
     let role="SWE";
     let data={role:role};
     fetch("http://localhost:5000/getRecs", {
@@ -34,7 +34,7 @@ function Network() {
       })
       .catch((error) => console.error("Error:", error));
   
-  }
+  }*/
   function getHistory(){
     let current="bob";
     const data={username:current};
