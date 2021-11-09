@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const LoginReg = require("./routes/login-register.js");
 const http = require("http");
 const socketIO = require("socket.io");
-import { host } from "./index.js"
+//import { host } from "./index.js"
 
 
 const app = express();
