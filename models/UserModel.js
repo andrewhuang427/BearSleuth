@@ -31,12 +31,10 @@ const UserSchema = new Schema(
     favorites: [{ type: Schema.Types.ObjectId, ref: "Job" }],
     desiredRole: {
       type: String,
-      unique: true,
       required: true,
     },
     desiredLocation: {
       type: String,
-      unique: true,
       required: false,
     },
   },

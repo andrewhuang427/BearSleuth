@@ -66,9 +66,10 @@ function RegisterForm() {
         alert(response.message);
         if (response.success) {
           LoginOn();
+          
         }
       })
-      .catch((error) => console.error("Error:", error));
+      .catch((err) => console.error("Error:", err));
   };
 
   return (

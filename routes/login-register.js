@@ -48,9 +48,11 @@ app.post("/login", async (request, response) => {
 
 app.post("/register", async (request, response) => {
   data = request.body;
+  console.log(data);
   let query = UserModel.exists({ username: data.username }, function (err, user) {
     if (err) return err;
     if (user == null) {
+      
       salt = bcrypt.genSaltSync(10);
       bcrypt.hash(data.password, salt).then((result) => {
         query = UserModel.create(
@@ -66,6 +68,7 @@ app.post("/register", async (request, response) => {
             favorites: [],
           },
           function (err) {
+            console.log(err);
             if (err) return err;
             ret = { message: "Registration Successful", success: true };
             response.json(ret);
