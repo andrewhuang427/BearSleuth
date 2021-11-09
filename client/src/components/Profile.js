@@ -279,7 +279,7 @@ function Favorites({ jobs }) {
 function History({ jobs }) {
   console.log(jobs);
   const history = useHistory();
-  jobs=jobs.slice(1);
+  //jobs=jobs.slice(1);
   if (jobs.length > 5) {
     jobs = jobs.slice(jobs.length - 5, jobs.length);
   }
