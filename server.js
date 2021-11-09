@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const LoginReg = require("./routes/login-register.js");
 const http = require("http");
 const socketIO = require("socket.io");
+import { host } from "./index.js"
+
 
 const app = express();
 
@@ -16,7 +18,9 @@ const server = http.createServer(app);
 
 const io = socketIO(server, {
   cors: true,
-  origins: ["localhost:3000"],
+  origins: ["http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:3000"],
+b
+  //  origins: ["localhost:3000"],
 });
 
 // Hardcoding a room name here. This is to indicate that you can do more by creating multiple rooms as needed.
