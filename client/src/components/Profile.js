@@ -355,15 +355,15 @@ function Friends({ friends }) {
           {friends.map((friend) => {
             return (
               <ListItem
-                secondaryAction={
-                  <Chip
-                    variant="outlined"
-                    color="primary"
-                    clickable
-                    label="Send Message"
-                    icon={<AddIcon />}
-                  />
-                }
+                //secondaryAction={
+                  //<Chip
+                    //variant="outlined"
+                    //color="primary"
+                    //clickable
+                    //label="Send Message"
+                    //icon={<AddIcon />}
+                  ///>
+                //}
               >
                 <ListItemAvatar>
                   <Avatar sx={{ height: 30, width: 30, bgcolor: getColor() }}>

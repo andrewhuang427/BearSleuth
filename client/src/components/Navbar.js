@@ -212,7 +212,6 @@ export default function Navbar() {
         <Toolbar>
           <Box marginRight={1}>
             <IconButton>
-              <MenuIcon />
             </IconButton>
           </Box>
           <Box flexGrow={1} paddingTop={1}>
