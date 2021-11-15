@@ -37,6 +37,7 @@ function JobDetails({ jobId }) {
   const [job, setJob] = useState(null);
   const [extras, setExtras] = useState(null);
   const [languages, setLanguages] = useState([]);
+  const [requirements, setLanguages] = useState([]);
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
@@ -59,6 +60,7 @@ function JobDetails({ jobId }) {
     if (job != null) {
       setLanguages(LanguageFind(job.description));
       setSkills(TechSkillsFind(job.description));
+      setReq(requirementFind(job.description));
     }
   }, [job]);
 
