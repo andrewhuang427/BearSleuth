@@ -128,16 +128,29 @@ function Home() {
     }
   };
 
-  function updateHistory(job) {
-    //user.history.push(job);
-    //console.log(user.history);
-    if (user.history.includes(job) === false) {
-      user.history.push(job);
+  const updateHistory= async (job)=> {
+    try {
+      const jwt = localStorage.getItem("token");
+      const config = {
+        headers: { Authorization: `Bearer ${jwt}` },
+      };
+      const body = { job };
+      const response = await axios.post(
+        host + "api/user/addHistory",
+        body,
+        config
+      );
+      setUser(response.data);
+      setToggleId("");
+    } catch (error) {
+      console.log(error);
+      setToggleId("");
     }
   }
 
   useEffect(() => {
     if (user != null) {
+      console.log(user);
       refreshFavs();
     }
   }, [user]);
@@ -244,7 +257,7 @@ function Home() {
                             size="small"
                             onClick={() => {
                               updateHistory(job);
-                              history.push(`/jobs/${job._id}`);
+                             // history.push(`/jobs/${job._id}`);
                             }}
                           >
                             See more

@@ -30,14 +30,14 @@ import UserContext from "../providers/UserContext";
 import {host} from "../index"
 
 import axios from "axios";
-import { TechSkillsFind, LanguageFind } from "./SearchRegex.js";
+import { TechSkillsFind, LanguageFind,requirementFind } from "./SearchRegex.js";
 
 function JobDetails({ jobId }) {
   const { user } = useContext(UserContext);
   const [job, setJob] = useState(null);
   const [extras, setExtras] = useState(null);
   const [languages, setLanguages] = useState([]);
-  const [requirements, setLanguages] = useState([]);
+  const [requirements, setReq] = useState([]);
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
@@ -118,7 +118,7 @@ function JobDetails({ jobId }) {
                   </Box>
                   <Divider />
                   <Extras extras={extras} />
-                  <LanguagesAndSkills languages={languages} skills={skills} />
+                  <LanguagesAndSkills languages={languages} skills={skills} requirements={requirements} />
                   <Box textAlign="left" fontWeight={800}>
                     <Toolbar disableGutters>
                       <Box flexGrow={1}>
@@ -268,7 +268,7 @@ function Friends({ friends }) {
   );
 }
 
-function LanguagesAndSkills({ languages, skills }) {
+function LanguagesAndSkills({ languages, skills,requirements }) {
   return (
     <>
       {languages.length > 0 ? (
@@ -308,6 +308,30 @@ function LanguagesAndSkills({ languages, skills }) {
                   <Chip
                     key={s}
                     label={s.charAt(0).toUpperCase() + s.slice(1)}
+                    variant="outlined"
+                    color="secondary"
+                  />
+                </Box>
+              );
+            })}
+          </Box>
+        </Box>
+      ) : (
+        ""
+      )}
+            {requirements.length > 0 ? (
+        <Box marginBottom={3}>
+          <Box marginBottom={2}>
+            <Typography variant="subtitle1">Job Requirements:</Typography>
+          </Box>
+          <Divider />
+          <Box marginTop={2} display="flex">
+            {requirements.map((r) => {
+              return (
+                <Box marginRight={1}>
+                  <Chip
+                    key={r}
+                    label={r.charAt(0).toUpperCase() + r.slice(1)}
                     variant="outlined"
                     color="secondary"
                   />

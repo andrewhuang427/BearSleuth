@@ -55,6 +55,22 @@ Router.route("/addFavorite").post(withAuth, async (req, res) => {
     res.send(doc);
   });
 });
+Router.route("/addHistory").post(withAuth, async (req, res) => {
+  const { name } = req.user;
+  const { job } = req.body;
+  const query = UserModel.findOneAndUpdate(
+    { username: name },
+    { $addToSet: { history: job } },
+    { new: true }
+  ).populate(["friends", "history"]);
+  query.exec((err, doc) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send({ msg: "internal server error" });
+    }
+    res.send(doc);
+  });
+});
 
 Router.route("/removeFavorite").post(withAuth, async (req,res) => {
   const { name } = req.user;

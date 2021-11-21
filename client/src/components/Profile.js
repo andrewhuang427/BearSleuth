@@ -224,9 +224,11 @@ export default Profile;
 
 function Favorites({ jobs }) {
   const history = useHistory();
+  console.log(jobs);
   return (
     <Box>
       {jobs.length > 0 ? (
+        
         <Grid container spacing={2}>
           {jobs.map((job) => {
             return (
@@ -279,9 +281,8 @@ function Favorites({ jobs }) {
   );
 }
 function History({ jobs }) {
-  console.log(jobs);
   const history = useHistory();
-  //jobs=jobs.slice(1);
+  console.log(jobs);
   if (jobs.length > 5) {
     jobs = jobs.slice(jobs.length - 5, jobs.length);
   }

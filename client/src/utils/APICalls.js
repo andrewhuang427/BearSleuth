@@ -1,6 +1,6 @@
 import {host} from "../index"
 
-
+/*
 function getFavorites() {
   let current = "bob";
   const data = { username: current };
@@ -133,4 +133,4 @@ function userSearch() {
       getFriends();
     })
     .catch((error) => console.error("Error:", error));
-}
+}*/
