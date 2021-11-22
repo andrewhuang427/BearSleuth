@@ -131,7 +131,7 @@ function JobDetails({ jobId }) {
                   <Divider />
                   <Box marginTop={1}>
                     <Box marginBottom={2}>
-                      <Friends friends={user != null ? user.friends : []} />
+                      <Friends friends={user != null ? user.friends : []} job={job} />
                     </Box>
                   </Box>
                 </Box>
@@ -227,8 +227,26 @@ function Extras({ extras }) {
     </>
   );
 }
+const shareJob= async (friend,job)=> {
+  console.log(friend);
+  console.log(job);
+  try {
+    const jwt = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${jwt}` },
+    };
+    const body = { friend,job };
+    const response = await axios.post(
+      host + "api/user/share",
+      body,
+      config
+    );
+  } catch (error) {
+    console.log(error); 
+  }
+}
 
-function Friends({ friends }) {
+function Friends({ friends,job }) {
   return (
     <List>
       {friends.length > 0 ? (
@@ -236,15 +254,18 @@ function Friends({ friends }) {
           {friends.map((friend) => {
             return (
               <ListItem
-                // secondaryAction={
-                //   <Chip
-                //     variant="outlined"
-                //     color="primary"
-                //     clickable
-                //     label="Share"
-                //     icon={<AddIcon />}
-                //   />
-                // }
+                secondaryAction={
+                   <Chip
+                     variant="outlined"
+                     color="primary"
+                     clickable
+                     label="Share"
+                     icon={<AddIcon />}
+                     onClick={() => {
+                      shareJob(friend,job);
+                    }}
+                   />
+                 }
               >
                 <ListItemAvatar>
                   <Avatar sx={{ height: 30, width: 30, bgcolor: "blue" }}>

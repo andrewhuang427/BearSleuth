@@ -140,7 +140,7 @@ function Profile() {
                         </Avatar>
                       </Box>
                       <Box flexGrow={1}>
-                        <Typography>Your Favorites</Typography>
+                        <Typography>Your Favorites/Shared Jobs</Typography>
                       </Box>
                       <Box>
                         <Chip

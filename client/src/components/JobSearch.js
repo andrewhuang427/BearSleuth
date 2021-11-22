@@ -52,7 +52,7 @@ function Home() {
       try {
         const response = await axios.get(host + "api/jobs");
         setJobs(response.data);
-        console.log(jobs);
+        //console.log(jobs);
       } catch (error) {
         console.log(error);
       }
@@ -129,6 +129,7 @@ function Home() {
   };
 
   const updateHistory= async (job)=> {
+    console.log(user);
     try {
       const jwt = localStorage.getItem("token");
       const config = {
@@ -140,6 +141,7 @@ function Home() {
         body,
         config
       );
+      console.log(response.data);
       setUser(response.data);
       setToggleId("");
     } catch (error) {
@@ -257,7 +259,7 @@ function Home() {
                             size="small"
                             onClick={() => {
                               updateHistory(job);
-                             // history.push(`/jobs/${job._id}`);
+                              //history.push(`/jobs/${job._id}`);
                             }}
                           >
                             See more
