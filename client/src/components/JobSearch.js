@@ -24,6 +24,7 @@ import {host} from "../index"
 function Home() {
   const { user, setUser } = useContext(UserContext);
   const [query, setQuery] = useState("");
+  const [filter,setFilter]=useState('');
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
@@ -45,6 +46,17 @@ function Home() {
         setIsLoading(false);
       }
     }
+  };
+  const filterResults = async () => {
+    let filteredJobs=[]
+    for (let i=0;i<jobs.length;i++){
+      if(jobs[i].location.includes(filter)){
+        filteredJobs.push(jobs[i]);
+      }
+    }
+    setJobs(filteredJobs);
+    setIsLoading(false);
+
   };
 
   useEffect(() => {
@@ -180,6 +192,33 @@ function Home() {
               <Box>
                 <Button variant="outlined" onClick={handleSearchByRole}>
                   {isLoading ? <CircularProgress size={20} /> : "Search"}
+                </Button>
+              </Box>
+            </Toolbar>
+          </Box>
+        </Paper>
+      </Box>
+      <Box sx={{ width: 1/2 }} marginRight={5} marginLeft={5} marginTop={1}> {/*try to center*/}
+        <Paper elevation={1}>
+          <Box padding={2}>
+            <Toolbar>
+              <Box marginRight={3}>
+                <Typography>Filter by Location</Typography>
+              </Box>
+              <Box flexGrow={1} marginRight={1}>
+                <TextField
+                  fullWidth
+                  label="Filter Results (City, State)"
+                  variant="outlined"
+                  value={filter}
+                  onChange={(event) => {
+                    setFilter(event.target.value);
+                  }}
+                />
+              </Box>
+              <Box>
+                <Button variant="outlined" onClick={filterResults}>
+                  {isLoading ? <CircularProgress size={10} /> : "Filter"}
                 </Button>
               </Box>
             </Toolbar>
