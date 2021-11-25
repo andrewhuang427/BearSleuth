@@ -1,22 +1,25 @@
 import "./App.css";
 import React, { useState, useEffect, useMemo } from "react";
+
 // Import React Router
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 // Import Theme
 import { ThemeProvider } from "@mui/material/styles";
 import Theme from "./providers/Theme";
+
 // Import Pages
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import NetworkPage from "./pages/NetworkPage";
 import JobPage from "./pages/JobPage";
 import ProfilePage from "./pages/ProfilePage";
 import ChatPage from "./pages/ChatPage";
+import JobGroupsPage from "./pages/JobGroupsPage";
 // User Context
 import UserContext from "./providers/UserContext";
 import axios from "axios";
-import { host } from "./index.js"
+import { host } from "./index.js";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,17 +29,11 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       const jwt = localStorage.getItem("token");
-      console.log(jwt)
       if (jwt != null) {
         const config = {
           headers: { Authorization: `Bearer ${jwt}` },
         };
-        const response = await axios.get(
-          host + "api/user",
-//          "http://localhost:5000/api/user",
-          config
-        );
-        console.log(response.data);
+        const response = await axios.get(host + "api/user", config);
         if (response.status === 200) {
           setUser(response.data);
         }
@@ -56,9 +53,6 @@ function App() {
             <Route path="/register">
               <RegisterPage />
             </Route>
-            <Route path="/network">
-              <NetworkPage />
-            </Route>
             <Route path="/jobs/:jobId">
               <JobPage />
             </Route>
@@ -68,10 +62,10 @@ function App() {
             <Route path="/chat">
               <ChatPage />
             </Route>
-            <Route path="/">
-              <HomePage />
+            <Route path="/groups">
+              <JobGroupsPage />
             </Route>
-            <Route path="/home">
+            <Route path="/">
               <HomePage />
             </Route>
           </Switch>

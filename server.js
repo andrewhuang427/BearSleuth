@@ -6,7 +6,6 @@ const http = require("http");
 const socketIO = require("socket.io");
 //import { host } from "./index.js"
 
-
 const app = express();
 
 // ----- Socket.IO -----
@@ -18,8 +17,8 @@ const server = http.createServer(app);
 
 const io = socketIO(server, {
   cors: true,
-//  origins: ["http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:3000"],
-    origins: ["localhost:3000"],
+  //  origins: ["http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:3000"],
+  origins: ["localhost:3000"],
 });
 
 // Hardcoding a room name here. This is to indicate that you can do more by creating multiple rooms as needed.
@@ -44,12 +43,24 @@ server.listen(SOCKPORT, () => {
 // ----- Import API Routes -----
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
 const UserRoutes = require("./routes/UserRoutes");
-const JobRouter = require("./routes/JobRoutes");
+const JobRoutes = require("./routes/JobRoutes");
+const JobGroupRoutes = require("./routes/JobGroupRoutes");
+const JobGroupModel = require("./models/JobGroupModel.js");
 
 // ----- Job Scraping Route -----
 // const { removeAllJobs, scrapeJobs } = require("./utils/ScrapeJobs");
 // removeAllJobs()
 // scrapeJobs()
+
+// function removeJobGroups() {
+//   JobGroupModel.deleteMany({}, (error) => {
+//     if (error) {
+//       console.log(error);
+//     }
+//   });
+// }
+
+// removeJobGroups();
 
 app.use(cors());
 app.options("*", cors());
@@ -73,8 +84,9 @@ mongoose
 
 // ----- API Routes ----
 app.use("/api/auth", AuthenticationRoutes);
-app.use("/api/jobs", JobRouter);
+app.use("/api/jobs", JobRoutes);
 app.use("/api/user", UserRoutes);
+app.use("/api/groups", JobGroupRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello Word!");
@@ -86,11 +98,11 @@ app.listen(PORT, () => {
 
 app.use(LoginReg);
 
-app.get("/users", async (req, res) => {
-  var query = UserModel.find();
-  query.select("-_id");
-  query.exec(function (err, users) {
-    if (err) return err;
-    res.send(users);
-  });
-});
+// app.get("/users", async (req, res) => {
+//   var query = UserModel.find();
+//   query.select("-_id");
+//   query.exec(function (err, users) {
+//     if (err) return err;
+//     res.send(users);
+//   });
+// });

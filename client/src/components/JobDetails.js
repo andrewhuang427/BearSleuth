@@ -27,10 +27,14 @@ import PendingActionsIcon from "@mui/icons-material/PendingActions";
 //import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 //import ShareIcon from "@mui/icons-material/Share";
 import UserContext from "../providers/UserContext";
-import {host} from "../index"
+import { host } from "../index";
 
 import axios from "axios";
-import { TechSkillsFind, LanguageFind,requirementFind } from "./SearchRegex.js";
+import {
+  TechSkillsFind,
+  LanguageFind,
+  requirementFind,
+} from "../utils/SearchRegex.js";
 
 function JobDetails({ jobId }) {
   const { user } = useContext(UserContext);
@@ -54,7 +58,7 @@ function JobDetails({ jobId }) {
       }
     };
     fetchJobDetails();
-  }, []);
+  }, [jobId]);
 
   useEffect(() => {
     if (job != null) {
@@ -118,7 +122,11 @@ function JobDetails({ jobId }) {
                   </Box>
                   <Divider />
                   <Extras extras={extras} />
-                  <LanguagesAndSkills languages={languages} skills={skills} requirements={requirements} />
+                  <LanguagesAndSkills
+                    languages={languages}
+                    skills={skills}
+                    requirements={requirements}
+                  />
                   <Box textAlign="left" fontWeight={800}>
                     <Toolbar disableGutters>
                       <Box flexGrow={1}>
@@ -131,7 +139,10 @@ function JobDetails({ jobId }) {
                   <Divider />
                   <Box marginTop={1}>
                     <Box marginBottom={2}>
-                      <Friends friends={user != null ? user.friends : []} job={job} />
+                      <Friends
+                        friends={user != null ? user.friends : []}
+                        job={job}
+                      />
                     </Box>
                   </Box>
                 </Box>
@@ -227,7 +238,7 @@ function Extras({ extras }) {
     </>
   );
 }
-const shareJob= async (friend,job)=> {
+const shareJob = async (friend, job) => {
   console.log(friend);
   console.log(job);
   try {
@@ -235,18 +246,14 @@ const shareJob= async (friend,job)=> {
     const config = {
       headers: { Authorization: `Bearer ${jwt}` },
     };
-    const body = { friend,job };
-    const response = await axios.post(
-      host + "api/user/share",
-      body,
-      config
-    );
+    const body = { friend, job };
+    await axios.post(host + "api/user/share", body, config);
   } catch (error) {
-    console.log(error); 
+    console.log(error);
   }
-}
+};
 
-function Friends({ friends,job }) {
+function Friends({ friends, job }) {
   return (
     <List>
       {friends.length > 0 ? (
@@ -255,17 +262,17 @@ function Friends({ friends,job }) {
             return (
               <ListItem
                 secondaryAction={
-                   <Chip
-                     variant="outlined"
-                     color="primary"
-                     clickable
-                     label="Share"
-                     icon={<AddIcon />}
-                     onClick={() => {
-                      shareJob(friend,job);
+                  <Chip
+                    variant="outlined"
+                    color="primary"
+                    clickable
+                    label="Share"
+                    icon={<AddIcon />}
+                    onClick={() => {
+                      shareJob(friend, job);
                     }}
-                   />
-                 }
+                  />
+                }
               >
                 <ListItemAvatar>
                   <Avatar sx={{ height: 30, width: 30, bgcolor: "blue" }}>
@@ -289,7 +296,7 @@ function Friends({ friends,job }) {
   );
 }
 
-function LanguagesAndSkills({ languages, skills,requirements }) {
+function LanguagesAndSkills({ languages, skills, requirements }) {
   return (
     <>
       {languages.length > 0 ? (
@@ -340,7 +347,7 @@ function LanguagesAndSkills({ languages, skills,requirements }) {
       ) : (
         ""
       )}
-            {requirements.length > 0 ? (
+      {requirements.length > 0 ? (
         <Box marginBottom={3}>
           <Box marginBottom={2}>
             <Typography variant="subtitle1">Job Requirements:</Typography>

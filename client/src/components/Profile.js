@@ -25,8 +25,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { useHistory } from "react-router-dom";
 
 import AddFriendsModal from "./AddFriendsModal";
-import {host} from "../index"
-
+import { host } from "../index";
 
 import axios from "axios";
 
@@ -49,10 +48,7 @@ function Profile() {
         const config = {
           headers: { Authorization: `Bearer ${jwt}` },
         };
-        const response = await axios.get(
-          host + "api/user/all",
-          config
-        );
+        const response = await axios.get(host + "api/user/all", config);
         setUsers(response.data);
       }
     };
@@ -82,6 +78,7 @@ function Profile() {
   return (
     <>
       <Box marginLeft={2} marginRight={2} marginTop={2}>
+        <Toolbar />
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <Paper>
@@ -110,11 +107,6 @@ function Profile() {
                   </Box>
                 </Box>
                 <Box display="flex" justifyContent="center">
-                  <Box marginRight={1}>
-                    {/* <Button variant="outlined" size="small">
-                      Edit Profile
-                    </Button> */}
-                  </Box>
                   <Box>
                     <Button
                       variant="outlined"
@@ -224,15 +216,13 @@ export default Profile;
 
 function Favorites({ jobs }) {
   const history = useHistory();
-  console.log(jobs);
   return (
     <Box>
       {jobs.length > 0 ? (
-        
         <Grid container spacing={2}>
           {jobs.map((job) => {
             return (
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={6} key={job._id}>
                 <Paper variant="outlined">
                   <Box padding={3}>
                     <Box
@@ -249,7 +239,7 @@ function Favorites({ jobs }) {
                         <Box marginRight={3}>
                           <Avatar
                             src={job.thumbnail}
-                            sx={{ height: 30, width: 30 }}
+                            sx={{ height: 35, width: 35 }}
                           />
                         </Box>
                         <Box flexGrow={1}>
@@ -282,18 +272,16 @@ function Favorites({ jobs }) {
 }
 function History({ jobs }) {
   const history = useHistory();
-  console.log(jobs);
   if (jobs.length > 5) {
     jobs = jobs.slice(jobs.length - 5, jobs.length);
   }
-  console.log(jobs);
   return (
     <Box>
       {jobs.length > 0 ? (
         <Grid container spacing={2}>
           {jobs.map((job) => {
             return (
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={6} key={job._id}>
                 <Paper variant="outlined">
                   <Box padding={3}>
                     <Box
@@ -310,7 +298,7 @@ function History({ jobs }) {
                         <Box marginRight={3}>
                           <Avatar
                             src={job.thumbnail}
-                            sx={{ height: 50, width: 50 }}
+                            sx={{ height: 35, width: 35 }}
                           />
                         </Box>
                         <Box flexGrow={1}>
@@ -357,19 +345,9 @@ function Friends({ friends }) {
         <>
           {friends.map((friend) => {
             return (
-              <ListItem
-                //secondaryAction={
-                  //<Chip
-                    //variant="outlined"
-                    //color="primary"
-                    //clickable
-                    //label="Send Message"
-                    //icon={<AddIcon />}
-                  ///>
-                //}
-              >
+              <ListItem key={friend._id}>
                 <ListItemAvatar>
-                  <Avatar sx={{ height: 30, width: 30, bgcolor: getColor() }}>
+                  <Avatar sx={{ height: 35, width: 35, bgcolor: getColor() }}>
                     {friend.username.charAt(0)}
                   </Avatar>
                 </ListItemAvatar>
@@ -389,4 +367,3 @@ function Friends({ friends }) {
     </List>
   );
 }
-//export default {Profile,Friends};

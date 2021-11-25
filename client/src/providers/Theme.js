@@ -40,7 +40,7 @@ const theme = createTheme({
     },
   },
   shape: {
-    borderRadius: 15,
+    borderRadius: 8,
   },
   typography: {
     fontFamily: [

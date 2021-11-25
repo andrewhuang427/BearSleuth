@@ -57,18 +57,17 @@ import "./test.css";
 //   document.getElementById("searchFriend").style.display = "block";
 // }
 
-
 function DropDownMenu() {
   const [anchor, setAnchor] = useState(null);
   const [opened, setOpened] = useState(false);
   const open = Boolean(opened);
 
   const handleClick = (event) => {
-    setAnchor(event.currentTarget)
+    setAnchor(event.currentTarget);
     setOpened(!opened);
-  }
+  };
   function handleClose() {
-    setAnchor(null)
+    setAnchor(null);
     setOpened(null);
   }
 
@@ -85,65 +84,62 @@ function DropDownMenu() {
       </Button>
       <Menu
         id="basic-menu"
-        anchorEl = {anchor}
+        anchorEl={anchor}
         opened={opened}
         open={open}
         onClose={handleClose}
-        anchorOrigin = {{
+        anchorOrigin={{
           vertical: "top",
-          horizontal: 'left'
+          horizontal: "left",
         }}
         trnasformOrigin={{
-          vertical:"top",
-          horizontal:"left"
+          vertical: "top",
+          horizontal: "left",
         }}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
       >
-        <Options/>
+        <Options />
       </Menu>
     </div>
   );
 }
 
-
 function Options() {
   const logout = () => {
-    localStorage.removeItem("username")
-    localStorage.removeItem("token")
-    history.push('/login')
-  }
+    localStorage.removeItem("username");
+    localStorage.removeItem("token");
+    history.push("/login");
+  };
   let history = useHistory();
   return (
     <Box>
       <Button
         id="network"
         onClick={() => {
-          history.push("/me")
+          history.push("/me");
         }}
-      > Profile
+      >
+        {" "}
+        Profile
       </Button>
-      <Button
-        id="logout"
-        onClick={logout}>
-      Logout
+      <Button id="logout" onClick={logout}>
+        Logout
       </Button>
     </Box>
-
-  )
+  );
 }
-
 
 function Login(props) {
   let history = useHistory();
-  if (!localStorage.getItem("username")){
+  if (!localStorage.getItem("username")) {
     return (
       <Box>
         <Button
           id="loginButton"
           onClick={() => {
-             history.push("/login");
+            history.push("/login");
           }}
         >
           Login
@@ -151,17 +147,16 @@ function Login(props) {
         <Button
           id="RegistrationButton"
           onClick={() => {
-             history.push("/register");
+            history.push("/register");
           }}
         >
           New Account
         </Button>
       </Box>
-    )
-  }
-  else {
+    );
+  } else {
     return (
-      <Grid container justifyContent = "flex-end" alignItems="center">
+      <Grid container justifyContent="flex-end" alignItems="center">
         <Grid item xs={0} justify="center">
           <Button
             onClick={() => {
@@ -182,13 +177,9 @@ function Login(props) {
           <DropDownMenu />
         </Grid>
       </Grid>
-    )
+    );
   }
 }
-
-
-
-
 
 function stringAvatar(name) {
   if (localStorage.getItem("username")) {
@@ -207,27 +198,25 @@ export default function Navbar() {
   //const handleLogout = () => {};
 
   return (
-    <Box flexGrow={1}>
-      <AppBar position="static" style={{ background: "#fefefe" }}>
-        <Toolbar>
-          <Box marginRight={1}>
-            <IconButton>
-            </IconButton>
-          </Box>
-          <Box flexGrow={1} paddingTop={1}>
-            <img
-              src={Logo}
-              alt="Logo"
-              style={{ height: 60, objectFit: "contain", cursor: "pointer" }}
-              onClick={() => {
-                history.push("/");
-              }}
-            />
-          </Box>
-          <Login/>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <AppBar
+      position="fixed"
+      style={{ background: "#fefefe" }}
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    >
+      <Toolbar>
+        <Box flexGrow={1} paddingTop={1}>
+          <img
+            src={Logo}
+            alt="Logo"
+            style={{ height: 60, objectFit: "contain", cursor: "pointer" }}
+            onClick={() => {
+              history.push("/");
+            }}
+          />
+        </Box>
+        <Login />
+      </Toolbar>
+    </AppBar>
   );
 }
 
