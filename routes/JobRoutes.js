@@ -4,7 +4,7 @@ const SerpApi = require("google-search-results-nodejs");
 const JobRouter = express.Router();
 
 JobRouter.route("/").get((req, res) => {
-  const query = JobModel.aggregate([{ $sample: { size: 40 } }]);
+  const query = JobModel.aggregate([{ $sample: { size: 30 } }]);
   query.exec(function (err, jobs) {
     if (err) res.status(500).send({ msg: "internal server error" });
     res.send(jobs);

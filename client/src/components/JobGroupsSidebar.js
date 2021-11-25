@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -12,23 +12,20 @@ import Fade from "@mui/material/Fade";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Chip from "@mui/material/Chip";
+import AddIcon from "@mui/icons-material/Add";
 import ClipLoader from "react-spinners/ClipLoader";
 import { host } from "../index";
 import axios from "axios";
+import UserContext from "../providers/UserContext";
+import GroupContext from "../providers/GroupContext";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 375;
 
 function JobGroup() {
+  const { user } = useContext(UserContext);
+  const { myGroups } = useContext(GroupContext);
   const [modalOpen, setModalOpen] = useState(false);
-  const [groups, setGroups] = useState([]);
-
-  useEffect(() => {
-    const fetchGroups = async () => {
-      const response = await axios.get(host + "api/groups");
-      setGroups(response.data);
-    };
-    fetchGroups();
-  }, []);
 
   return (
     <>
@@ -48,46 +45,43 @@ function JobGroup() {
           <Box marginBottom={2}>
             <Toolbar disableGutters>
               <Box flexGrow={1}>
-                <Typography variant="subtitle1">Job Groups</Typography>
+                <Typography variant="subtitle1" color="secondary">
+                  Your Job Groups
+                </Typography>
               </Box>
               <Button
                 variant="outlined"
+                size="small"
+                startIcon={<AddIcon />}
                 onClick={() => {
                   setModalOpen(true);
                 }}
               >
-                Create
+                Create Group
               </Button>
             </Toolbar>
           </Box>
           <Box>
-            {groups.length > 0 ? (
+            {user !== null && myGroups !== null ? (
               <>
-                {groups.map((group) => {
+                {myGroups.map((group) => {
                   return (
                     <Box marginBottom={2} key={group._id}>
                       <Paper variant="outlined">
                         <Box>
                           <Box padding={3}>
                             <Toolbar disableGutters>
-                              <Box flexGrow={1} marginRight={1}>
-                                <Typography fontSize={12} variant="subtitle1">
+                              <Box flexGrow={1}>
+                                <Typography fontSize={15} variant="subtitle1">
                                   {group.name}
                                 </Typography>
-                              </Box>
-                              <Box>
-                                <Avatar
-                                  color="primary"
-                                  sx={{ height: 30, width: 30, fontSize: 12 }}
-                                >
-                                  {group.jobs.length}
-                                </Avatar>
                               </Box>
                             </Toolbar>
                             <Box marginBottom={2}>
                               {group.tags.map((tag) => {
                                 return (
                                   <Chip
+                                    key={tag}
                                     label={tag}
                                     size="small"
                                     variant="outlined"
@@ -101,6 +95,11 @@ function JobGroup() {
                             </Box>
                             <Box>
                               <Typography fontSize={12} variant="subtitle2">
+                                Total Jobs: {group.jobs.length}
+                              </Typography>
+                            </Box>
+                            <Box>
+                              <Typography fontSize={12} variant="subtitle2">
                                 Created by: {group.creator.username}
                               </Typography>
                             </Box>
@@ -108,22 +107,38 @@ function JobGroup() {
                           <Divider />
 
                           <Box display="flex" justifyContent="end" padding={2}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              color="primary"
-                              style={{ fontSize: 12, marginRight: 8 }}
+                            <Link
+                              to={`/groups?group=${group._id}`}
+                              style={{ textDecoration: "none" }}
                             >
-                              View Jobs
-                            </Button>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              color="primary"
-                              style={{ fontSize: 12 }}
-                            >
-                              Join Group
-                            </Button>
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                color="primary"
+                                style={{ fontSize: 12, marginRight: 8 }}
+                              >
+                                View Jobs
+                              </Button>
+                            </Link>
+                            {user.username === group.creator.username ? (
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                color="error"
+                                style={{ fontSize: 12 }}
+                              >
+                                Delete Group
+                              </Button>
+                            ) : (
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                color="primary"
+                                style={{ fontSize: 12 }}
+                              >
+                                Join Group
+                              </Button>
+                            )}
                           </Box>
                         </Box>
                       </Paper>
@@ -166,6 +181,7 @@ const allIndustries = [
 const durations = ["Internship", "Full-time", "Part-time", "Volunteer"];
 
 function NewGroupModal({ open, setOpen }) {
+  const { fetchMyGroups } = useContext(GroupContext);
   const [groupName, setGroupName] = useState("");
   const [description, setDescription] = useState("");
   const [selectedIndustries, setSelectedIndustries] = useState([]);
@@ -204,9 +220,9 @@ function NewGroupModal({ open, setOpen }) {
       duration: selectedDuration,
     };
     console.log(data);
-    const response = await axios.post(host + "api/groups", data, config);
-    console.log(response.data);
+    await axios.post(host + "api/groups", data, config);
     setIsLoading(false);
+    fetchMyGroups();
   };
 
   return (
@@ -291,6 +307,7 @@ function NewGroupModal({ open, setOpen }) {
               {durations.map((duration) => {
                 return (
                   <Chip
+                    key={duration}
                     color={
                       selectedDuration === duration ? "primary" : "default"
                     }

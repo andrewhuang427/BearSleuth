@@ -73,7 +73,8 @@ function JobDetails({ jobId }) {
   return (
     <>
       {job != null ? (
-        <Box marginTop={2} marginLeft={2} marginRight={2}>
+        <Box marginTop={3} marginLeft={2} marginRight={2}>
+          <Toolbar />
           <Grid container spacing={2}>
             <Grid item xs={12} sm={7}>
               <Paper>

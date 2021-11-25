@@ -77,7 +77,7 @@ function Profile() {
 
   return (
     <>
-      <Box marginLeft={2} marginRight={2} marginTop={2}>
+      <Box marginLeft={2} marginRight={2} marginTop={3}>
         <Toolbar />
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>

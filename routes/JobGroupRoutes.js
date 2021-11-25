@@ -22,17 +22,18 @@ Router.route("/").get((req, res) => {
 });
 
 Router.route("/me").get(withAuth, (req, res) => {
-  const { name } = req.user;
-  const query = UserModel.findOne({ username: name });
-  query.exec((err, user) => {
-    const groupQuery = JobGroupModel.find({ creator: user._id });
-    groupQuery.exec((error, docs) => {
-      if (error) {
-        console.log(err);
-        return res.status(500).send({ msg: "internal server error" });
-      }
-      return res.send(docs);
-    });
+  const groupQuery = JobGroupModel.find({ creator: req.user._id })
+    .populate({
+      path: "creator",
+      select: "username major desiredRole -_id",
+    })
+    .populate("jobs");
+  groupQuery.exec((error, docs) => {
+    if (error) {
+      console.log(err);
+      return res.status(500).send({ msg: "internal server error" });
+    }
+    return res.send(docs);
   });
 });
 
@@ -53,7 +54,29 @@ Router.route("/").post(withAuth, (req, res) => {
   });
 });
 
-Router.route("/:id").get((req, res) => {});
+Router.route("/:id").get((req, res) => {
+  const id = req.params.id;
+  const query = JobGroupModel.findById(id).populate("jobs").populate("creator");
+  query.exec((error, doc) => {
+    if (error) {
+      console.log(err);
+      return res.status(500).send({ msg: "internal server error" });
+    }
+    return res.send(doc);
+  });
+});
+
+Router.route("/:id").delete(withAuth, (req, res) => {
+  const id = req.params.id;
+  const query = JobGroupModel.findByIdAndDelete(id);
+  query.exec((error) => {
+    if (error) {
+      console.log(err);
+      return res.status(500).send({ msg: "internal server error" });
+    }
+    return res.send("successfully deleted doc");
+  });
+});
 
 Router.route("/:id/addJob").post(withAuth, (req, res) => {
   const groupId = req.params.id;

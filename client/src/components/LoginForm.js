@@ -2,12 +2,13 @@ import React, { useState, useContext } from "react";
 import UserContext from "../providers/UserContext";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import {host} from "../index"
+import { host } from "../index";
 
 function LoginForm() {
   let history = useHistory();
@@ -49,6 +50,7 @@ function LoginForm() {
       marginRight="auto"
       maxWidth={400}
     >
+      <Toolbar />
       <Paper elevation={3}>
         <Box padding={3}>
           <Box marginBottom={2}>

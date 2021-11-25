@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import LoginOn from "./Navbar";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import {host} from "../index"
-
+import { host } from "../index";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -55,7 +55,7 @@ function RegisterForm() {
       major: major,
       role: role,
       location: loc,
-      history:[],
+      history: [],
     };
     console.log(data);
     fetch(host + "register", {
@@ -68,7 +68,6 @@ function RegisterForm() {
         alert(response.message);
         if (response.success) {
           LoginOn();
-          
         }
       })
       .catch((err) => console.error("Error:", err));
@@ -83,6 +82,7 @@ function RegisterForm() {
       marginRight="auto"
       maxWidth={400}
     >
+      <Toolbar />
       <Paper elevation={3}>
         <Box padding={3}>
           <Box marginBottom={2}>

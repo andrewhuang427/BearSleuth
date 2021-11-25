@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Import Theme
 import { ThemeProvider } from "@mui/material/styles";
+import GroupProvider from "./providers/GroupProvider";
 import Theme from "./providers/Theme";
 
 // Import Pages
@@ -34,6 +35,7 @@ function App() {
           headers: { Authorization: `Bearer ${jwt}` },
         };
         const response = await axios.get(host + "api/user", config);
+        console.log(response.data);
         if (response.status === 200) {
           setUser(response.data);
         }
@@ -62,12 +64,14 @@ function App() {
             <Route path="/chat">
               <ChatPage />
             </Route>
-            <Route path="/groups">
-              <JobGroupsPage />
-            </Route>
-            <Route path="/">
-              <HomePage />
-            </Route>
+            <GroupProvider>
+              <Route path="/groups">
+                <JobGroupsPage />
+              </Route>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+            </GroupProvider>
           </Switch>
         </Router>
       </ThemeProvider>

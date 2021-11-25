@@ -4,6 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import InputAdornment from '@mui/material/InputAdornment';
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import TextField from "@mui/material/TextField";
@@ -17,9 +18,11 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import SearchIcon from '@mui/icons-material/Search';
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import { host } from "../index";
+import GroupContext from "../providers/GroupContext";
 
 function SearchBar({ setJobs }) {
   const [query, setQuery] = useState("");
@@ -41,11 +44,18 @@ function SearchBar({ setJobs }) {
   };
 
   return (
-    <Paper elevation={2}>
+    <Paper variant="outlined">
       <Box padding={3}>
         <Toolbar>
           <Box flexGrow={1} marginRight={2}>
             <TextField
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
               fullWidth
               label="Job Search"
               variant="outlined"
@@ -68,28 +78,12 @@ function SearchBar({ setJobs }) {
 
 function Home() {
   const { user, setUser } = useContext(UserContext);
+  const { myGroups } = useContext(GroupContext);
   const [jobs, setJobs] = useState([]);
-  const [groups, setGroups] = useState([]);
+  const [filter, setFilter] = useState("");
   const [favorites, setFavorites] = useState([]);
   const [toggleId, setToggleId] = useState("");
   const [favoriting, setFavoriting] = useState(false);
-
-  useEffect(() => {
-    const fetchGroups = async () => {
-      try {
-        const jwt = localStorage.getItem("token");
-        const config = {
-          headers: { Authorization: `Bearer ${jwt}` },
-        };
-        const response = await axios.get(host + "api/groups/me", config);
-        console.log(response.data);
-        setGroups(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchGroups();
-  }, []);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -199,12 +193,46 @@ function Home() {
     }
   }, [user]);
 
+  const filterResults = async () => {
+    let filteredJobs = [];
+    for (let i = 0; i < jobs.length; i++) {
+      if (jobs[i].location.includes(filter)) {
+        filteredJobs.push(jobs[i]);
+      }
+    }
+    setJobs(filteredJobs);
+  };
+
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <Toolbar />
       <Box marginRight={2} marginLeft={2} marginTop={2}>
         <SearchBar setJobs={setJobs} />
       </Box>
+      {/* <Box marginRight={2} marginLeft={2} marginTop={2}>
+        <Paper variant="outlined">
+          <Box padding={3}>
+            <Toolbar>
+              <Box flexGrow={1} marginRight={2}>
+                <TextField
+                  fullWidth
+                  label="Filter Results (City, State)"
+                  variant="outlined"
+                  value={filter}
+                  onChange={(event) => {
+                    setFilter(event.target.value);
+                  }}
+                />
+              </Box>
+              <Box>
+                <Button variant="outlined" onClick={filterResults}>
+                  Filter
+                </Button>
+              </Box>
+            </Toolbar>
+          </Box>
+        </Paper>
+      </Box> */}
       <Box marginTop={2} marginLeft={2} marginRight={2}>
         <Grid container spacing={2}>
           {jobs.map((job) => {
@@ -212,7 +240,7 @@ function Home() {
               <JobCard
                 key={job.job_id}
                 job={job}
-                groups={groups}
+                groups={myGroups}
                 settingToFavorite={favoriting}
                 toggleId={toggleId}
                 handleToggleFavorites={handleToggleFavorites}
@@ -239,6 +267,7 @@ function JobCard({
   updateHistory,
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
+  const { fetchMyGroups } = useContext(GroupContext);
   const open = Boolean(anchorEl);
   const history = useHistory();
 
@@ -256,12 +285,8 @@ function JobCard({
       headers: { Authorization: `Bearer ${jwt}` },
     };
     const data = { jobId: job._id };
-    const response = await axios.post(
-      host + `api/groups/${groupId}/addJob`,
-      data,
-      config
-    );
-    console.log(response.data);
+    await axios.post(host + `api/groups/${groupId}/addJob`, data, config);
+    fetchMyGroups();
     handleClose();
   };
 
@@ -324,18 +349,22 @@ function JobCard({
                     horizontal: "center",
                   }}
                 >
-                  {groups.map((group) => {
-                    return (
-                      <MenuItem
-                        key={group._id}
-                        onClick={() => {
-                          handleAddToGroup(group._id);
-                        }}
-                      >
-                        {group.name}
-                      </MenuItem>
-                    );
-                  })}
+                  {groups !== null
+                    ? [
+                        groups.map((group) => {
+                          return (
+                            <MenuItem
+                              key={group._id}
+                              onClick={() => {
+                                handleAddToGroup(group._id);
+                              }}
+                            >
+                              {group.name}
+                            </MenuItem>
+                          );
+                        }),
+                      ]
+                    : ""}
                 </Menu>
               </Box>
             </Toolbar>
@@ -377,45 +406,4 @@ function JobCard({
       </Paper>
     </Grid>
   );
-}
-
-// const filterResults = async () => {
-//   let filteredJobs = [];
-//   for (let i = 0; i < jobs.length; i++) {
-//     if (jobs[i].location.includes(filter)) {
-//       filteredJobs.push(jobs[i]);
-//     }
-//   }
-//   setJobs(filteredJobs);
-//   setIsLoading(false);
-// };
-
-{
-  /* <Box marginRight={2} marginLeft={2} marginTop={2}>
-        <Paper elevation={2}>
-          <Box padding={3}>
-            <Toolbar>
-              <Box marginRight={3}>
-                <Typography>Filter by Location</Typography>
-              </Box>
-              <Box flexGrow={1} marginRight={2}>
-                <TextField
-                  fullWidth
-                  label="Filter Results (City, State)"
-                  variant="outlined"
-                  value={filter}
-                  onChange={(event) => {
-                    setFilter(event.target.value);
-                  }}
-                />
-              </Box>
-              <Box>
-                <Button variant="outlined" onClick={filterResults}>
-                  {isLoading ? <CircularProgress size={10} /> : "Filter"}
-                </Button>
-              </Box>
-            </Toolbar>
-          </Box>
-        </Paper>
-      </Box> */
 }

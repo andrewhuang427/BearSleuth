@@ -199,8 +199,9 @@ export default function Navbar() {
 
   return (
     <AppBar
+    elevation={0}
       position="fixed"
-      style={{ background: "#fefefe" }}
+      style={{ background: "#fefefe", borderBottom: "1px solid #cfcfcf" }}
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Toolbar>

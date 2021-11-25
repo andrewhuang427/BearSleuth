@@ -28,8 +28,9 @@ app.post("/login", async (request, response) => {
       bcrypt.compare(data.password, doc.hash).then((result) => {
         console.log(result);
         if (result) {
+          console.log(data);
           const username = data.username;
-          const user = { name: username };
+          const user = { name: username, _id: doc._id };
           const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
           response.json({
             message: "Logged in Successfully",
@@ -49,37 +50,39 @@ app.post("/login", async (request, response) => {
 app.post("/register", async (request, response) => {
   data = request.body;
   console.log(data);
-  let query = UserModel.exists({ username: data.username }, function (err, user) {
-    if (err) return err;
-    if (user == null) {
-      
-      salt = bcrypt.genSaltSync(10);
-      bcrypt.hash(data.password, salt).then((result) => {
-        query = UserModel.create(
-          {
-            username: data.username,
-            email: data.email,
-            hash: result,
-            major: data.major,
-            desiredRole: data.role,
-            desiredLocation: data.location,
-            friends: [],
-            history: [],
-            favorites: [],
-          },
-          function (err) {
-            console.log(err);
-            if (err) return err;
-            ret = { message: "Registration Successful", success: true };
-            response.json(ret);
-          }
-        );
-      });
-    } else {
-      ret = { message: "User Already Exists", success: false };
-      response.json(ret);
+  let query = UserModel.exists(
+    { username: data.username },
+    function (err, user) {
+      if (err) return err;
+      if (user == null) {
+        salt = bcrypt.genSaltSync(10);
+        bcrypt.hash(data.password, salt).then((result) => {
+          query = UserModel.create(
+            {
+              username: data.username,
+              email: data.email,
+              hash: result,
+              major: data.major,
+              desiredRole: data.role,
+              desiredLocation: data.location,
+              friends: [],
+              history: [],
+              favorites: [],
+            },
+            function (err) {
+              console.log(err);
+              if (err) return err;
+              ret = { message: "Registration Successful", success: true };
+              response.json(ret);
+            }
+          );
+        });
+      } else {
+        ret = { message: "User Already Exists", success: false };
+        response.json(ret);
+      }
     }
-  });
+  );
   console.log(query);
 });
 
