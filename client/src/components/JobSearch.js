@@ -209,7 +209,7 @@ function Home() {
       <Box marginRight={2} marginLeft={2} marginTop={2}>
         <SearchBar setJobs={setJobs} />
       </Box>
-      {/* <Box marginRight={2} marginLeft={2} marginTop={2}>
+       {/* <Box marginRight={2} marginLeft={2} marginTop={2}>
         <Paper variant="outlined">
           <Box padding={3}>
             <Toolbar>
@@ -232,7 +232,7 @@ function Home() {
             </Toolbar>
           </Box>
         </Paper>
-      </Box> */}
+      </Box>  */}
       <Box marginTop={2} marginLeft={2} marginRight={2}>
         <Grid container spacing={2}>
           {jobs.map((job) => {
@@ -291,6 +291,7 @@ function JobCard({
   };
 
   return (
+    
     <Grid item xs={12} sm={6}>
       <Paper variant="outlined" style={{ height: "100%" }}>
         <Box padding={3}>
@@ -405,5 +406,6 @@ function JobCard({
         </Box>
       </Paper>
     </Grid>
+    
   );
 }

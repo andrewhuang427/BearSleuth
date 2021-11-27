@@ -118,8 +118,9 @@ function RegisterForm() {
           <Box marginBottom={2}>
             <Select
               value={major}
-              label="Select your Major"
+              label="Major"
               fullWidth
+
               onChange={handleMajorChange}
             >
               <MenuItem value={majors[0]}>Computer Science</MenuItem>

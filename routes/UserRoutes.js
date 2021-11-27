@@ -61,8 +61,10 @@ Router.route("/addFavorite").post(withAuth, async (req, res) => {
 });
 Router.route("/share").post(withAuth, async (req, res) => {
   let body = req.body;
-  const friend = body.friend;
+  const friend = body.friend.username;
   const job = body.job;
+  console.log(job)
+  console.log(friend);
   const query = UserModel.findOneAndUpdate(
     { username: friend },
     { $addToSet: { favorites: job._id } },
