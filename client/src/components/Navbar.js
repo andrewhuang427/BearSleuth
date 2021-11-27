@@ -2,16 +2,19 @@ import { React, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import ChatIcon from "@mui/icons-material/Chat";
 import Menu from "@mui/material/Menu";
 import Grid from "@mui/material/Grid";
 import Logo from "../BearSleuth(site).png";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { deepOrange } from "@mui/material/colors";
 import "./test.css";
+import { IconButton } from "@mui/material";
 
 // function loginOn() {
 //   document.getElementById("loginForm").style.display = "block";
@@ -131,7 +134,7 @@ function Options() {
   );
 }
 
-function Login(props) {
+function Actions(props) {
   let history = useHistory();
   if (!localStorage.getItem("username")) {
     return (
@@ -156,27 +159,31 @@ function Login(props) {
     );
   } else {
     return (
-      <Grid container justifyContent="flex-end" alignItems="center">
-        <Grid item xs={0} justify="center">
-          <Button
-            onClick={() => {
-              history.push("/");
-            }}
-          >
-            Jobs
-          </Button>
-          <Button
-            onClick={() => {
-              history.push("/chat");
-            }}
-          >
-            Chat
-          </Button>
-        </Grid>
-        <Grid item xs={1}>
-          <DropDownMenu />
-        </Grid>
-      </Grid>
+      <>
+        <Box marginRight={2}>
+          <Link to="/">
+            <Tooltip title="Jobs">
+              <IconButton
+                style={{ borderRadius: 10, border: "1px solid #cacaca" }}
+              >
+                <WorkOutlineIcon />
+              </IconButton>
+            </Tooltip>
+          </Link>
+        </Box>
+        <Box marginRight={2}>
+          <Link to="/chat">
+            <Tooltip title="Chat">
+              <IconButton
+                style={{ borderRadius: 10, border: "1px solid #cacaca" }}
+              >
+                <ChatIcon />
+              </IconButton>
+            </Tooltip>
+          </Link>
+        </Box>
+        <DropDownMenu />
+      </>
     );
   }
 }
@@ -199,7 +206,7 @@ export default function Navbar() {
 
   return (
     <AppBar
-    elevation={0}
+      elevation={0}
       position="fixed"
       style={{ background: "#fefefe", borderBottom: "1px solid #cfcfcf" }}
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -215,7 +222,7 @@ export default function Navbar() {
             }}
           />
         </Box>
-        <Login />
+        <Actions />
       </Toolbar>
     </AppBar>
   );
