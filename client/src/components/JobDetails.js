@@ -248,7 +248,8 @@ const shareJob = async (friend, job) => {
       headers: { Authorization: `Bearer ${jwt}` },
     };
     const body = { friend, job };
-    await axios.post(host + "api/user/share", body, config);
+    const response = await axios.post(host + "api/user/share", body, config);
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
@@ -261,11 +262,12 @@ function Friends({ friends, job }) {
         <>
           {friends.map((friend) => {
             return (
-              <ListItem
+              <ListItem 
                 secondaryAction={
                   <Chip
                     variant="outlined"
                     color="primary"
+                    
                     clickable
                     label="Share"
                     icon={<AddIcon />}
@@ -274,6 +276,7 @@ function Friends({ friends, job }) {
                     }}
                   />
                 }
+                key={friend._id} 
               >
                 <ListItemAvatar>
                   <Avatar sx={{ height: 30, width: 30, bgcolor: "blue" }}>
@@ -309,7 +312,7 @@ function LanguagesAndSkills({ languages, skills, requirements }) {
           <Box marginTop={2} display="flex">
             {languages.map((l) => {
               return (
-                <Box marginRight={1}>
+                <Box marginRight={1} key={l}>
                   <Chip
                     key={l}
                     label={l.charAt(0).toUpperCase() + l.slice(1)}
@@ -333,7 +336,7 @@ function LanguagesAndSkills({ languages, skills, requirements }) {
           <Box marginTop={2} display="flex">
             {skills.map((s) => {
               return (
-                <Box marginRight={1}>
+                <Box marginRight={1} key={s}>
                   <Chip
                     key={s}
                     label={s.charAt(0).toUpperCase() + s.slice(1)}
@@ -357,9 +360,8 @@ function LanguagesAndSkills({ languages, skills, requirements }) {
           <Box marginTop={2} display="flex">
             {requirements.map((r) => {
               return (
-                <Box marginRight={1}>
+                <Box marginRight={1} key={r}>
                   <Chip
-                    key={r}
                     label={r.charAt(0).toUpperCase() + r.slice(1)}
                     variant="outlined"
                     color="secondary"
