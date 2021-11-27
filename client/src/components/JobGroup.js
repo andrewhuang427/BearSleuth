@@ -61,7 +61,7 @@ function JobGroup() {
                 </Box>
                 <Box>
                   <Typography variant="subtitle2">
-                    Group created by: {group.creator.username}
+                    Created by: {group.creator.username}
                   </Typography>
                 </Box>
               </Toolbar>

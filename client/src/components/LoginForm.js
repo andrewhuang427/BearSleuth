@@ -33,7 +33,7 @@ function LoginForm() {
       if (data.success) {
         localStorage.setItem("username", username);
         localStorage.setItem("token", data.accessToken);
-        history.push("/home");
+        history.push("/");
         setUser(data.user);
       }
     } catch (error) {

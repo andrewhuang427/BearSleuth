@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
@@ -24,8 +23,18 @@ const drawerWidth = 375;
 
 function JobGroup() {
   const { user } = useContext(UserContext);
-  const { myGroups } = useContext(GroupContext);
+  const { myGroups, fetchMyGroups } = useContext(GroupContext);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const handleDelete = async (groupId) => {
+    const jwt = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${jwt}` },
+    };
+    const response = await axios.delete(host + `api/groups/${groupId}`, config);
+    console.log(response);
+    fetchMyGroups();
+  };
 
   return (
     <>
@@ -126,8 +135,11 @@ function JobGroup() {
                                 variant="outlined"
                                 color="error"
                                 style={{ fontSize: 12 }}
+                                onClick={() => {
+                                  handleDelete(group._id);
+                                }}
                               >
-                                Delete Group
+                                Delete
                               </Button>
                             ) : (
                               <Button
@@ -203,10 +215,6 @@ function NewGroupModal({ open, setOpen }) {
     }
   };
 
-  useEffect(() => {
-    console.log(selectedIndustries);
-  }, [selectedIndustries]);
-
   const handleSubmit = async () => {
     setIsLoading(true);
     const jwt = localStorage.getItem("token");
@@ -221,8 +229,9 @@ function NewGroupModal({ open, setOpen }) {
     };
     console.log(data);
     await axios.post(host + "api/groups", data, config);
+    await fetchMyGroups();
     setIsLoading(false);
-    fetchMyGroups();
+    handleClose();
   };
 
   return (
@@ -300,9 +309,7 @@ function NewGroupModal({ open, setOpen }) {
             </Box>
             <Box marginBottom={2}>
               <Box marginLeft={1} marginBottom={2}>
-                <Typography variant="subtitle2">
-                  Select Industries (maximum 3)
-                </Typography>
+                <Typography variant="subtitle2">Select Job Type</Typography>
               </Box>
               {durations.map((duration) => {
                 return (
