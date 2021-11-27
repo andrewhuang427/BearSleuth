@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Chat from "../components/Chat";
+import Chat from "../components/Socket/Chat";
 import { useHistory } from "react-router-dom";
 
 

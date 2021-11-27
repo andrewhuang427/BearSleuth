@@ -2,43 +2,117 @@ const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const LoginReg = require("./routes/login-register.js");
-const http = require("http");
-const socketIO = require("socket.io");
 //import { host } from "./index.js"
 
 const app = express();
 
 // ----- Socket.IO -----
-// setup the port our backend app will run on
-const SOCKPORT = 3030;
-const NEW_MESSAGE_EVENT = "new-message-event";
 
-const server = http.createServer(app);
+const { InMemoryMessageStore } = require("./messageStore");
+const messageStore = new InMemoryMessageStore();   
 
-const io = socketIO(server, {
+
+var http = require('http').createServer(app);
+const SOCKETPORT = 3030;
+const sio = require('socket.io');
+var STATIC_CHANNELS = [{
+    name: 'Global chat',
+    participants: 0,
+    id: 1,
+    sockets: []
+}, {
+    name: 'Funny',
+    participants: 0,
+    id: 2,
+    sockets: []
+}];
+
+const io = sio(http, {
   cors: true,
-  //  origins: ["http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:3000"],
-  origins: ["localhost:3000"],
+  origins:["localhost:3000"]
 });
 
-// Hardcoding a room name here. This is to indicate that you can do more by creating multiple rooms as needed.
-const room = "general";
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+})
 
-io.on("connection", (socket) => {
-  socket.join(room);
 
-  socket.on(NEW_MESSAGE_EVENT, (data) => {
-    io.in(room).emit(NEW_MESSAGE_EVENT, data);
-  });
-
-  socket.on("disconnect", () => {
-    socket.leave(room);
-  });
+http.listen(SOCKETPORT, () => {
+    console.log(`listening on *:${SOCKETPORT}`);
 });
 
-server.listen(SOCKPORT, () => {
-  console.log(`listening on *:${SOCKPORT}`);
+
+io.on('connection', (socket) => { // socket object may be used to send specific messages to the new connected client
+    console.log('new client connected');
+    socket.emit('connection', null);
+    const messagesPerUser = new Map();
+    messageStore.findMessagesForUser(socket.userID).forEach((message) => {
+      const { from, to } = message;
+      const otherUser = socket.userID === from ? to : from;
+      if (messagesPerUser.has(otherUser)) {
+        messagesPerUser.get(otherUser).push(message);
+      } else {
+        messagesPerUser.set(otherUser, [message]);
+      }
+    });
+    socket.on('channel-join', id => {
+        console.log('channel join', id);
+        STATIC_CHANNELS.forEach(c => {
+            if (c.id === id) {
+                if (c.sockets.indexOf(socket.id) == (-1)) {
+                    c.sockets.push(socket.id);
+                    c.participants++;
+                    io.emit('channel', c);
+                    console.log("hi");
+                }
+            } else {
+                let index = c.sockets.indexOf(socket.id);
+                if (index != (-1)) {
+                    c.sockets.splice(index, 1);
+                    c.participants--;
+                    io.emit('channel', c);
+                }
+            }
+        });
+
+        return id;
+    });
+    socket.on('send-message', message => {
+        io.emit('message', message);
+        messageStore.saveMessage(message);
+    });
+
+    socket.on('disconnect', () => {
+        STATIC_CHANNELS.forEach(c => {
+            let index = c.sockets.indexOf(socket.id);
+            if (index != (-1)) {
+                c.sockets.splice(index, 1);
+                c.participants--;
+                io.emit('channel', c);
+            }
+        });
+    });
+
 });
+
+
+
+/**
+ * @description This methos retirves the static channels
+ */
+app.get('/getChannels', (req, res) => {
+    res.json({
+        channels: STATIC_CHANNELS
+    })
+});
+
+
+
+
+
+
+
 
 // ----- Import API Routes -----
 const AuthenticationRoutes = require("./routes/AuthenticationRoutes");
