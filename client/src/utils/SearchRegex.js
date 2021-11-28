@@ -7,7 +7,7 @@ function LanguageFind(string) {
 
 function TechSkillsFind(string) {
   var skillsfind =
-    /(?:Node|Vue|Azure|Angular|Agile|React|AWS|Paas|Linux|Ubuntu|Front-End|Back-End|Excel|((?<!no)SQL)|nosql)/gi;
+    /(?:Node|Vue|Azure|Angular|Agile|React|AWS|Paas|Linux|Ubuntu|Front-End|Back-End|Excel|((?<!no)SQL)|nosql|ssh)/gi;
   let skills = new Set(string.toLowerCase().match(skillsfind));
   return Array.from(skills);
 }

@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import LoginOn from "./Navbar";
+import InputLabel from '@mui/material/InputLabel';
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { host } from "../index";
@@ -116,11 +117,12 @@ function RegisterForm() {
             />
           </Box>
           <Box marginBottom={2}>
+          <InputLabel id="majorLabel">Major</InputLabel>
             <Select
               value={major}
               label="Major"
               fullWidth
-
+    
               onChange={handleMajorChange}
             >
               <MenuItem value={majors[0]}>Computer Science</MenuItem>
@@ -132,10 +134,12 @@ function RegisterForm() {
             </Select>
           </Box>
           <Box marginBottom={2}>
+          
             <TextField
               label="Desired Role"
               type="text"
               fullWidth
+
               value={role}
               onChange={handleRoleChange}
             />

@@ -90,7 +90,8 @@ function DropDownMenu() {
       <Menu
         id="basic-menu"
         anchorEl={anchor}
-        opened={opened}
+        // opened={opened}
+        opened={open ? "true" : "false"}
         open={open}
         onClose={handleClose}
         anchorOrigin={{
