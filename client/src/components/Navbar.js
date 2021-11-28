@@ -10,7 +10,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 //import IconButton from "@mui/material/IconButton";
 //import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
-import Grid from "@mui/material/Grid";
+//import Grid from "@mui/material/Grid";
 import Logo from "../BearSleuth(site).png";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -210,7 +210,7 @@ export default function Navbar() {
     <AppBar
       elevation={0}
       position="fixed"
-      style={{ background: "#fefefe", borderBottom: "1px solid #cfcfcf" }}
+      style={{ background: "#fefefe", borderBottom: "1px solid #3ab44b" }}
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Toolbar>
@@ -218,7 +218,7 @@ export default function Navbar() {
           <img
             src={Logo}
             alt="Logo"
-            style={{ height: 60, objectFit: "contain", cursor: "pointer" }}
+            style={{ height: 80, objectFit: "contain", cursor: "pointer" }}
             onClick={() => {
               history.push("/");
             }}

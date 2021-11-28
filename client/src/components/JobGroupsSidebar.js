@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
+//import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
@@ -236,8 +237,7 @@ function NewGroupModal({ open, setOpen }) {
 
   return (
     <Modal
-      aria-labelled
-      by="transition-modal-title"
+      aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       open={open}
       onClose={handleClose}
