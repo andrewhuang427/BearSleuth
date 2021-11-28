@@ -8,8 +8,8 @@ const app = express();
 
 // ----- Socket.IO -----
 
-const { InMemoryMessageStore } = require("./messageStore");
-const messageStore = new InMemoryMessageStore();   
+//const { InMemoryMessageStore } = require("./Storage/messageStore");
+//const messageStore = new InMemoryMessageStore();   
 
 
 var http = require('http').createServer(app);
@@ -46,16 +46,16 @@ http.listen(SOCKETPORT, () => {
 io.on('connection', (socket) => { // socket object may be used to send specific messages to the new connected client
     console.log('new client connected');
     socket.emit('connection', null);
-    const messagesPerUser = new Map();
-    messageStore.findMessagesForUser(socket.userID).forEach((message) => {
-      const { from, to } = message;
-      const otherUser = socket.userID === from ? to : from;
-      if (messagesPerUser.has(otherUser)) {
-        messagesPerUser.get(otherUser).push(message);
-      } else {
-        messagesPerUser.set(otherUser, [message]);
-      }
-    });
+    // const messagesPerUser = new Map();
+    // messageStore.findMessagesForUser(socket.userID).forEach((message) => {
+    //   const { from, to } = message;
+    //   const otherUser = socket.userID === from ? to : from;
+    //   if (messagesPerUser.has(otherUser)) {
+    //     messagesPerUser.get(otherUser).push(message);
+    //   } else {
+    //     messagesPerUser.set(otherUser, [message]);
+    //   }
+    // });
     socket.on('channel-join', id => {
         console.log('channel join', id);
         STATIC_CHANNELS.forEach(c => {
@@ -80,7 +80,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
     });
     socket.on('send-message', message => {
         io.emit('message', message);
-        messageStore.saveMessage(message);
+        //messageStore.saveMessage(message);
     });
 
     socket.on('disconnect', () => {
