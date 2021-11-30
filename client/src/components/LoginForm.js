@@ -29,7 +29,7 @@ function LoginForm() {
       const body = { username: username, password: password };
       const response = await axios.post(host + "login", body);
       const data = response.data;
-      alert(data.message);
+      //alert(data.message);
       if (data.success) {
         localStorage.setItem("username", username);
         localStorage.setItem("token", data.accessToken);

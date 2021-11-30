@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Navbar from "../components/Navbar";
 import JobSearch from "../components/JobSearch";
 import JobGroupsSidebar from "../components/JobGroupsSidebar";
-import GroupProvider from "../providers/GroupProvider";
+//import GroupProvider from "../providers/GroupProvider";
 import { useHistory } from "react-router-dom";
 
 function HomePage() {

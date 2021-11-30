@@ -27,7 +27,7 @@ function useQuery() {
 function JobGroup() {
   const query = useQuery();
   const [group, setGroup] = useState(null);
-  const [jobs, setJobs] = useState([]);
+ // const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     const fetchGroup = async () => {
