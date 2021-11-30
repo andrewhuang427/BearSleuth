@@ -19,7 +19,12 @@ export class Chat extends React.Component {
     }
 
     configureSocket = () => {
-        var socket = socketClient(SERVER);
+        var socket = socketClient(SERVER); //default auto to false for sign in
+        var username = localStorage.getItem("username");
+        socket.auth = {username};
+        socket.onAny((event, ...args) => {
+            console.log(event, args);
+          });
         socket.on('connection', () => {
             if (this.state.channel) {
                 this.handleChannelSelect(this.state.channel.id);
@@ -40,15 +45,43 @@ export class Chat extends React.Component {
             let channels = this.state.channels
             channels.forEach(c => {
                 if (c.id === message.channel_id) {
-                    if (!c.messages) {
+                    if (!c.messages) { //if channel doesn't already have messages
                         c.messages = [message];
-                    } else {
+                    } else { //if channel does already have messages
                         c.messages.push(message);
+                        console.log(message);
                     }
                 }
             });
             this.setState({ channels });
         });
+        socket.on("users", (users) => {
+            users.forEach((user) => {
+              user.self = user.userID === socket.id;
+              user.hasNewMessages = false;
+            });
+            // put the current user first, and then sort by username
+            this.users = users.sort((a, b) => {
+              if (a.self) return -1;
+              if (b.self) return 1;
+              if (a.username < b.username) return -1;
+              return a.username > b.username ? 1 : 0;
+            });
+          });
+          socket.on("user connected", (user) => {
+            user.hasNewMessages = false;
+            this.users.push(user);
+          });
+
+          socket.on("user disconnected", (id) => {
+            for (let i = 0; i < this.users.length; i++) {
+              const user = this.users[i];
+              if (user.userID === id) {
+                user.connected = false;
+                break;
+              }
+            }
+          });
         this.socket = socket;
     }
 
@@ -63,6 +96,7 @@ export class Chat extends React.Component {
         let channel = this.state.channels.find(c => {
             return c.id === id;
         });
+        console.log(channel.history);
         this.setState({ channel });
         this.socket.emit('channel-join', id, ack => {
         });

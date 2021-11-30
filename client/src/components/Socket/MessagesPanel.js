@@ -16,13 +16,33 @@ export class MessagesPanel extends React.Component {
 
     render() {
 
-        let list = <div className="no-content-message">There is no messages to show</div>;
-        if (this.props.channel && this.props.channel.messages) {
-            list = this.props.channel.messages.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} />);
+        let list1 = <div className="no-content-message">There are no messages to show</div>;
+        let list2 = <div>{}</div>;
+
+        if (this.props.channel)
+        {
+            if(this.props.channel.history)
+            {
+                list1 = this.props.channel.history.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} />);
+            }
+            if(!this.props.channel.history)
+            {
+                if(this.props.channel.messages)
+                {
+                    list1 = {};
+                    list2 = this.props.channel.messages.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} />);
+                };
+            }
+            if(this.props.channel.messages)
+            {
+                list2 = this.props.channel.messages.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} />);
+            }
         }
+
         return (
             <div className='messages-panel'>
-                <div className="meesages-list">{list}</div>
+                <div className="messages-list">{list1}</div>
+                <div className="messages-list">{list2}</div>
                 {this.props.channel &&
                     <div className="messages-input">
                         <input type="text" onChange={this.handleInput} value={this.state.input_value} />
