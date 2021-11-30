@@ -20,6 +20,7 @@ import JobGroupsPage from "./pages/JobGroupsPage";
 
 // User Context
 import UserContext from "./providers/UserContext";
+import { SnackbarProvider } from "notistack";
 import axios from "axios";
 import { host } from "./index.js";
 
@@ -48,33 +49,40 @@ function App() {
   return (
     <UserContext.Provider value={value}>
       <ThemeProvider theme={Theme}>
-        <Router>
-          <Switch>
-            <Route path="/login">
-              <LoginPage />
-            </Route>
-            <Route path="/register">
-              <RegisterPage />
-            </Route>
-            <Route path="/jobs/:jobId">
-              <JobPage />
-            </Route>
-            <Route path="/me">
-              <ProfilePage />
-            </Route>
-            <Route path="/chat">
-              <ChatPage />
-            </Route>
-            <GroupProvider>
-              <Route path="/groups/:groupId">
-                <JobGroupsPage />
+        <SnackbarProvider
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+        >
+          <Router>
+            <Switch>
+              <Route path="/login">
+                <LoginPage />
               </Route>
-              <Route exact path="/">
-                <HomePage />
+              <Route path="/register">
+                <RegisterPage />
               </Route>
-            </GroupProvider>
-          </Switch>
-        </Router>
+              <Route path="/jobs/:jobId">
+                <JobPage />
+              </Route>
+              <Route path="/me">
+                <ProfilePage />
+              </Route>
+              <Route path="/chat">
+                <ChatPage />
+              </Route>
+              <GroupProvider>
+                <Route path="/groups/:groupId">
+                  <JobGroupsPage />
+                </Route>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+              </GroupProvider>
+            </Switch>
+          </Router>
+        </SnackbarProvider>
       </ThemeProvider>
     </UserContext.Provider>
   );

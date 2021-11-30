@@ -11,6 +11,19 @@ JobRouter.route("/").get((req, res) => {
   });
 });
 
+JobRouter.route("/all").get((req, res) => {
+  const query = JobModel.find({});
+  query.exec((error, docs) => {
+    if (error) {
+      console.log(error);
+      res.send("error occurred");
+    } else {
+      console.log(docs.length);
+      res.send(docs);
+    }
+  });
+});
+
 const search = new SerpApi.GoogleSearch(
   // "1086b13baea75f7900c66d417654cf1901f7592a10da4b4a4cfb5eaeee0d0804"
   // "5097e0046df5919092c731814afd5dc7f9de268c7023eb43c97f0765085cf3a2"

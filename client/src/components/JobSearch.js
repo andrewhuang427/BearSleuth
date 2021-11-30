@@ -22,6 +22,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from "@mui/icons-material/Search";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import { useSnackbar } from "notistack";
 import { host } from "../index";
 import GroupContext from "../providers/GroupContext";
 
@@ -119,6 +120,7 @@ function FilterBar({ filterResults }) {
 
 function Home() {
   const { user, setUser } = useContext(UserContext);
+  const { enqueueSnackbar } = useSnackbar();
   const { myGroups } = useContext(GroupContext);
   const [jobs, setJobs] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -163,6 +165,7 @@ function Home() {
       );
       setUser(response.data);
       refreshFavorites();
+      enqueueSnackbar("Job removed from favorites", { variant: "error" });
       setFavoriting(false);
       setToggleId("");
     } catch (error) {
@@ -186,6 +189,7 @@ function Home() {
       );
       setUser(response.data);
       refreshFavorites();
+      enqueueSnackbar("Job added to favorites", { variant: "success" });
       setFavoriting(false);
       setToggleId("");
     } catch (error) {
@@ -286,6 +290,7 @@ function JobCard({
   updateHistory,
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
+  const { enqueueSnackbar } = useSnackbar();
   const { fetchMyGroups } = useContext(GroupContext);
   const open = Boolean(anchorEl);
   const history = useHistory();
@@ -305,6 +310,7 @@ function JobCard({
     };
     const data = { jobId: job._id };
     await axios.post(host + `api/groups/${groupId}/addJob`, data, config);
+    enqueueSnackbar("Job added to group", { variant: "success" });
     fetchMyGroups();
     handleClose();
   };

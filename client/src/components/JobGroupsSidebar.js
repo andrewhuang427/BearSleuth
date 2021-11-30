@@ -18,6 +18,7 @@ import { host } from "../index";
 import axios from "axios";
 import UserContext from "../providers/UserContext";
 import GroupContext from "../providers/GroupContext";
+import { useSnackbar } from "notistack";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 375;
@@ -244,17 +245,7 @@ function JobGroup() {
                                 Delete
                               </Button>
                             ) : (
-                              <Button
-                                size="small"
-                                variant="outlined"
-                                color="error"
-                                style={{ fontSize: 12 }}
-                                onClick={() => {
-                                  handleDelete(group._id);
-                                }}
-                              >
-                                Delete
-                              </Button>
+                              ""
                             )}
                           </Box>
                         </Box>
@@ -295,6 +286,7 @@ const durations = ["Internship", "Full-time", "Part-time", "Volunteer"];
 
 function NewGroupModal({ open, setOpen }) {
   const { fetchMyGroups } = useContext(GroupContext);
+  const { enqueueSnackbar } = useSnackbar();
   const [groupName, setGroupName] = useState("");
   const [description, setDescription] = useState("");
   const [selectedIndustries, setSelectedIndustries] = useState([]);
@@ -331,7 +323,9 @@ function NewGroupModal({ open, setOpen }) {
     console.log(data);
     await axios.post(host + "api/groups", data, config);
     await fetchMyGroups();
+    enqueueSnackbar("Group created successfully", { variant: "success" });
     setIsLoading(false);
+
     handleClose();
   };
 
