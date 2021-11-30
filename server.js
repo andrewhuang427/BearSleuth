@@ -15,16 +15,48 @@ const app = express();
 var http = require('http').createServer(app);
 const SOCKETPORT = 3030;
 const sio = require('socket.io');
+var history = {};
 var STATIC_CHANNELS = [{
-    name: 'Global chat',
+    name: 'Computer Science',
     participants: 0,
     id: 1,
-    sockets: []
-}, {
-    name: 'Funny',
+    sockets: [],
+    history: []
+}, 
+{
+    name: 'Biomedical Engineering',
     participants: 0,
     id: 2,
-    sockets: []
+    sockets: [],
+    history: []
+},
+{
+    name: 'Computer Engineering',
+    participants: 0,
+    id: 3,
+    sockets: [],
+    history: []
+},
+{
+    name: 'Data Science',
+    participants: 0,
+    id: 4,
+    sockets: [],
+    history: []
+},
+{
+    name: 'Electrical Engineering',
+    participants: 0,
+    id: 5,
+    sockets: [],
+    history: []
+},
+{
+    name: 'Chemical Engineering',
+    participants: 0,
+    id: 6,
+    sockets: [],
+    history: []
 }];
 
 const io = sio(http, {
@@ -42,6 +74,14 @@ http.listen(SOCKETPORT, () => {
     console.log(`listening on *:${SOCKETPORT}`);
 });
 
+io.use((socket, next) => {
+    const username = socket.handshake.auth.username;
+    if (!username) {
+      return next(new Error("invalid username"));
+    }
+    socket.username = username;
+    next();
+  });
 
 io.on('connection', (socket) => { // socket object may be used to send specific messages to the new connected client
     console.log('new client connected');
@@ -56,6 +96,31 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
     //     messagesPerUser.set(otherUser, [message]);
     //   }
     // });
+    const users = [];
+    for (let [id, socket] of io.of("/").sockets) {
+     users.push({
+            userID: id,
+            username: socket.username,
+        });
+    }
+    socket.emit("users", users);
+
+    io.on("connection", (socket) => {
+        // notify existing users
+        socket.broadcast.emit("user connected", {
+          userID: socket.id,
+          username: socket.username,
+        });
+
+      });
+
+    io.on("connection", (socket) => {
+  // notify existing users
+  socket.broadcast.emit("user connected", {
+    userID: socket.id,
+    username: socket.username,
+  });
+});
     socket.on('channel-join', id => {
         console.log('channel join', id);
         STATIC_CHANNELS.forEach(c => {
@@ -71,7 +136,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
                 if (index != (-1)) {
                     c.sockets.splice(index, 1);
                     c.participants--;
-                    io.emit('channel', c);
+                    io.emit('channel', c); //send channel with all content
                 }
             }
         });
@@ -79,6 +144,12 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
         return id;
     });
     socket.on('send-message', message => {
+        STATIC_CHANNELS.forEach(c => {
+            if (c.id === message.channel_id) {
+                    c.history.push(message);
+            }
+            console.log(c.history);
+        });
         io.emit('message', message);
         //messageStore.saveMessage(message);
     });
@@ -89,7 +160,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
             if (index != (-1)) {
                 c.sockets.splice(index, 1);
                 c.participants--;
-                io.emit('channel', c);
+                io.emit('channel', c); //send channel with all content
             }
         });
     });
