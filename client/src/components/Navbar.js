@@ -85,7 +85,12 @@ function DropDownMenu() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <Avatar id="profileAvatar" display="none" {...stringAvatar("Eiw")} />
+        <Avatar
+          id="profileAvatar"
+          display="none"
+          {...stringAvatar("Eiw")}
+          style={{ backgroundColor: "rgba(58, 180, 75, 1)" }}
+        />
       </Button>
       <Menu
         id="basic-menu"
@@ -167,20 +172,28 @@ function Actions(props) {
           <Link to="/">
             <Tooltip title="Jobs">
               <IconButton
-                style={{ borderRadius: 10, border: "1px solid #cacaca" }}
+                color="primary"
+                style={{
+                  borderRadius: 10,
+                  border: "1px solid rgba(58, 180, 75, 1)",
+                }}
               >
-                <WorkOutlineIcon />
+                <WorkOutlineIcon color="primary" />
               </IconButton>
             </Tooltip>
           </Link>
         </Box>
-        <Box marginRight={2}>
+        <Box marginRight={1}>
           <Link to="/chat">
             <Tooltip title="Chat">
               <IconButton
-                style={{ borderRadius: 10, border: "1px solid #cacaca" }}
+                color="primary"
+                style={{
+                  borderRadius: 10,
+                  border: "1px solid rgba(58, 180, 75, 1)",
+                }}
               >
-                <ChatIcon />
+                <ChatIcon color="primary" />
               </IconButton>
             </Tooltip>
           </Link>
@@ -211,7 +224,7 @@ export default function Navbar() {
     <AppBar
       elevation={0}
       position="fixed"
-      style={{ background: "#fefefe", borderBottom: "1px solid #3ab44b" }}
+      style={{ background: "#fefefe", borderBottom: "1px solid #cacaca" }}
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Toolbar>
@@ -219,7 +232,7 @@ export default function Navbar() {
           <img
             src={Logo}
             alt="Logo"
-            style={{ height: 80, objectFit: "contain", cursor: "pointer" }}
+            style={{ height: 70, objectFit: "contain", cursor: "pointer" }}
             onClick={() => {
               history.push("/");
             }}

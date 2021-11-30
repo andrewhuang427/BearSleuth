@@ -4,7 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import TextField from "@mui/material/TextField";
@@ -18,7 +18,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import SearchIcon from '@mui/icons-material/Search';
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import SearchIcon from "@mui/icons-material/Search";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import { host } from "../index";
@@ -76,11 +77,50 @@ function SearchBar({ setJobs }) {
   );
 }
 
+function FilterBar({ filterResults }) {
+  const [filter, setFilter] = useState("");
+  return (
+    <Paper variant="outlined">
+      <Box padding={3}>
+        <Toolbar>
+          <Box flexGrow={1} marginRight={2}>
+            <TextField
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LocationOnIcon />
+                  </InputAdornment>
+                ),
+              }}
+              fullWidth
+              label="Filter Results (City, State)"
+              variant="outlined"
+              value={filter}
+              onChange={(event) => {
+                setFilter(event.target.value);
+              }}
+            />
+          </Box>
+          <Box>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                filterResults(filter);
+              }}
+            >
+              Filter
+            </Button>
+          </Box>
+        </Toolbar>
+      </Box>
+    </Paper>
+  );
+}
+
 function Home() {
   const { user, setUser } = useContext(UserContext);
   const { myGroups } = useContext(GroupContext);
   const [jobs, setJobs] = useState([]);
-  const [filter, setFilter] = useState("");
   const [favorites, setFavorites] = useState([]);
   const [toggleId, setToggleId] = useState("");
   const [favoriting, setFavoriting] = useState(false);
@@ -193,7 +233,7 @@ function Home() {
     }
   }, [user]);
 
-  const filterResults = async () => {
+  const filterResults = async (filter) => {
     let filteredJobs = [];
     for (let i = 0; i < jobs.length; i++) {
       if (jobs[i].location.includes(filter)) {
@@ -206,40 +246,12 @@ function Home() {
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <Toolbar />
-      <Box marginRight={2} >
+      <Box marginTop={3} marginLeft={2} marginRight={2}>
         <SearchBar setJobs={setJobs} />
       </Box>
-        <Box marginRight={2} marginLeft={2} marginTop={2}>
-        <Paper variant="outlined">
-          <Box padding={3} >
-            <Toolbar>
-              <Box flexGrow={1} marginRight={2} >
-                <TextField
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                  fullWidth
-                  label="Filter Results (City, State)"
-                  variant="outlined"
-                  value={filter}
-                  onChange={(event) => {
-                    setFilter(event.target.value);
-                  }}
-                />
-              </Box>
-              <Box>
-                <Button variant="outlined" onClick={filterResults}>
-                  Filter
-                </Button>
-              </Box>
-            </Toolbar>
-          </Box>
-        </Paper>
-      </Box>  
+      <Box marginRight={2} marginLeft={2} marginTop={2}>
+        <FilterBar filterResults={filterResults} />
+      </Box>
       <Box marginTop={2} marginLeft={2} marginRight={2}>
         <Grid container spacing={2}>
           {jobs.map((job) => {
@@ -298,10 +310,9 @@ function JobCard({
   };
 
   return (
-    
     <Grid item xs={12} sm={6}>
       <Paper variant="outlined" style={{ height: "100%" }}>
-        <Box padding={3} style={{ background: "#fefefe", border: "1px solid #3ab44b" }}> 
+        <Box padding={3}>
           <Box
             textAlign="left"
             fontWeight={800}
@@ -395,7 +406,7 @@ function JobCard({
             <Toolbar disableGutters>
               <Box flexGrow={1} textAlign="left">
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   size="small"
                   onClick={() => {
                     updateHistory(job);
@@ -413,6 +424,5 @@ function JobCard({
         </Box>
       </Paper>
     </Grid>
-    
   );
 }

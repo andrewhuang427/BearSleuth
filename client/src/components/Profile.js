@@ -77,11 +77,11 @@ function Profile() {
 
   return (
     <>
-      <Box marginLeft={2} marginRight={2} marginTop={3}>
+      <Box marginLeft={2} marginRight={2} marginTop={5}>
         <Toolbar />
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
-            <Paper>
+            <Paper variant="outlined">
               <Box padding={5}>
                 <Box marginBottom={3} textAlign="center">
                   <Typography variant="subtitle1">Your Profile</Typography>
@@ -121,56 +121,62 @@ function Profile() {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={8}>
-            <Paper>
-              <Box marginBottom={2}>
-                <Box padding={3}>
-                  <Box marginBottom={2}>
-                    <Toolbar disableGutters>
-                      <Box marginRight={2}>
-                        <Avatar sx={{ height: 35, width: 35 }}>
-                          <StarIcon />
-                        </Avatar>
-                      </Box>
-                      <Box flexGrow={1}>
-                        <Typography>Your Favorites/Shared Jobs</Typography>
-                      </Box>
-                      <Box>
-                        <Chip
-                          color="primary"
-                          icon={<AddIcon />}
-                          clickable
-                          label={"Explore Jobs"}
-                          variant="outlined"
-                          onClick={() => {
-                            history.push("/");
-                          }}
-                        />
-                      </Box>
-                    </Toolbar>
+            <Box marginBottom={2}>
+              <Paper variant="outlined">
+                <Box marginBottom={2}>
+                  <Box padding={3}>
+                    <Box marginBottom={2}>
+                      <Toolbar disableGutters>
+                        <Box marginRight={2}>
+                          <Avatar sx={{ height: 35, width: 35 }}>
+                            <StarIcon />
+                          </Avatar>
+                        </Box>
+                        <Box flexGrow={1}>
+                          <Typography variant="subtitle1">
+                            Your Favorites and Shared Jobs
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Chip
+                            color="primary"
+                            icon={<AddIcon />}
+                            clickable
+                            label={"Explore Jobs"}
+                            variant="outlined"
+                            onClick={() => {
+                              history.push("/");
+                            }}
+                          />
+                        </Box>
+                      </Toolbar>
+                    </Box>
+                    <Favorites jobs={user != null ? user.favorites : []} />
                   </Box>
-                  <Favorites jobs={user != null ? user.favorites : []} />
-                </Box>
-                <Box padding={3}>
-                  <Box marginBottom={2}>
-                    <Toolbar disableGutters>
-                      <Box marginRight={2}>
-                        <Avatar
-                          sx={{ height: 35, width: 35 }}
-                          variant="squared"
-                        >
-                          <GroupAddIcon />
-                        </Avatar>
-                      </Box>
-                      <Box flexGrow={1}>
-                        <Typography>Recent Job Search History</Typography>
-                      </Box>
-                    </Toolbar>
+                  <Box padding={3}>
+                    <Box marginBottom={2}>
+                      <Toolbar disableGutters>
+                        <Box marginRight={2}>
+                          <Avatar
+                            sx={{ height: 35, width: 35 }}
+                            variant="squared"
+                          >
+                            <GroupAddIcon />
+                          </Avatar>
+                        </Box>
+                        <Box flexGrow={1}>
+                          <Typography variant="subtitle1">
+                            Recent Job Search History
+                          </Typography>
+                        </Box>
+                      </Toolbar>
+                    </Box>
+                    <History jobs={user != null ? user.history : []} />
                   </Box>
-                  <History jobs={user != null ? user.history : []} />
                 </Box>
-              </Box>
-            </Paper>
-            <Paper>
+              </Paper>
+            </Box>
+            <Paper variant="outlined">
               <Box padding={3} marginBottom={2}>
                 <Toolbar disableGutters>
                   <Box marginRight={2}>
@@ -179,7 +185,7 @@ function Profile() {
                     </Avatar>
                   </Box>
                   <Box flexGrow={1}>
-                    <Typography>Your Network</Typography>
+                    <Typography variant="subtitle1">Your Network</Typography>
                   </Box>
                   <Box>
                     <Chip

@@ -24,7 +24,7 @@ const drawerWidth = 375;
 
 function JobGroup() {
   const { user } = useContext(UserContext);
-  const { myGroups, fetchMyGroups } = useContext(GroupContext);
+  const { myGroups, friendGroups, fetchMyGroups } = useContext(GroupContext);
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleDelete = async (groupId) => {
@@ -60,7 +60,7 @@ function JobGroup() {
                 </Typography>
               </Box>
               <Button
-                variant="outlined"
+                variant="contained"
                 size="small"
                 startIcon={<AddIcon />}
                 onClick={() => {
@@ -93,8 +93,6 @@ function JobGroup() {
                                   <Chip
                                     key={tag}
                                     label={tag}
-                                    size="small"
-                                    variant="outlined"
                                     style={{
                                       marginRight: 5,
                                       fontSize: 12,
@@ -118,12 +116,12 @@ function JobGroup() {
 
                           <Box display="flex" justifyContent="end" padding={2}>
                             <Link
-                              to={`/groups?group=${group._id}`}
+                              to={`/groups/${group._id}`}
                               style={{ textDecoration: "none" }}
                             >
                               <Button
                                 size="small"
-                                variant="outlined"
+                                variant="contained"
                                 color="primary"
                                 style={{ fontSize: 12, marginRight: 8 }}
                               >
@@ -162,9 +160,111 @@ function JobGroup() {
             ) : (
               <>
                 <Box textAlign="center" padding={3}>
-                  <Typography variant="subtitle2">No groups found</Typography>
+                  <Typography variant="subtitle2">
+                    You do not have any groups.
+                  </Typography>
                 </Box>
               </>
+            )}
+            <Box marginBottom={2}>
+              <Toolbar disableGutters>
+                <Box flexGrow={1}>
+                  <Typography variant="subtitle1" color="secondary">
+                    Your Friends' Groups
+                  </Typography>
+                </Box>
+              </Toolbar>
+            </Box>
+            {user !== null && myGroups !== null ? (
+              <>
+                {friendGroups.map((group) => {
+                  return (
+                    <Box marginBottom={2} key={group._id}>
+                      <Paper variant="outlined">
+                        <Box>
+                          <Box padding={3}>
+                            <Toolbar disableGutters>
+                              <Box flexGrow={1}>
+                                <Typography fontSize={15} variant="subtitle1">
+                                  {group.name}
+                                </Typography>
+                              </Box>
+                            </Toolbar>
+                            <Box marginBottom={2}>
+                              {group.tags.map((tag) => {
+                                return (
+                                  <Chip
+                                    key={tag}
+                                    label={tag}
+                                    style={{
+                                      marginRight: 5,
+                                      fontSize: 12,
+                                    }}
+                                  />
+                                );
+                              })}
+                            </Box>
+                            <Box>
+                              <Typography fontSize={12} variant="subtitle2">
+                                Total Jobs: {group.jobs.length}
+                              </Typography>
+                            </Box>
+                            <Box>
+                              <Typography fontSize={12} variant="subtitle2">
+                                Created by: {group.creator.username}
+                              </Typography>
+                            </Box>
+                          </Box>
+                          <Divider />
+
+                          <Box display="flex" justifyContent="end" padding={2}>
+                            <Link
+                              to={`/groups/${group._id}`}
+                              style={{ textDecoration: "none" }}
+                            >
+                              <Button
+                                size="small"
+                                variant="contained"
+                                color="primary"
+                                style={{ fontSize: 12, marginRight: 8 }}
+                              >
+                                View Jobs
+                              </Button>
+                            </Link>
+                            {user.username === group.creator.username ? (
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                color="error"
+                                style={{ fontSize: 12 }}
+                                onClick={() => {
+                                  handleDelete(group._id);
+                                }}
+                              >
+                                Delete
+                              </Button>
+                            ) : (
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                color="error"
+                                style={{ fontSize: 12 }}
+                                onClick={() => {
+                                  handleDelete(group._id);
+                                }}
+                              >
+                                Delete
+                              </Button>
+                            )}
+                          </Box>
+                        </Box>
+                      </Paper>
+                    </Box>
+                  );
+                })}
+              </>
+            ) : (
+              ""
             )}
           </Box>
         </Box>

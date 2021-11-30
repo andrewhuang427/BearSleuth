@@ -17,6 +17,7 @@ import JobPage from "./pages/JobPage";
 import ProfilePage from "./pages/ProfilePage";
 import ChatPage from "./pages/ChatPage";
 import JobGroupsPage from "./pages/JobGroupsPage";
+
 // User Context
 import UserContext from "./providers/UserContext";
 import axios from "axios";
@@ -65,7 +66,7 @@ function App() {
               <ChatPage />
             </Route>
             <GroupProvider>
-              <Route path="/groups">
+              <Route path="/groups/:groupId">
                 <JobGroupsPage />
               </Route>
               <Route exact path="/">

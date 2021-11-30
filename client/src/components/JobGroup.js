@@ -12,32 +12,21 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-
-import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { host } from "../index";
 import axios from "axios";
 
-function useQuery() {
-  const { search } = useLocation();
-
-  return React.useMemo(() => new URLSearchParams(search), [search]);
-}
-
-function JobGroup() {
-  const query = useQuery();
+function JobGroup({ groupId }) {
   const [group, setGroup] = useState(null);
- // const [jobs, setJobs] = useState([]);
+  // const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     const fetchGroup = async () => {
-      const response = await axios.get(
-        host + `api/groups/${query.get("group")}`
-      );
+      const response = await axios.get(host + `api/groups/${groupId}`);
       setGroup(response.data);
     };
     fetchGroup();
-  }, [query]);
+  }, [groupId]);
 
   return (
     <Box flexGrow={1}>
@@ -66,7 +55,7 @@ function JobGroup() {
                 </Box>
               </Toolbar>
             </Box>
-            <Box>
+            <Box marginBottom={2}>
               <JobTable jobs={group.jobs} />
             </Box>
           </>

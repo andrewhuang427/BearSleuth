@@ -5,6 +5,7 @@ import axios from "axios";
 
 function GroupProvider({ children }) {
   const [myGroups, setMyGroups] = useState([]);
+  const [friendGroups, setFriendGroups] = useState([]);
 
   const fetchMyGroups = async () => {
     console.log("fetching my groups");
@@ -21,8 +22,23 @@ function GroupProvider({ children }) {
     }
   };
 
+  const fetchFriendGroups = async () => {
+    try {
+      const jwt = localStorage.getItem("token");
+      const config = {
+        headers: { Authorization: `Bearer ${jwt}` },
+      };
+      const response = await axios.get(host + "api/groups/friends", config);
+      console.log(response.data);
+      setFriendGroups(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchMyGroups();
+    fetchFriendGroups();
   }, []);
 
   const value = useMemo(
@@ -30,8 +46,9 @@ function GroupProvider({ children }) {
       myGroups,
       setMyGroups,
       fetchMyGroups,
+      friendGroups,
     }),
-    [myGroups, setMyGroups, fetchMyGroups]
+    [myGroups, setMyGroups, fetchMyGroups, friendGroups]
   );
 
   return (

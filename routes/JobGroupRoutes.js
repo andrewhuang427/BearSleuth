@@ -38,18 +38,34 @@ Router.route("/me").get(withAuth, (req, res) => {
 });
 
 Router.route("/").post(withAuth, (req, res) => {
-  const { name } = req.user;
-  const query = UserModel.findOne({ username: name });
-  query.exec((err, user) => {
-    let data = req.body;
-    data.creator = user._id;
-    const jobGroup = new JobGroupModel(data);
-    jobGroup.save((error, doc) => {
+  let data = req.body;
+  data.creator = req.user._id;
+  const jobGroup = new JobGroupModel(data);
+  jobGroup.save((error, doc) => {
+    if (error) {
+      console.log(err);
+      return res.status(500).send({ msg: "internal server error" });
+    }
+    return res.send(doc);
+  });
+});
+
+Router.route("/friends").get(withAuth, (req, res) => {
+  const userId = req.user._id;
+  const query = UserModel.findById(userId);
+  query.exec((error, user) => {
+    const groupsQuery = JobGroupModel.find({ creator: { $in: user.friends } })
+      .populate({
+        path: "creator",
+        select: "username major desiredRole -_id",
+      })
+      .populate("jobs");
+    groupsQuery.exec((error, docs) => {
       if (error) {
         console.log(err);
         return res.status(500).send({ msg: "internal server error" });
       }
-      return res.send(doc);
+      return res.send(docs);
     });
   });
 });
