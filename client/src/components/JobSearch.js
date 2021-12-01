@@ -253,9 +253,9 @@ function Home() {
       <Box marginTop={3} marginLeft={2} marginRight={2}>
         <SearchBar setJobs={setJobs} />
       </Box>
-      <Box marginRight={2} marginLeft={2} marginTop={2}>
+      {/* <Box marginRight={2} marginLeft={2} marginTop={2}>
         <FilterBar filterResults={filterResults} />
-      </Box>
+      </Box> */}
       <Box marginTop={2} marginLeft={2} marginRight={2}>
         <Grid container spacing={2}>
           {jobs.map((job) => {
