@@ -61,7 +61,7 @@ var STATIC_CHANNELS = [{
 
 const io = sio(http, {
   cors: true,
-  origins:["localhost:3000"]
+  origins:["http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:3000/"]
 });
 
 app.use((req, res, next) => {

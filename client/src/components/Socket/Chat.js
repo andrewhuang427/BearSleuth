@@ -5,7 +5,7 @@ import "./Chat.scss";
 import { MessagesPanel } from "./MessagesPanel";
 import socketClient from "socket.io-client";
 
-const SERVER = "http://localhost:3030";
+const SERVER = "http://http://ec2-18-223-203-85.us-east-2.compute.amazonaws.com:3030";
 
 export class Chat extends React.Component {
   state = {
