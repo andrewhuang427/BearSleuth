@@ -10,8 +10,11 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { host } from "../index";
+import { useHistory } from "react-router-dom";
+
 
 function RegisterForm() {
+  let history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -58,7 +61,7 @@ function RegisterForm() {
       location: loc,
       history: [],
     };
-    console.log(data);
+    console.log(host);
     fetch(host + "register", {
       method: "POST",
       body: JSON.stringify(data),
@@ -68,7 +71,10 @@ function RegisterForm() {
       .then((response) => {
         alert(response.message);
         if (response.success) {
-          LoginOn();
+          // LoginOn();
+          console.log("aw")
+          history.push("/login");
+
         }
       })
       .catch((err) => console.error("Error:", err));
