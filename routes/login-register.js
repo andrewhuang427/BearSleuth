@@ -51,7 +51,7 @@ app.post("/register", async (request, response) => {
   data = request.body;
   console.log(data);
   let query = UserModel.exists(
-    { username: data.username },
+    [{ username: data.username }, {email: data.email}],
     function (err, user) {
       if (err) return err;
       if (user == null) {

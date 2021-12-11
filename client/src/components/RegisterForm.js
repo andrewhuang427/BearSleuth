@@ -52,6 +52,36 @@ function RegisterForm() {
   ];
 
   const handleSubmit = () => {
+
+    const emailCheck = new RegExp("/^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/")
+    if (!emailCheck.test(email)){
+      alert("Please enter a valid email")
+      return
+    }
+    if (!username){
+      alert("Please enter a Username")
+      return
+    }
+    if (!password){
+      alert("Please enter a Password")
+      return
+    }
+    if (!email){
+      alert("Please enter an email")
+      return
+    }
+    if (!major){
+      alert("Please select a major")
+      return
+    }
+    if (!role){
+      alert("Please enter a desired role")
+      return
+    }
+    if (!loc){
+      alert("Please enter a desired location")
+      return
+    }
     const data = {
       username: username,
       password: password,
