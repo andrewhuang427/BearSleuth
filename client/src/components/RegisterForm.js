@@ -5,7 +5,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import LoginOn from "./Navbar";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -53,11 +52,6 @@ function RegisterForm() {
 
   const handleSubmit = () => {
 
-    const emailCheck = new RegExp("/^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/")
-    if (!emailCheck.test(email)){
-      alert("Please enter a valid email")
-      return
-    }
     if (!username){
       alert("Please enter a Username")
       return
